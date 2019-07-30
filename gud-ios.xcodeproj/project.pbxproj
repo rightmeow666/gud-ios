@@ -1,0 +1,528 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F5106F1C22EFF0D800425299 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F1B22EFF0D800425299 /* AppDelegate.swift */; };
+		F5106F2522EFF0D900425299 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5106F2422EFF0D900425299 /* Assets.xcassets */; };
+		F5106F2822EFF0D900425299 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5106F2622EFF0D900425299 /* LaunchScreen.storyboard */; };
+		F5106F3722EFF36400425299 /* gud_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F3622EFF36400425299 /* gud_iosTests.swift */; };
+		F5106F4122EFF39500425299 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F4022EFF39500425299 /* BaseViewController.swift */; };
+		F5106F4622EFF41800425299 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F4522EFF41800425299 /* BaseTabBarController.swift */; };
+		F5106F4822EFF43B00425299 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F4722EFF43B00425299 /* BaseNavigationController.swift */; };
+		F5106F4B22EFF52A00425299 /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F4A22EFF52A00425299 /* TaskListViewController.swift */; };
+		F5106F4F22EFF84600425299 /* TaskListNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F4E22EFF84600425299 /* TaskListNavigationController.swift */; };
+		F5106F5122EFF86E00425299 /* TaskListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F5022EFF86E00425299 /* TaskListCoordinator.swift */; };
+		F5106F5422EFF95600425299 /* Coordinatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F5322EFF95600425299 /* Coordinatable.swift */; };
+		F5106F5622EFFA1600425299 /* AppTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F5522EFFA1600425299 /* AppTabBarController.swift */; };
+		F5106F5822EFFA5B00425299 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F5722EFFA5B00425299 /* AppCoordinator.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F5106F3922EFF36400425299 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F5106F1022EFF0D800425299 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F5106F1722EFF0D800425299;
+			remoteInfo = "gud-ios";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F5106F1822EFF0D800425299 /* gud-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "gud-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5106F1B22EFF0D800425299 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F5106F2422EFF0D900425299 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F5106F2722EFF0D900425299 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F5106F2922EFF0D900425299 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F5106F3422EFF36400425299 /* gud-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "gud-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5106F3622EFF36400425299 /* gud_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gud_iosTests.swift; sourceTree = "<group>"; };
+		F5106F3822EFF36400425299 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F5106F4022EFF39500425299 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		F5106F4522EFF41800425299 /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
+		F5106F4722EFF43B00425299 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		F5106F4A22EFF52A00425299 /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
+		F5106F4E22EFF84600425299 /* TaskListNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListNavigationController.swift; sourceTree = "<group>"; };
+		F5106F5022EFF86E00425299 /* TaskListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListCoordinator.swift; sourceTree = "<group>"; };
+		F5106F5322EFF95600425299 /* Coordinatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinatable.swift; sourceTree = "<group>"; };
+		F5106F5522EFFA1600425299 /* AppTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBarController.swift; sourceTree = "<group>"; };
+		F5106F5722EFFA5B00425299 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F5106F1522EFF0D800425299 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5106F3122EFF36400425299 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F5106F0F22EFF0D800425299 = {
+			isa = PBXGroup;
+			children = (
+				F5106F1A22EFF0D800425299 /* gud-ios */,
+				F5106F3522EFF36400425299 /* gud-iosTests */,
+				F5106F1922EFF0D800425299 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F5106F1922EFF0D800425299 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F5106F1822EFF0D800425299 /* gud-ios.app */,
+				F5106F3422EFF36400425299 /* gud-iosTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F5106F1A22EFF0D800425299 /* gud-ios */ = {
+			isa = PBXGroup;
+			children = (
+				F5106F4322EFF3C200425299 /* Application */,
+				F5106F3F22EFF38900425299 /* Base */,
+				F5106F5222EFF93F00425299 /* Protocols */,
+				F5106F4422EFF3D000425299 /* Supporting Files */,
+				F5106F4922EFF51400425299 /* TaskList */,
+			);
+			path = "gud-ios";
+			sourceTree = "<group>";
+		};
+		F5106F3522EFF36400425299 /* gud-iosTests */ = {
+			isa = PBXGroup;
+			children = (
+				F5106F3622EFF36400425299 /* gud_iosTests.swift */,
+				F5106F3822EFF36400425299 /* Info.plist */,
+			);
+			path = "gud-iosTests";
+			sourceTree = "<group>";
+		};
+		F5106F3F22EFF38900425299 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				F5106F4722EFF43B00425299 /* BaseNavigationController.swift */,
+				F5106F4522EFF41800425299 /* BaseTabBarController.swift */,
+				F5106F4022EFF39500425299 /* BaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		F5106F4322EFF3C200425299 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				F5106F5722EFFA5B00425299 /* AppCoordinator.swift */,
+				F5106F1B22EFF0D800425299 /* AppDelegate.swift */,
+				F5106F5522EFFA1600425299 /* AppTabBarController.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		F5106F4422EFF3D000425299 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F5106F2922EFF0D900425299 /* Info.plist */,
+				F5106F2422EFF0D900425299 /* Assets.xcassets */,
+				F5106F2622EFF0D900425299 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F5106F4922EFF51400425299 /* TaskList */ = {
+			isa = PBXGroup;
+			children = (
+				F5106F5022EFF86E00425299 /* TaskListCoordinator.swift */,
+				F5106F4E22EFF84600425299 /* TaskListNavigationController.swift */,
+				F5106F4A22EFF52A00425299 /* TaskListViewController.swift */,
+			);
+			path = TaskList;
+			sourceTree = "<group>";
+		};
+		F5106F5222EFF93F00425299 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				F5106F5322EFF95600425299 /* Coordinatable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F5106F1722EFF0D800425299 /* gud-ios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F5106F2C22EFF0D900425299 /* Build configuration list for PBXNativeTarget "gud-ios" */;
+			buildPhases = (
+				F5106F1422EFF0D800425299 /* Sources */,
+				F5106F1522EFF0D800425299 /* Frameworks */,
+				F5106F1622EFF0D800425299 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "gud-ios";
+			productName = "gud-ios";
+			productReference = F5106F1822EFF0D800425299 /* gud-ios.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F5106F3322EFF36400425299 /* gud-iosTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F5106F3B22EFF36400425299 /* Build configuration list for PBXNativeTarget "gud-iosTests" */;
+			buildPhases = (
+				F5106F3022EFF36400425299 /* Sources */,
+				F5106F3122EFF36400425299 /* Frameworks */,
+				F5106F3222EFF36400425299 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F5106F3A22EFF36400425299 /* PBXTargetDependency */,
+			);
+			name = "gud-iosTests";
+			productName = "gud-iosTests";
+			productReference = F5106F3422EFF36400425299 /* gud-iosTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F5106F1022EFF0D800425299 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1030;
+				LastUpgradeCheck = 1030;
+				ORGANIZATIONNAME = sudofluff;
+				TargetAttributes = {
+					F5106F1722EFF0D800425299 = {
+						CreatedOnToolsVersion = 10.3;
+					};
+					F5106F3322EFF36400425299 = {
+						CreatedOnToolsVersion = 10.3;
+						TestTargetID = F5106F1722EFF0D800425299;
+					};
+				};
+			};
+			buildConfigurationList = F5106F1322EFF0D800425299 /* Build configuration list for PBXProject "gud-ios" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F5106F0F22EFF0D800425299;
+			productRefGroup = F5106F1922EFF0D800425299 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F5106F1722EFF0D800425299 /* gud-ios */,
+				F5106F3322EFF36400425299 /* gud-iosTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F5106F1622EFF0D800425299 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5106F2822EFF0D900425299 /* LaunchScreen.storyboard in Resources */,
+				F5106F2522EFF0D900425299 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5106F3222EFF36400425299 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F5106F1422EFF0D800425299 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5106F5122EFF86E00425299 /* TaskListCoordinator.swift in Sources */,
+				F5106F4B22EFF52A00425299 /* TaskListViewController.swift in Sources */,
+				F5106F4122EFF39500425299 /* BaseViewController.swift in Sources */,
+				F5106F5622EFFA1600425299 /* AppTabBarController.swift in Sources */,
+				F5106F4822EFF43B00425299 /* BaseNavigationController.swift in Sources */,
+				F5106F5822EFFA5B00425299 /* AppCoordinator.swift in Sources */,
+				F5106F4622EFF41800425299 /* BaseTabBarController.swift in Sources */,
+				F5106F5422EFF95600425299 /* Coordinatable.swift in Sources */,
+				F5106F4F22EFF84600425299 /* TaskListNavigationController.swift in Sources */,
+				F5106F1C22EFF0D800425299 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5106F3022EFF36400425299 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5106F3722EFF36400425299 /* gud_iosTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F5106F3A22EFF36400425299 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F5106F1722EFF0D800425299 /* gud-ios */;
+			targetProxy = F5106F3922EFF36400425299 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F5106F2622EFF0D900425299 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F5106F2722EFF0D900425299 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F5106F2A22EFF0D900425299 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F5106F2B22EFF0D900425299 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F5106F2D22EFF0D900425299 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KKSY22G5PE;
+				INFOPLIST_FILE = "$(SRCROOT)/gud-ios/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sudofluff.gud-ios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F5106F2E22EFF0D900425299 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KKSY22G5PE;
+				INFOPLIST_FILE = "$(SRCROOT)/gud-ios/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sudofluff.gud-ios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F5106F3C22EFF36400425299 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KKSY22G5PE;
+				INFOPLIST_FILE = "gud-iosTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sudofluff.gud-iosTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/gud-ios.app/gud-ios";
+			};
+			name = Debug;
+		};
+		F5106F3D22EFF36400425299 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KKSY22G5PE;
+				INFOPLIST_FILE = "gud-iosTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sudofluff.gud-iosTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/gud-ios.app/gud-ios";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F5106F1322EFF0D800425299 /* Build configuration list for PBXProject "gud-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5106F2A22EFF0D900425299 /* Debug */,
+				F5106F2B22EFF0D900425299 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F5106F2C22EFF0D900425299 /* Build configuration list for PBXNativeTarget "gud-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5106F2D22EFF0D900425299 /* Debug */,
+				F5106F2E22EFF0D900425299 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F5106F3B22EFF36400425299 /* Build configuration list for PBXNativeTarget "gud-iosTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5106F3C22EFF36400425299 /* Debug */,
+				F5106F3D22EFF36400425299 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F5106F1022EFF0D800425299 /* Project object */;
+}
