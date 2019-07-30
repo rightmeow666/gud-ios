@@ -10,4 +10,10 @@ import Foundation
 
 protocol Coordinatable {
   func start()
+  
+  func start(with option: DeepLinkOption?)
+}
+
+extension Coordinatable {
+  func start(with option: DeepLinkOption?) {}
 }

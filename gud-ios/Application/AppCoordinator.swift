@@ -11,21 +11,17 @@ import UIKit
 class AppCoordinator: NSObject {
   private let presenter: AppTabBarController
   
-  private var taskListCoordinator: TaskListCoordinator
-  
-  private var coordinators: [Coordinatable] {
-    return [taskListCoordinator]
-  }
+  private var taskListCoordinator: TaskListCoordinator?
   
   init(presenter: AppTabBarController) {
     self.presenter = presenter
-    self.taskListCoordinator = TaskListCoordinator(presenter: presenter)
     super.init()
   }
 }
 
 extension AppCoordinator: Coordinatable {
   func start() {
-    self.taskListCoordinator.start()
+    self.taskListCoordinator = TaskListCoordinator(presenter: presenter)
+    self.taskListCoordinator?.start()
   }
 }

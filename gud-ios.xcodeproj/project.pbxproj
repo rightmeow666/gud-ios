@@ -20,6 +20,8 @@
 		F5106F5422EFF95600425299 /* Coordinatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F5322EFF95600425299 /* Coordinatable.swift */; };
 		F5106F5622EFFA1600425299 /* AppTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F5522EFFA1600425299 /* AppTabBarController.swift */; };
 		F5106F5822EFFA5B00425299 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F5722EFFA5B00425299 /* AppCoordinator.swift */; };
+		F5106F5A22F01AF600425299 /* TaskListViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F5922F01AF600425299 /* TaskListViewControllerDelegate.swift */; };
+		F5106F5D22F0949900425299 /* DeepLinkOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F5C22F0949900425299 /* DeepLinkOption.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,8 @@
 		F5106F5322EFF95600425299 /* Coordinatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinatable.swift; sourceTree = "<group>"; };
 		F5106F5522EFFA1600425299 /* AppTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBarController.swift; sourceTree = "<group>"; };
 		F5106F5722EFFA5B00425299 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		F5106F5922F01AF600425299 /* TaskListViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewControllerDelegate.swift; sourceTree = "<group>"; };
+		F5106F5C22F0949900425299 /* DeepLinkOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkOption.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +97,7 @@
 			children = (
 				F5106F4322EFF3C200425299 /* Application */,
 				F5106F3F22EFF38900425299 /* Base */,
+				F5106F5B22F0948C00425299 /* DeepLink */,
 				F5106F5222EFF93F00425299 /* Protocols */,
 				F5106F4422EFF3D000425299 /* Supporting Files */,
 				F5106F4922EFF51400425299 /* TaskList */,
@@ -153,8 +158,17 @@
 			isa = PBXGroup;
 			children = (
 				F5106F5322EFF95600425299 /* Coordinatable.swift */,
+				F5106F5922F01AF600425299 /* TaskListViewControllerDelegate.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		F5106F5B22F0948C00425299 /* DeepLink */ = {
+			isa = PBXGroup;
+			children = (
+				F5106F5C22F0949900425299 /* DeepLinkOption.swift */,
+			);
+			path = DeepLink;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,7 +275,9 @@
 				F5106F4B22EFF52A00425299 /* TaskListViewController.swift in Sources */,
 				F5106F4122EFF39500425299 /* BaseViewController.swift in Sources */,
 				F5106F5622EFFA1600425299 /* AppTabBarController.swift in Sources */,
+				F5106F5D22F0949900425299 /* DeepLinkOption.swift in Sources */,
 				F5106F4822EFF43B00425299 /* BaseNavigationController.swift in Sources */,
+				F5106F5A22F01AF600425299 /* TaskListViewControllerDelegate.swift in Sources */,
 				F5106F5822EFFA5B00425299 /* AppCoordinator.swift in Sources */,
 				F5106F4622EFF41800425299 /* BaseTabBarController.swift in Sources */,
 				F5106F5422EFF95600425299 /* Coordinatable.swift in Sources */,

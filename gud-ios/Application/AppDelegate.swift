@@ -12,17 +12,19 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
+  
+  private var appCoordinator: AppCoordinator?
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    let tabBarController = AppTabBarController()
-    let appCoordinator = AppCoordinator(presenter: tabBarController)
+    let rootViewController = AppTabBarController()
+    self.appCoordinator = AppCoordinator(presenter: rootViewController)
     
     let win = UIWindow(frame: UIScreen.main.bounds)
-    win.rootViewController = tabBarController
+    win.rootViewController = rootViewController
     win.makeKeyAndVisible()
     self.window = win
 
-    appCoordinator.start()
+    self.appCoordinator?.start()
     return true
   }
 

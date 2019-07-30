@@ -9,17 +9,19 @@
 import UIKit
 
 class TaskListViewController: BaseViewController {
+  weak var delegate: TaskListViewControllerDelegate?
+  
   lazy var addButton: UIBarButtonItem = {
     let button = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped(_:)))
     return button
   }()
   
   @objc func addButtonTapped(_ sender: UIBarButtonItem) {
-    print(123)
+    self.delegate?.controller(didTapAddButton: sender)
   }
   
   func configureView() {
-    self.view.backgroundColor = .red
+    self.navigationItem.rightBarButtonItems = [addButton]
   }
   
   override func viewDidLoad() {
