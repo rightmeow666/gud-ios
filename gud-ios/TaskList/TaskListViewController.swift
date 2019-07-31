@@ -16,12 +16,21 @@ class TaskListViewController: BaseViewController {
     return button
   }()
   
+  lazy var editButton: UIBarButtonItem = {
+    let button = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editButtonTapped(_:)))
+    return button
+  }()
+  
+  @objc func editButtonTapped(_ sender: UIBarButtonItem) {
+    self.delegate?.controller(didTapEditButton: sender)
+  }
+  
   @objc func addButtonTapped(_ sender: UIBarButtonItem) {
     self.delegate?.controller(didTapAddButton: sender)
   }
   
   func configureView() {
-    self.navigationItem.rightBarButtonItems = [addButton]
+    self.navigationItem.rightBarButtonItems = [addButton, editButton]
   }
   
   override func viewDidLoad() {
