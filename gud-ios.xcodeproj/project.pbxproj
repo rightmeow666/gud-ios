@@ -22,6 +22,12 @@
 		F5106F5822EFFA5B00425299 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F5722EFFA5B00425299 /* AppCoordinator.swift */; };
 		F5106F5A22F01AF600425299 /* TaskListViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F5922F01AF600425299 /* TaskListViewControllerDelegate.swift */; };
 		F5106F5D22F0949900425299 /* DeepLinkOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F5C22F0949900425299 /* DeepLinkOption.swift */; };
+		F5106F5F22F1818F00425299 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F5E22F1818F00425299 /* TaskCell.swift */; };
+		F5106F6122F181AF00425299 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F6022F181AF00425299 /* BaseCollectionViewCell.swift */; };
+		F5106F6322F1824300425299 /* UniquelyIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F6222F1824300425299 /* UniquelyIdentifiable.swift */; };
+		F5106F6522F1986800425299 /* TaskListDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F6422F1986800425299 /* TaskListDataStore.swift */; };
+		F5106F6822F1996800425299 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F6722F1996800425299 /* Task.swift */; };
+		F5106F6A22F2A64300425299 /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F6922F2A64300425299 /* CustomColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +60,12 @@
 		F5106F5722EFFA5B00425299 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		F5106F5922F01AF600425299 /* TaskListViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewControllerDelegate.swift; sourceTree = "<group>"; };
 		F5106F5C22F0949900425299 /* DeepLinkOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkOption.swift; sourceTree = "<group>"; };
+		F5106F5E22F1818F00425299 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
+		F5106F6022F181AF00425299 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		F5106F6222F1824300425299 /* UniquelyIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniquelyIdentifiable.swift; sourceTree = "<group>"; };
+		F5106F6422F1986800425299 /* TaskListDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListDataStore.swift; sourceTree = "<group>"; };
+		F5106F6722F1996800425299 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		F5106F6922F2A64300425299 /* CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +110,7 @@
 				F5106F4322EFF3C200425299 /* Application */,
 				F5106F3F22EFF38900425299 /* Base */,
 				F5106F5B22F0948C00425299 /* DeepLink */,
+				F5106F6622F1993F00425299 /* Models */,
 				F5106F5222EFF93F00425299 /* Protocols */,
 				F5106F4422EFF3D000425299 /* Supporting Files */,
 				F5106F4922EFF51400425299 /* TaskList */,
@@ -117,6 +130,7 @@
 		F5106F3F22EFF38900425299 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				F5106F6022F181AF00425299 /* BaseCollectionViewCell.swift */,
 				F5106F4722EFF43B00425299 /* BaseNavigationController.swift */,
 				F5106F4522EFF41800425299 /* BaseTabBarController.swift */,
 				F5106F4022EFF39500425299 /* BaseViewController.swift */,
@@ -138,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				F5106F2922EFF0D900425299 /* Info.plist */,
+				F5106F6922F2A64300425299 /* CustomColor.swift */,
 				F5106F2422EFF0D900425299 /* Assets.xcassets */,
 				F5106F2622EFF0D900425299 /* LaunchScreen.storyboard */,
 			);
@@ -147,7 +162,9 @@
 		F5106F4922EFF51400425299 /* TaskList */ = {
 			isa = PBXGroup;
 			children = (
+				F5106F5E22F1818F00425299 /* TaskCell.swift */,
 				F5106F5022EFF86E00425299 /* TaskListCoordinator.swift */,
+				F5106F6422F1986800425299 /* TaskListDataStore.swift */,
 				F5106F4E22EFF84600425299 /* TaskListNavigationController.swift */,
 				F5106F4A22EFF52A00425299 /* TaskListViewController.swift */,
 			);
@@ -159,6 +176,7 @@
 			children = (
 				F5106F5322EFF95600425299 /* Coordinatable.swift */,
 				F5106F5922F01AF600425299 /* TaskListViewControllerDelegate.swift */,
+				F5106F6222F1824300425299 /* UniquelyIdentifiable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -169,6 +187,14 @@
 				F5106F5C22F0949900425299 /* DeepLinkOption.swift */,
 			);
 			path = DeepLink;
+			sourceTree = "<group>";
+		};
+		F5106F6622F1993F00425299 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F5106F6722F1996800425299 /* Task.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,16 +298,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5106F5122EFF86E00425299 /* TaskListCoordinator.swift in Sources */,
+				F5106F6122F181AF00425299 /* BaseCollectionViewCell.swift in Sources */,
+				F5106F6A22F2A64300425299 /* CustomColor.swift in Sources */,
 				F5106F4B22EFF52A00425299 /* TaskListViewController.swift in Sources */,
 				F5106F4122EFF39500425299 /* BaseViewController.swift in Sources */,
 				F5106F5622EFFA1600425299 /* AppTabBarController.swift in Sources */,
 				F5106F5D22F0949900425299 /* DeepLinkOption.swift in Sources */,
 				F5106F4822EFF43B00425299 /* BaseNavigationController.swift in Sources */,
 				F5106F5A22F01AF600425299 /* TaskListViewControllerDelegate.swift in Sources */,
+				F5106F6522F1986800425299 /* TaskListDataStore.swift in Sources */,
 				F5106F5822EFFA5B00425299 /* AppCoordinator.swift in Sources */,
 				F5106F4622EFF41800425299 /* BaseTabBarController.swift in Sources */,
 				F5106F5422EFF95600425299 /* Coordinatable.swift in Sources */,
 				F5106F4F22EFF84600425299 /* TaskListNavigationController.swift in Sources */,
+				F5106F6322F1824300425299 /* UniquelyIdentifiable.swift in Sources */,
+				F5106F5F22F1818F00425299 /* TaskCell.swift in Sources */,
+				F5106F6822F1996800425299 /* Task.swift in Sources */,
 				F5106F1C22EFF0D800425299 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

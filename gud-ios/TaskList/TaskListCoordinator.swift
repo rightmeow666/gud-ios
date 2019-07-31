@@ -46,4 +46,12 @@ extension TaskListCoordinator: TaskListViewControllerDelegate {
   func controller(didTapEditButton button: UIBarButtonItem) {
     print(321)
   }
+  
+  func controller(didSelectItemAt indexPath: IndexPath) {
+    print(123)
+  }
+  
+  func controller(didDeselectItemAt indexPath: IndexPath) {
+    print(123)
+  }
 }
