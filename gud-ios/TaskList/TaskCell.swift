@@ -9,7 +9,8 @@
 import UIKit
 
 class TaskCell: BaseCollectionViewCell, UniquelyIdentifable {
-  static let minimumHeight: CGFloat = 8 + 16 + 16 + 8 + 16 + 16 + 16 + 8
+  /// Height of cell minus titleLabel height
+  static let minimumHeight: CGFloat = 8 + 16 + 8 + 16 + 16 + 16 + 8
   
   lazy var containerView: UIView = {
     let view = UIView()
@@ -33,7 +34,7 @@ class TaskCell: BaseCollectionViewCell, UniquelyIdentifable {
   lazy var titleLabel: UILabel = {
     let label = UILabel()
     label.numberOfLines = 0
-    label.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam fringilla, lorem et auctor gravida, orci eros feugiat lectus, non pretium nibh ipsum sed neque."
+    label.font = UIFont(name: "System", size: 15)
     label.translatesAutoresizingMaskIntoConstraints = false
     return label
   }()
@@ -47,14 +48,12 @@ class TaskCell: BaseCollectionViewCell, UniquelyIdentifable {
   
   lazy var dateLabel: UILabel = {
     let label = UILabel()
-    label.text = "31 July 2019"
     label.translatesAutoresizingMaskIntoConstraints = false
     return label
   }()
   
   lazy var statsLabel: UILabel = {
     let label = UILabel()
-    label.text = "3 / 10"
     label.translatesAutoresizingMaskIntoConstraints = false
     return label
   }()
@@ -98,6 +97,13 @@ class TaskCell: BaseCollectionViewCell, UniquelyIdentifable {
     self.stackView.leftAnchor.constraint(equalTo: self.containerView.leftAnchor, constant: 16).isActive = true
     self.stackView.rightAnchor.constraint(lessThanOrEqualTo: self.containerView.rightAnchor, constant: -16).isActive = true
     self.stackView.bottomAnchor.constraint(equalTo: self.containerView.bottomAnchor, constant: -16).isActive = true
+  }
+  
+  func configure(task: Task?) {
+    self.titleLabel.text = task?.title ?? "Untitled"
+    self.subtitleLabel.text = "subtitle should show the title of task's first child from its array"
+    self.dateLabel.text = "12/21/2019"
+    self.statsLabel.text = "200"
   }
   
   override init(frame: CGRect) {

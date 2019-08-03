@@ -28,6 +28,13 @@
 		F5106F6522F1986800425299 /* TaskListDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F6422F1986800425299 /* TaskListDataStore.swift */; };
 		F5106F6822F1996800425299 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F6722F1996800425299 /* Task.swift */; };
 		F5106F6A22F2A64300425299 /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F6922F2A64300425299 /* CustomColor.swift */; };
+		F5106F6D22F40BD700425299 /* String+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F6C22F40BD700425299 /* String+Helpers.swift */; };
+		F5106F6F22F5F49C00425299 /* TaskListDependencyOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F6E22F5F49C00425299 /* TaskListDependencyOptions.swift */; };
+		F5106F7222F5F84100425299 /* NetworkServicable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F7122F5F84100425299 /* NetworkServicable.swift */; };
+		F5106F7422F5F84A00425299 /* CacheServicable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F7322F5F84A00425299 /* CacheServicable.swift */; };
+		F5106F7622F5FF7C00425299 /* GudNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F7522F5FF7C00425299 /* GudNetworkService.swift */; };
+		F5106F7A22F666B700425299 /* BaseNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F7922F666B700425299 /* BaseNetworkService.swift */; };
+		F5106F7C22F6670200425299 /* BaseCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F7B22F6670200425299 /* BaseCacheService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +73,13 @@
 		F5106F6422F1986800425299 /* TaskListDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListDataStore.swift; sourceTree = "<group>"; };
 		F5106F6722F1996800425299 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		F5106F6922F2A64300425299 /* CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColor.swift; sourceTree = "<group>"; };
+		F5106F6C22F40BD700425299 /* String+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Helpers.swift"; sourceTree = "<group>"; };
+		F5106F6E22F5F49C00425299 /* TaskListDependencyOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListDependencyOptions.swift; sourceTree = "<group>"; };
+		F5106F7122F5F84100425299 /* NetworkServicable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServicable.swift; sourceTree = "<group>"; };
+		F5106F7322F5F84A00425299 /* CacheServicable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheServicable.swift; sourceTree = "<group>"; };
+		F5106F7522F5FF7C00425299 /* GudNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GudNetworkService.swift; sourceTree = "<group>"; };
+		F5106F7922F666B700425299 /* BaseNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNetworkService.swift; sourceTree = "<group>"; };
+		F5106F7B22F6670200425299 /* BaseCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCacheService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,8 +124,10 @@
 				F5106F4322EFF3C200425299 /* Application */,
 				F5106F3F22EFF38900425299 /* Base */,
 				F5106F5B22F0948C00425299 /* DeepLink */,
+				F5106F6B22F40BA400425299 /* Helpers */,
 				F5106F6622F1993F00425299 /* Models */,
 				F5106F5222EFF93F00425299 /* Protocols */,
+				F5106F7022F5F82900425299 /* Services */,
 				F5106F4422EFF3D000425299 /* Supporting Files */,
 				F5106F4922EFF51400425299 /* TaskList */,
 			);
@@ -130,8 +146,10 @@
 		F5106F3F22EFF38900425299 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				F5106F7B22F6670200425299 /* BaseCacheService.swift */,
 				F5106F6022F181AF00425299 /* BaseCollectionViewCell.swift */,
 				F5106F4722EFF43B00425299 /* BaseNavigationController.swift */,
+				F5106F7922F666B700425299 /* BaseNetworkService.swift */,
 				F5106F4522EFF41800425299 /* BaseTabBarController.swift */,
 				F5106F4022EFF39500425299 /* BaseViewController.swift */,
 			);
@@ -165,8 +183,10 @@
 				F5106F5E22F1818F00425299 /* TaskCell.swift */,
 				F5106F5022EFF86E00425299 /* TaskListCoordinator.swift */,
 				F5106F6422F1986800425299 /* TaskListDataStore.swift */,
+				F5106F6E22F5F49C00425299 /* TaskListDependencyOptions.swift */,
 				F5106F4E22EFF84600425299 /* TaskListNavigationController.swift */,
 				F5106F4A22EFF52A00425299 /* TaskListViewController.swift */,
+				F5106F5922F01AF600425299 /* TaskListViewControllerDelegate.swift */,
 			);
 			path = TaskList;
 			sourceTree = "<group>";
@@ -174,8 +194,9 @@
 		F5106F5222EFF93F00425299 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				F5106F7322F5F84A00425299 /* CacheServicable.swift */,
 				F5106F5322EFF95600425299 /* Coordinatable.swift */,
-				F5106F5922F01AF600425299 /* TaskListViewControllerDelegate.swift */,
+				F5106F7122F5F84100425299 /* NetworkServicable.swift */,
 				F5106F6222F1824300425299 /* UniquelyIdentifiable.swift */,
 			);
 			path = Protocols;
@@ -195,6 +216,22 @@
 				F5106F6722F1996800425299 /* Task.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		F5106F6B22F40BA400425299 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F5106F6C22F40BD700425299 /* String+Helpers.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		F5106F7022F5F82900425299 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F5106F7522F5FF7C00425299 /* GudNetworkService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,18 +334,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5106F7622F5FF7C00425299 /* GudNetworkService.swift in Sources */,
 				F5106F5122EFF86E00425299 /* TaskListCoordinator.swift in Sources */,
+				F5106F6D22F40BD700425299 /* String+Helpers.swift in Sources */,
 				F5106F6122F181AF00425299 /* BaseCollectionViewCell.swift in Sources */,
+				F5106F7C22F6670200425299 /* BaseCacheService.swift in Sources */,
 				F5106F6A22F2A64300425299 /* CustomColor.swift in Sources */,
 				F5106F4B22EFF52A00425299 /* TaskListViewController.swift in Sources */,
 				F5106F4122EFF39500425299 /* BaseViewController.swift in Sources */,
+				F5106F6F22F5F49C00425299 /* TaskListDependencyOptions.swift in Sources */,
 				F5106F5622EFFA1600425299 /* AppTabBarController.swift in Sources */,
 				F5106F5D22F0949900425299 /* DeepLinkOption.swift in Sources */,
 				F5106F4822EFF43B00425299 /* BaseNavigationController.swift in Sources */,
+				F5106F7422F5F84A00425299 /* CacheServicable.swift in Sources */,
 				F5106F5A22F01AF600425299 /* TaskListViewControllerDelegate.swift in Sources */,
 				F5106F6522F1986800425299 /* TaskListDataStore.swift in Sources */,
 				F5106F5822EFFA5B00425299 /* AppCoordinator.swift in Sources */,
+				F5106F7222F5F84100425299 /* NetworkServicable.swift in Sources */,
 				F5106F4622EFF41800425299 /* BaseTabBarController.swift in Sources */,
+				F5106F7A22F666B700425299 /* BaseNetworkService.swift in Sources */,
 				F5106F5422EFF95600425299 /* Coordinatable.swift in Sources */,
 				F5106F4F22EFF84600425299 /* TaskListNavigationController.swift in Sources */,
 				F5106F6322F1824300425299 /* UniquelyIdentifiable.swift in Sources */,

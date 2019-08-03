@@ -9,6 +9,8 @@
 import Foundation
 
 struct Task {
+  var taskId: String
+  
   var title: String
   
   var createdAt: Date

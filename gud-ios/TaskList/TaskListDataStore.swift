@@ -8,6 +8,11 @@
 
 import Foundation
 
-class TaskListDataStore: NSObject {
-  var tasks: [[Task]] = [[]]
+class TaskListDataStore: BaseCacheService {
+  var pendingTasks: [Task] = {
+    let tempTask = Task(taskId: "oaisj", title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam fringilla, lorem et auctor gravida, orci eros feugiat lectus, non pretium nibh ipsum sed neque.", createdAt: Date(), updatedAt: Date())
+    return [tempTask]
+  }()
+  
+  var completedTasks: [Task] = []
 }

@@ -13,6 +13,8 @@ class TaskListViewController: BaseViewController {
   
   var dataStore: TaskListDataStore?
   
+  var networkService: GudNetworkService?
+  
   lazy var addButton: UIBarButtonItem = {
     let button = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped(_:)))
     return button
@@ -52,6 +54,7 @@ class TaskListViewController: BaseViewController {
   }
   
   func configureView() {
+    self.navigationItem.title = "why brother? why?"
     self.navigationItem.rightBarButtonItems = [addButton, editButton]
     self.view.addSubview(self.collectionView)
     self.collectionView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
@@ -68,15 +71,13 @@ class TaskListViewController: BaseViewController {
 
 extension TaskListViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return self.dataStore?.tasks[section].count ?? 0
-  }
-  
-  func numberOfSections(in collectionView: UICollectionView) -> Int {
-    return self.dataStore?.tasks.count ?? 0
+    return self.dataStore?.pendingTasks.count ?? 0
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TaskCell.cellId, for: indexPath) as! TaskCell
+    let task = self.dataStore?.pendingTasks[indexPath.item]
+    cell.configure(task: task)
     return cell
   }
 }
@@ -93,6 +94,11 @@ extension TaskListViewController: UICollectionViewDelegate {
 
 extension TaskListViewController: UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    return CGSize(width: collectionView.frame.width, height: 180)
+    if let task = self.dataStore?.pendingTasks[indexPath.item] {
+      let titleWidth = collectionView.frame.width - 16 - 16 - 16 - 16
+      let titleHeight = task.title.heightForText(systemFontSize: 15, width: titleWidth)
+      return CGSize(width: collectionView.frame.width, height: TaskCell.minimumHeight + titleHeight + 16)
+    }
+    return CGSize(width: collectionView.frame.width, height: TaskCell.minimumHeight + 16)
   }
 }

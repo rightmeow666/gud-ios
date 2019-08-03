@@ -21,7 +21,8 @@ class AppCoordinator: NSObject {
 
 extension AppCoordinator: Coordinatable {
   func start() {
-    self.taskListCoordinator = TaskListCoordinator(presenter: presenter)
+    let options = TaskListDependencyOptions(networkService: GudNetworkService(), cacheService: TaskListDataStore())
+    self.taskListCoordinator = TaskListCoordinator(presenter: presenter, options: options)
     self.taskListCoordinator?.start()
   }
 }

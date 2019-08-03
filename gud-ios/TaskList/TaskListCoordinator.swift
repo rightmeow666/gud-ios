@@ -11,12 +11,15 @@ import UIKit
 class TaskListCoordinator: NSObject {
   private let presenter: AppTabBarController
   
+  private let options: TaskListDependencyOptions
+  
   private var viewController: TaskListViewController?
   
   private var navigationController: TaskListNavigationController?
   
-  init(presenter: AppTabBarController) {
+  init(presenter: AppTabBarController, options: TaskListDependencyOptions) {
     self.presenter = presenter
+    self.options = options
     super.init()
   }
 }
@@ -24,6 +27,8 @@ class TaskListCoordinator: NSObject {
 extension TaskListCoordinator: Coordinatable {
   func start() {
     let vc = TaskListViewController()
+    vc.networkService = self.options.networkService
+    vc.dataStore = self.options.cacheService
     let navController = TaskListNavigationController(rootViewController: vc)
     
     vc.delegate = self
