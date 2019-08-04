@@ -96,8 +96,9 @@ extension TaskListViewController: UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     if let task = self.dataStore?.pendingTasks[indexPath.item] {
       let titleWidth = collectionView.frame.width - 16 - 16 - 16 - 16
-      let titleHeight = task.title.heightForText(systemFontSize: 15, width: titleWidth)
-      return CGSize(width: collectionView.frame.width, height: TaskCell.minimumHeight + titleHeight + 16)
+      let font = UIFont.preferredFont(forTextStyle: .body)
+      let titleHeight = heightForView(text: task.title, font: font, width: titleWidth)
+      return CGSize(width: collectionView.frame.width, height: TaskCell.minimumHeight + titleHeight)
     }
     return CGSize(width: collectionView.frame.width, height: TaskCell.minimumHeight + 16)
   }

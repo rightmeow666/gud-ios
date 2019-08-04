@@ -8,10 +8,12 @@
 
 import UIKit
 
-extension String {
-  func heightForText(systemFontSize size: CGFloat, width: CGFloat) -> CGFloat {
-    let font = UIFont.systemFont(ofSize: size)
-    let rect = NSString(string: self).boundingRect(with: CGSize(width: width, height: CGFloat(MAXFLOAT)), options: [.usesLineFragmentOrigin], attributes: [NSAttributedString.Key.font : font], context: nil)
-    return ceil(rect.height)
-  }
+func heightForView(text: String, font: UIFont, width: CGFloat) -> CGFloat {
+  let label = UILabel(frame: CGRect(x: 0, y: 0, width: width, height: CGFloat.greatestFiniteMagnitude))
+  label.numberOfLines = 0
+  label.lineBreakMode = NSLineBreakMode.byWordWrapping
+  label.font = font
+  label.text = text
+  label.sizeToFit()
+  return label.frame.height
 }

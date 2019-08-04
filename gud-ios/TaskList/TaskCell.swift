@@ -34,7 +34,7 @@ class TaskCell: BaseCollectionViewCell, UniquelyIdentifable {
   lazy var titleLabel: UILabel = {
     let label = UILabel()
     label.numberOfLines = 0
-    label.font = UIFont(name: "System", size: 15)
+    label.font = UIFont.preferredFont(forTextStyle: .body)
     label.translatesAutoresizingMaskIntoConstraints = false
     return label
   }()
@@ -42,18 +42,21 @@ class TaskCell: BaseCollectionViewCell, UniquelyIdentifable {
   lazy var subtitleLabel: UILabel = {
     let label = UILabel()
     label.text = "Mauris sit amet aliquam mauris, sed dapibus nunc. Proin"
+    label.font = UIFont.preferredFont(forTextStyle: .footnote)
     label.translatesAutoresizingMaskIntoConstraints = false
     return label
   }()
   
   lazy var dateLabel: UILabel = {
     let label = UILabel()
+    label.font = UIFont.preferredFont(forTextStyle: .footnote)
     label.translatesAutoresizingMaskIntoConstraints = false
     return label
   }()
   
   lazy var statsLabel: UILabel = {
     let label = UILabel()
+    label.font = UIFont.preferredFont(forTextStyle: .footnote)
     label.translatesAutoresizingMaskIntoConstraints = false
     return label
   }()
