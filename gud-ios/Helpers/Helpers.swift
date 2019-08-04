@@ -1,5 +1,5 @@
 //
-//  String+Helpers.swift
+//  Helpers.swift
 //  gud-ios
 //
 //  Created by sudofluff on 8/1/19.
@@ -16,4 +16,8 @@ func heightForView(text: String, font: UIFont, width: CGFloat) -> CGFloat {
   label.text = text
   label.sizeToFit()
   return label.frame.height
+}
+
+extension Notification.Name {
+  static let EditMode = Notification.Name("EditMode")
 }

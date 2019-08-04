@@ -20,6 +20,11 @@ class TaskListViewController: BaseViewController {
     return button
   }()
   
+  lazy var cancelButton: UIBarButtonItem = {
+    let button = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonTapped(_:)))
+    return button
+  }()
+  
   lazy var editButton: UIBarButtonItem = {
     let button = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editButtonTapped(_:)))
     return button
@@ -32,6 +37,7 @@ class TaskListViewController: BaseViewController {
     view.alwaysBounceVertical = true
     view.scrollsToTop = true
     view.backgroundColor = CustomColor.white
+    view.allowsMultipleSelection = false
     view.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
     view.delegate = self
     view.dataSource = self
@@ -46,14 +52,28 @@ class TaskListViewController: BaseViewController {
   }()
   
   @objc func editButtonTapped(_ sender: UIBarButtonItem) {
-    self.delegate?.controller(didTapEditButton: sender)
+    if !self.isEditing {
+      self.isEditing = true
+    }
+  }
+  
+  @objc func cancelButtonTapped(_ sender: UIBarButtonItem) {
+    if self.isEditing {
+      self.isEditing = false
+    }
   }
   
   @objc func addButtonTapped(_ sender: UIBarButtonItem) {
     self.delegate?.controller(didTapAddButton: sender)
   }
   
-  func configureView() {
+  @objc func setEditMode(_ notification: Notification) {
+    if let isEditing = notification.userInfo?["isEditing"] as? Bool {
+      self.isEditing = isEditing
+    }
+  }
+  
+  private func configureView() {
     self.navigationItem.title = "why brother? why?"
     self.navigationItem.rightBarButtonItems = [addButton, editButton]
     self.view.addSubview(self.collectionView)
@@ -63,9 +83,35 @@ class TaskListViewController: BaseViewController {
     self.collectionView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
   }
   
+  private func observeEditModeNotification() {
+    NotificationCenter.default.addObserver(self, selector: #selector(setEditMode(_:)), name: NSNotification.Name.EditMode, object: nil)
+  }
+  
+  override func setEditing(_ editing: Bool, animated: Bool) {
+    super.setEditing(editing, animated: animated)
+    self.collectionView.allowsMultipleSelection = isEditing
+    let indexPaths = self.collectionView.indexPathsForVisibleItems
+    // updating nav bar
+    self.addButton.isEnabled = editing ? false : true
+    self.navigationItem.rightBarButtonItems?.remove(at: 1)
+    self.navigationItem.rightBarButtonItems?.append(editing ? self.cancelButton : self.editButton)
+    // updating cells
+    for indexPath in indexPaths {
+      self.collectionView.deselectItem(at: indexPath, animated: false)
+      if let cell = self.collectionView.cellForItem(at: indexPath) as? TaskCell {
+        cell.isEditing = isEditing
+      }
+    }
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     self.configureView()
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    self.observeEditModeNotification()
   }
 }
 
@@ -88,7 +134,7 @@ extension TaskListViewController: UICollectionViewDelegate {
   }
   
   func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-    self.delegate?.controller(didDeselectItemAt: indexPath)
+    // TODO: implement this
   }
 }
 

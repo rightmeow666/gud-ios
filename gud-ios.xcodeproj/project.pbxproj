@@ -28,7 +28,7 @@
 		F5106F6522F1986800425299 /* TaskListDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F6422F1986800425299 /* TaskListDataStore.swift */; };
 		F5106F6822F1996800425299 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F6722F1996800425299 /* Task.swift */; };
 		F5106F6A22F2A64300425299 /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F6922F2A64300425299 /* CustomColor.swift */; };
-		F5106F6D22F40BD700425299 /* String+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F6C22F40BD700425299 /* String+Helpers.swift */; };
+		F5106F6D22F40BD700425299 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F6C22F40BD700425299 /* Helpers.swift */; };
 		F5106F6F22F5F49C00425299 /* TaskListDependencyOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F6E22F5F49C00425299 /* TaskListDependencyOptions.swift */; };
 		F5106F7222F5F84100425299 /* NetworkServicable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F7122F5F84100425299 /* NetworkServicable.swift */; };
 		F5106F7422F5F84A00425299 /* CacheServicable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F7322F5F84A00425299 /* CacheServicable.swift */; };
@@ -73,7 +73,7 @@
 		F5106F6422F1986800425299 /* TaskListDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListDataStore.swift; sourceTree = "<group>"; };
 		F5106F6722F1996800425299 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		F5106F6922F2A64300425299 /* CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColor.swift; sourceTree = "<group>"; };
-		F5106F6C22F40BD700425299 /* String+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Helpers.swift"; sourceTree = "<group>"; };
+		F5106F6C22F40BD700425299 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		F5106F6E22F5F49C00425299 /* TaskListDependencyOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListDependencyOptions.swift; sourceTree = "<group>"; };
 		F5106F7122F5F84100425299 /* NetworkServicable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServicable.swift; sourceTree = "<group>"; };
 		F5106F7322F5F84A00425299 /* CacheServicable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheServicable.swift; sourceTree = "<group>"; };
@@ -221,7 +221,7 @@
 		F5106F6B22F40BA400425299 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				F5106F6C22F40BD700425299 /* String+Helpers.swift */,
+				F5106F6C22F40BD700425299 /* Helpers.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -336,7 +336,7 @@
 			files = (
 				F5106F7622F5FF7C00425299 /* GudNetworkService.swift in Sources */,
 				F5106F5122EFF86E00425299 /* TaskListCoordinator.swift in Sources */,
-				F5106F6D22F40BD700425299 /* String+Helpers.swift in Sources */,
+				F5106F6D22F40BD700425299 /* Helpers.swift in Sources */,
 				F5106F6122F181AF00425299 /* BaseCollectionViewCell.swift in Sources */,
 				F5106F7C22F6670200425299 /* BaseCacheService.swift in Sources */,
 				F5106F6A22F2A64300425299 /* CustomColor.swift in Sources */,

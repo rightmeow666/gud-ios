@@ -12,6 +12,14 @@ class TaskCell: BaseCollectionViewCell, UniquelyIdentifable {
   /// Height of cell minus titleLabel height
   static let minimumHeight: CGFloat = 8 + 16 + 8 + 16 + 16 + 16 + 8
   
+  private var containerViewLeftConstraint: NSLayoutConstraint?
+  
+  var isEditing: Bool = false {
+    didSet {
+      self.setEditing(editing: self.isEditing)
+    }
+  }
+  
   lazy var containerView: UIView = {
     let view = UIView()
     view.backgroundColor = CustomColor.offWhite
@@ -25,9 +33,10 @@ class TaskCell: BaseCollectionViewCell, UniquelyIdentifable {
     view.layer.cornerRadius = 11
     view.clipsToBounds = true
     view.layer.borderWidth = 1
-    view.layer.borderColor = CustomColor.white.cgColor
-    view.backgroundColor = CustomColor.mandarinOrange
+    view.layer.borderColor = CustomColor.offWhite.cgColor
+    view.backgroundColor = CustomColor.clear
     view.translatesAutoresizingMaskIntoConstraints = false
+    view.isHidden = true
     return view
   }()
   
@@ -73,7 +82,8 @@ class TaskCell: BaseCollectionViewCell, UniquelyIdentifable {
   private func configureView() {
     self.contentView.addSubview(self.containerView)
     self.containerView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 8).isActive = true
-    self.containerView.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 16).isActive = true
+    self.containerViewLeftConstraint = self.containerView.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 16)
+    self.containerViewLeftConstraint?.isActive = true
     self.containerView.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -16).isActive = true
     self.containerView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -8).isActive = true
     
@@ -102,6 +112,30 @@ class TaskCell: BaseCollectionViewCell, UniquelyIdentifable {
     self.stackView.bottomAnchor.constraint(equalTo: self.containerView.bottomAnchor, constant: -16).isActive = true
   }
   
+  private func setEditing(editing: Bool) {
+    self.containerViewLeftConstraint?.constant = editing ? 54 : 16
+    UIView.animate(withDuration: 0.15, delay: 0, options: [.allowUserInteraction], animations: {
+      self.layoutIfNeeded()
+    }) { (completed) in
+      self.indicatorView.isHidden = editing ? false : true
+    }
+  }
+  
+  private func addLongPressGesture(toView view: UIView) {
+    let recognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.postNotificationToEnableEditMode(_:)))
+    recognizer.allowableMovement = 10
+    recognizer.numberOfTouchesRequired = 1
+    recognizer.minimumPressDuration = 1.3
+    view.addGestureRecognizer(recognizer)
+  }
+  
+  @objc func postNotificationToEnableEditMode(_ recognizer: UILongPressGestureRecognizer) {
+    if self.isEditing == false {
+      let notification = Notification(name: Notification.Name.EditMode, object: nil, userInfo: ["isEditing" : true])
+      NotificationCenter.default.post(notification)
+    }
+  }
+  
   func configure(task: Task?) {
     self.titleLabel.text = task?.title ?? "Untitled"
     self.subtitleLabel.text = "subtitle should show the title of task's first child from its array"
@@ -112,6 +146,7 @@ class TaskCell: BaseCollectionViewCell, UniquelyIdentifable {
   override init(frame: CGRect) {
     super.init(frame: frame)
     self.configureView()
+    self.addLongPressGesture(toView: self.containerView)
   }
   
   required init?(coder aDecoder: NSCoder) {
