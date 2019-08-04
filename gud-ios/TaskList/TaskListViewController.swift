@@ -57,10 +57,10 @@ class TaskListViewController: BaseViewController {
     self.navigationItem.title = "why brother? why?"
     self.navigationItem.rightBarButtonItems = [addButton, editButton]
     self.view.addSubview(self.collectionView)
-    self.collectionView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
-    self.collectionView.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
-    self.collectionView.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
-    self.collectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+    self.collectionView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
+    self.collectionView.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor).isActive = true
+    self.collectionView.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor).isActive = true
+    self.collectionView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
   }
   
   override func viewDidLoad() {

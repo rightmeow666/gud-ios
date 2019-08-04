@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let win = UIWindow(frame: UIScreen.main.bounds)
     win.rootViewController = rootViewController
     win.makeKeyAndVisible()
+    win.backgroundColor = CustomColor.white
     self.window = win
 
     self.appCoordinator?.start()
