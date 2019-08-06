@@ -25,11 +25,6 @@ class TaskListViewController: BaseViewController {
     return button
   }()
   
-  lazy var editButton: UIBarButtonItem = {
-    let button = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editButtonTapped(_:)))
-    return button
-  }()
-  
   lazy var collectionView: UICollectionView = {
     let view = UICollectionView(frame: self.view.frame, collectionViewLayout: self.flowLayout)
     view.translatesAutoresizingMaskIntoConstraints = false
@@ -51,12 +46,6 @@ class TaskListViewController: BaseViewController {
     return layout
   }()
   
-  @objc func editButtonTapped(_ sender: UIBarButtonItem) {
-    if !self.isEditing {
-      self.isEditing = true
-    }
-  }
-  
   @objc func cancelButtonTapped(_ sender: UIBarButtonItem) {
     if self.isEditing {
       self.isEditing = false
@@ -75,7 +64,7 @@ class TaskListViewController: BaseViewController {
   
   private func configureView() {
     self.navigationItem.title = "why brother? why?"
-    self.navigationItem.rightBarButtonItems = [addButton, editButton]
+    self.navigationItem.rightBarButtonItems = [self.addButton]
     self.view.addSubview(self.collectionView)
     self.collectionView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
     self.collectionView.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor).isActive = true
@@ -92,9 +81,7 @@ class TaskListViewController: BaseViewController {
     self.collectionView.allowsMultipleSelection = isEditing
     let indexPaths = self.collectionView.indexPathsForVisibleItems
     // updating nav bar
-    self.addButton.isEnabled = editing ? false : true
-    self.navigationItem.rightBarButtonItems?.remove(at: 1)
-    self.navigationItem.rightBarButtonItems?.append(editing ? self.cancelButton : self.editButton)
+    self.navigationItem.setRightBarButtonItems(editing ? [self.cancelButton] : [self.addButton], animated: true)
     // updating cells
     for indexPath in indexPaths {
       self.collectionView.deselectItem(at: indexPath, animated: false)
@@ -130,7 +117,11 @@ extension TaskListViewController: UICollectionViewDataSource {
 
 extension TaskListViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    self.delegate?.controller(didSelectItemAt: indexPath)
+    if self.isEditing {
+      // TODO: implement this
+    } else {
+      self.delegate?.controller(didSelectItemAt: indexPath)
+    }
   }
   
   func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
