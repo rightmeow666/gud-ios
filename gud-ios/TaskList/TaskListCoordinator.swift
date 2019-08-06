@@ -45,18 +45,11 @@ extension TaskListCoordinator: Coordinatable {
 
 extension TaskListCoordinator: TaskListViewControllerDelegate {
   func controller(didTapAddButton button: UIBarButtonItem) {
-    print(123)
+    // TODO: shows popover view controller
   }
   
-  func controller(didTapEditButton button: UIBarButtonItem) {
-    print(321)
-  }
-  
-  func controller(didSelectItemAt indexPath: IndexPath) {
-    print(123)
-  }
-  
-  func controller(didDeselectItemAt indexPath: IndexPath) {
-    print(123)
+  func controller(didSelectTask task: Task) {
+    // TODO: segues to task details
+    print("seguing to task details")
   }
 }

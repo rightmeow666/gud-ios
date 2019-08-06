@@ -11,5 +11,5 @@ import UIKit
 protocol TaskListViewControllerDelegate: NSObjectProtocol {
   func controller(didTapAddButton button: UIBarButtonItem)
   
-  func controller(didSelectItemAt indexPath: IndexPath)
+  func controller(didSelectTask task: Task)
 }

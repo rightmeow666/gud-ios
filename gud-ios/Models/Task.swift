@@ -16,4 +16,8 @@ struct Task {
   var createdAt: Date
   
   var updatedAt: Date
+  
+  func delete() {
+    // TODO: implement this
+  }
 }

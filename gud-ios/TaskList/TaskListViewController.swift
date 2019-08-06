@@ -22,6 +22,12 @@ class TaskListViewController: BaseViewController {
   
   lazy var cancelButton: UIBarButtonItem = {
     let button = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonTapped(_:)))
+    button.style = .done
+    return button
+  }()
+  
+  lazy var deleteButton: UIBarButtonItem = {
+    let button = UIBarButtonItem(title: "Delete", style: .done, target: self, action: #selector(deleteButtonTapped(_:)))
     return button
   }()
   
@@ -45,6 +51,15 @@ class TaskListViewController: BaseViewController {
     layout.minimumInteritemSpacing = 0
     return layout
   }()
+  
+  @objc func deleteButtonTapped(_ sender: UIBarButtonItem) {
+    if self.isEditing {
+      guard let store = self.dataStore else { return }
+      store.deleteSelectedTasks {
+        self.isEditing = false
+      }
+    }
+  }
   
   @objc func cancelButtonTapped(_ sender: UIBarButtonItem) {
     if self.isEditing {
@@ -79,11 +94,11 @@ class TaskListViewController: BaseViewController {
   override func setEditing(_ editing: Bool, animated: Bool) {
     super.setEditing(editing, animated: animated)
     self.collectionView.allowsMultipleSelection = isEditing
-    let indexPaths = self.collectionView.indexPathsForVisibleItems
     // updating nav bar
     self.navigationItem.setRightBarButtonItems(editing ? [self.cancelButton] : [self.addButton], animated: true)
+    self.navigationItem.setLeftBarButtonItems(editing ? [self.deleteButton] : [], animated: true)
     // updating cells
-    for indexPath in indexPaths {
+    for indexPath in self.collectionView.indexPathsForVisibleItems {
       self.collectionView.deselectItem(at: indexPath, animated: false)
       if let cell = self.collectionView.cellForItem(at: indexPath) as? TaskCell {
         cell.isEditing = isEditing
@@ -117,15 +132,23 @@ extension TaskListViewController: UICollectionViewDataSource {
 
 extension TaskListViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    guard let store = self.dataStore else { return }
+    let selectedTask = store.pendingTasks[indexPath.item]
     if self.isEditing {
-      // TODO: implement this
+      store.appendSelectedTask(selectedTask: selectedTask)
     } else {
-      self.delegate?.controller(didSelectItemAt: indexPath)
+      self.delegate?.controller(didSelectTask: selectedTask)
     }
   }
   
   func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-    // TODO: implement this
+    if self.isEditing {
+      guard let store = self.dataStore else { return }
+      let deselectedTask = store.pendingTasks[indexPath.item]
+      if self.isEditing {
+        store.removeDeselectedTask(deselectedTask: deselectedTask)
+      }
+    }
   }
 }
 
