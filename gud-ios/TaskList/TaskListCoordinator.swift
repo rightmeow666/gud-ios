@@ -45,7 +45,8 @@ extension TaskListCoordinator: Coordinatable {
 
 extension TaskListCoordinator: TaskListViewControllerDelegate {
   func controller(didTapAddButton button: UIBarButtonItem) {
-    // TODO: shows popover view controller
+    // TODO: segue to task editor
+    print("seguing to task editor")
   }
   
   func controller(didSelectTask task: Task) {

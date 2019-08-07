@@ -20,6 +20,20 @@ class TaskCell: BaseCollectionViewCell, UniquelyIdentifable {
     }
   }
   
+  override var isSelected: Bool {
+    didSet {
+      if isEditing {
+        self.setSelected(isSelected: isSelected)
+      }
+    }
+  }
+  
+  override var isHighlighted: Bool {
+    didSet {
+      self.setHighlighted(isHighlighted: isHighlighted)
+    }
+  }
+  
   lazy var containerView: UIView = {
     let view = UIView()
     view.backgroundColor = CustomColor.offWhite
@@ -119,6 +133,21 @@ class TaskCell: BaseCollectionViewCell, UniquelyIdentifable {
     }) { (completed) in
       self.indicatorView.isHidden = editing ? false : true
     }
+  }
+  
+  private func setSelected(isSelected: Bool) {
+    if self.isEditing {
+      UIView.animate(withDuration: 0.15, delay: 0, options: [.allowUserInteraction], animations: {
+        self.containerView.transform = isSelected ? CGAffineTransform.init(scaleX: 1.03, y: 1.03) : CGAffineTransform.identity
+        self.containerView.layer.borderColor = isSelected ? CustomColor.roseScarlet.cgColor : CustomColor.clear.cgColor
+        self.containerView.layer.borderWidth = isSelected ? 1 : 0
+        self.indicatorView.backgroundColor = isSelected ? CustomColor.roseScarlet : CustomColor.clear
+      }, completion: nil)
+    }
+  }
+  
+  private func setHighlighted(isHighlighted: Bool) {
+    self.containerView.backgroundColor = isHighlighted ? CustomColor.candyWhite : CustomColor.offWhite
   }
   
   private func addLongPressGesture(toView view: UIView) {

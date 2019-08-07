@@ -129,6 +129,7 @@
 				F5106F5222EFF93F00425299 /* Protocols */,
 				F5106F7022F5F82900425299 /* Services */,
 				F5106F4422EFF3D000425299 /* Supporting Files */,
+				F5106F7E22FA88B700425299 /* TaskEditor */,
 				F5106F4922EFF51400425299 /* TaskList */,
 			);
 			path = "gud-ios";
@@ -232,6 +233,13 @@
 				F5106F7522F5FF7C00425299 /* GudNetworkService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		F5106F7E22FA88B700425299 /* TaskEditor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TaskEditor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
