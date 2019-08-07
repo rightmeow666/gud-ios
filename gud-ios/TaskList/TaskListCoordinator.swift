@@ -17,6 +17,8 @@ class TaskListCoordinator: NSObject {
   
   private var navigationController: TaskListNavigationController?
   
+  private var taskEditorCoordinator: TaskEditorCoordinator?
+  
   init(presenter: AppTabBarController, options: TaskListDependencyOptions) {
     self.presenter = presenter
     self.options = options
@@ -45,8 +47,10 @@ extension TaskListCoordinator: Coordinatable {
 
 extension TaskListCoordinator: TaskListViewControllerDelegate {
   func controller(didTapAddButton button: UIBarButtonItem) {
-    // TODO: segue to task editor
-    print("seguing to task editor")
+    guard let vc = self.viewController else { return }
+    let options = TaskEditorDependencyOptions(networkService: GudNetworkService(), cacheService: TaskEditorDataStore(task: nil))
+    self.taskEditorCoordinator = TaskEditorCoordinator(presenter: vc, options: options)
+    self.taskEditorCoordinator?.start()
   }
   
   func controller(didSelectTask task: Task) {

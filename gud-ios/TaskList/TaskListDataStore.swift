@@ -12,7 +12,7 @@ class TaskListDataStore: BaseCacheService {
   typealias CompletionBlock = () -> Void
   
   var pendingTasks: [Task] = {
-    let tempTask = Task(taskId: "oaisj", title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", createdAt: Date(), updatedAt: Date())
+    let tempTask = Task(title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
     return [tempTask]
   }()
   

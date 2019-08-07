@@ -10,5 +10,6 @@ import Foundation
 
 struct TaskListDependencyOptions {
   let networkService: GudNetworkService
+  
   let cacheService: TaskListDataStore
 }

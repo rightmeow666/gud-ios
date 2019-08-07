@@ -6,18 +6,23 @@
 //  Copyright © 2019 sudofluff. All rights reserved.
 //
 
-import Foundation
+import RealmSwift
 
-struct Task {
-  var taskId: String
-  
-  var title: String
-  
-  var createdAt: Date
-  
-  var updatedAt: Date
+class Task: Object {
+  @objc dynamic var taskId: String = ""
+  @objc dynamic var title: String = ""
+  @objc dynamic var createdAt: NSDate = NSDate()
+  @objc dynamic var updatedAt: NSDate = NSDate()
   
   func delete() {
-    // TODO: implement this
+  }
+  
+  override static func primaryKey() -> String? {
+    return "taskId"
+  }
+  
+  convenience init(title: String) {
+    self.init()
+    self.title = title
   }
 }

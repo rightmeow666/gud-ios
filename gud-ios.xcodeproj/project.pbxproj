@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3AABDA6228F456DB7E1A756A /* Pods_gud_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F33FC68346C8C4E3FC0F7C /* Pods_gud_ios.framework */; };
+		41DD8E1D534A0EEC7DA912A8 /* Pods_gud_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B833F8A95566B4BF75C1BC7 /* Pods_gud_iosTests.framework */; };
 		F5106F1C22EFF0D800425299 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F1B22EFF0D800425299 /* AppDelegate.swift */; };
 		F5106F2522EFF0D900425299 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5106F2422EFF0D900425299 /* Assets.xcassets */; };
 		F5106F2822EFF0D900425299 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5106F2622EFF0D900425299 /* LaunchScreen.storyboard */; };
@@ -35,6 +37,14 @@
 		F5106F7622F5FF7C00425299 /* GudNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F7522F5FF7C00425299 /* GudNetworkService.swift */; };
 		F5106F7A22F666B700425299 /* BaseNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F7922F666B700425299 /* BaseNetworkService.swift */; };
 		F5106F7C22F6670200425299 /* BaseCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F7B22F6670200425299 /* BaseCacheService.swift */; };
+		F5106F8022FB1D3100425299 /* TaskEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F7F22FB1D3100425299 /* TaskEditorViewController.swift */; };
+		F5106F8222FB1E4F00425299 /* TaskEditorCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F8122FB1E4F00425299 /* TaskEditorCoordinator.swift */; };
+		F5106F8422FB1F0300425299 /* TaskEditorNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F8322FB1F0300425299 /* TaskEditorNavigationController.swift */; };
+		F5106F8622FB1F3400425299 /* TaskEditorDependencyOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F8522FB1F3400425299 /* TaskEditorDependencyOptions.swift */; };
+		F5106F8822FB210200425299 /* TaskEditorDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F8722FB210200425299 /* TaskEditorDataStore.swift */; };
+		F5106F8C22FBC80500425299 /* Persistable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F8B22FBC80500425299 /* Persistable.swift */; };
+		F5106F8E22FBE8AA00425299 /* TaskEditorViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F8D22FBE8AA00425299 /* TaskEditorViewControllerDelegate.swift */; };
+		F5106F9122FCE73F00425299 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F9022FCE73F00425299 /* RealmManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +58,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B833F8A95566B4BF75C1BC7 /* Pods_gud_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gud_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		38F33FC68346C8C4E3FC0F7C /* Pods_gud_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gud_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D833A7819D245BF5B295D80 /* Pods-gud-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gud-iosTests.debug.xcconfig"; path = "Target Support Files/Pods-gud-iosTests/Pods-gud-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
+		90075D545DD3AE62FC0EB1DA /* Pods-gud-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gud-ios.release.xcconfig"; path = "Target Support Files/Pods-gud-ios/Pods-gud-ios.release.xcconfig"; sourceTree = "<group>"; };
+		A8C286A41DE33C7F44E47A61 /* Pods-gud-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gud-ios.debug.xcconfig"; path = "Target Support Files/Pods-gud-ios/Pods-gud-ios.debug.xcconfig"; sourceTree = "<group>"; };
+		B9FCBAC9FB4FAEAC5A360A84 /* Pods-gud-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gud-iosTests.release.xcconfig"; path = "Target Support Files/Pods-gud-iosTests/Pods-gud-iosTests.release.xcconfig"; sourceTree = "<group>"; };
 		F5106F1822EFF0D800425299 /* gud-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "gud-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5106F1B22EFF0D800425299 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5106F2422EFF0D900425299 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -80,6 +96,14 @@
 		F5106F7522F5FF7C00425299 /* GudNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GudNetworkService.swift; sourceTree = "<group>"; };
 		F5106F7922F666B700425299 /* BaseNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNetworkService.swift; sourceTree = "<group>"; };
 		F5106F7B22F6670200425299 /* BaseCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCacheService.swift; sourceTree = "<group>"; };
+		F5106F7F22FB1D3100425299 /* TaskEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditorViewController.swift; sourceTree = "<group>"; };
+		F5106F8122FB1E4F00425299 /* TaskEditorCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditorCoordinator.swift; sourceTree = "<group>"; };
+		F5106F8322FB1F0300425299 /* TaskEditorNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditorNavigationController.swift; sourceTree = "<group>"; };
+		F5106F8522FB1F3400425299 /* TaskEditorDependencyOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditorDependencyOptions.swift; sourceTree = "<group>"; };
+		F5106F8722FB210200425299 /* TaskEditorDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditorDataStore.swift; sourceTree = "<group>"; };
+		F5106F8B22FBC80500425299 /* Persistable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistable.swift; sourceTree = "<group>"; };
+		F5106F8D22FBE8AA00425299 /* TaskEditorViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditorViewControllerDelegate.swift; sourceTree = "<group>"; };
+		F5106F9022FCE73F00425299 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AABDA6228F456DB7E1A756A /* Pods_gud_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,18 +119,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41DD8E1D534A0EEC7DA912A8 /* Pods_gud_iosTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9A66170AEFEB0F4AC57C24C7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				38F33FC68346C8C4E3FC0F7C /* Pods_gud_ios.framework */,
+				0B833F8A95566B4BF75C1BC7 /* Pods_gud_iosTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E1611DA9420573A02C269A56 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A8C286A41DE33C7F44E47A61 /* Pods-gud-ios.debug.xcconfig */,
+				90075D545DD3AE62FC0EB1DA /* Pods-gud-ios.release.xcconfig */,
+				7D833A7819D245BF5B295D80 /* Pods-gud-iosTests.debug.xcconfig */,
+				B9FCBAC9FB4FAEAC5A360A84 /* Pods-gud-iosTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		F5106F0F22EFF0D800425299 = {
 			isa = PBXGroup;
 			children = (
 				F5106F1A22EFF0D800425299 /* gud-ios */,
 				F5106F3522EFF36400425299 /* gud-iosTests */,
 				F5106F1922EFF0D800425299 /* Products */,
+				E1611DA9420573A02C269A56 /* Pods */,
+				9A66170AEFEB0F4AC57C24C7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,6 +175,7 @@
 				F5106F6B22F40BA400425299 /* Helpers */,
 				F5106F6622F1993F00425299 /* Models */,
 				F5106F5222EFF93F00425299 /* Protocols */,
+				F5106F8F22FCE71F00425299 /* Realm */,
 				F5106F7022F5F82900425299 /* Services */,
 				F5106F4422EFF3D000425299 /* Supporting Files */,
 				F5106F7E22FA88B700425299 /* TaskEditor */,
@@ -199,6 +248,7 @@
 				F5106F5322EFF95600425299 /* Coordinatable.swift */,
 				F5106F7122F5F84100425299 /* NetworkServicable.swift */,
 				F5106F6222F1824300425299 /* UniquelyIdentifiable.swift */,
+				F5106F8B22FBC80500425299 /* Persistable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -238,8 +288,22 @@
 		F5106F7E22FA88B700425299 /* TaskEditor */ = {
 			isa = PBXGroup;
 			children = (
+				F5106F8122FB1E4F00425299 /* TaskEditorCoordinator.swift */,
+				F5106F8722FB210200425299 /* TaskEditorDataStore.swift */,
+				F5106F8522FB1F3400425299 /* TaskEditorDependencyOptions.swift */,
+				F5106F8322FB1F0300425299 /* TaskEditorNavigationController.swift */,
+				F5106F7F22FB1D3100425299 /* TaskEditorViewController.swift */,
+				F5106F8D22FBE8AA00425299 /* TaskEditorViewControllerDelegate.swift */,
 			);
 			path = TaskEditor;
+			sourceTree = "<group>";
+		};
+		F5106F8F22FCE71F00425299 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				F5106F9022FCE73F00425299 /* RealmManager.swift */,
+			);
+			path = Realm;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,9 +313,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F5106F2C22EFF0D900425299 /* Build configuration list for PBXNativeTarget "gud-ios" */;
 			buildPhases = (
+				CFC947CA4DB54688CA77D574 /* [CP] Check Pods Manifest.lock */,
 				F5106F1422EFF0D800425299 /* Sources */,
 				F5106F1522EFF0D800425299 /* Frameworks */,
 				F5106F1622EFF0D800425299 /* Resources */,
+				694B146310FBAFF89CFBC428 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -266,6 +332,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F5106F3B22EFF36400425299 /* Build configuration list for PBXNativeTarget "gud-iosTests" */;
 			buildPhases = (
+				FEC96666E13F67D9F3C631AF /* [CP] Check Pods Manifest.lock */,
 				F5106F3022EFF36400425299 /* Sources */,
 				F5106F3122EFF36400425299 /* Frameworks */,
 				F5106F3222EFF36400425299 /* Resources */,
@@ -337,6 +404,70 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		694B146310FBAFF89CFBC428 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-gud-ios/Pods-gud-ios-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-gud-ios/Pods-gud-ios-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-gud-ios/Pods-gud-ios-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CFC947CA4DB54688CA77D574 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-gud-ios-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FEC96666E13F67D9F3C631AF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-gud-iosTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F5106F1422EFF0D800425299 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -344,12 +475,16 @@
 			files = (
 				F5106F7622F5FF7C00425299 /* GudNetworkService.swift in Sources */,
 				F5106F5122EFF86E00425299 /* TaskListCoordinator.swift in Sources */,
+				F5106F9122FCE73F00425299 /* RealmManager.swift in Sources */,
 				F5106F6D22F40BD700425299 /* Helpers.swift in Sources */,
 				F5106F6122F181AF00425299 /* BaseCollectionViewCell.swift in Sources */,
 				F5106F7C22F6670200425299 /* BaseCacheService.swift in Sources */,
+				F5106F8222FB1E4F00425299 /* TaskEditorCoordinator.swift in Sources */,
 				F5106F6A22F2A64300425299 /* CustomColor.swift in Sources */,
 				F5106F4B22EFF52A00425299 /* TaskListViewController.swift in Sources */,
 				F5106F4122EFF39500425299 /* BaseViewController.swift in Sources */,
+				F5106F8C22FBC80500425299 /* Persistable.swift in Sources */,
+				F5106F8422FB1F0300425299 /* TaskEditorNavigationController.swift in Sources */,
 				F5106F6F22F5F49C00425299 /* TaskListDependencyOptions.swift in Sources */,
 				F5106F5622EFFA1600425299 /* AppTabBarController.swift in Sources */,
 				F5106F5D22F0949900425299 /* DeepLinkOption.swift in Sources */,
@@ -360,11 +495,15 @@
 				F5106F5822EFFA5B00425299 /* AppCoordinator.swift in Sources */,
 				F5106F7222F5F84100425299 /* NetworkServicable.swift in Sources */,
 				F5106F4622EFF41800425299 /* BaseTabBarController.swift in Sources */,
+				F5106F8E22FBE8AA00425299 /* TaskEditorViewControllerDelegate.swift in Sources */,
 				F5106F7A22F666B700425299 /* BaseNetworkService.swift in Sources */,
 				F5106F5422EFF95600425299 /* Coordinatable.swift in Sources */,
 				F5106F4F22EFF84600425299 /* TaskListNavigationController.swift in Sources */,
 				F5106F6322F1824300425299 /* UniquelyIdentifiable.swift in Sources */,
+				F5106F8022FB1D3100425299 /* TaskEditorViewController.swift in Sources */,
+				F5106F8622FB1F3400425299 /* TaskEditorDependencyOptions.swift in Sources */,
 				F5106F5F22F1818F00425299 /* TaskCell.swift in Sources */,
+				F5106F8822FB210200425299 /* TaskEditorDataStore.swift in Sources */,
 				F5106F6822F1996800425299 /* Task.swift in Sources */,
 				F5106F1C22EFF0D800425299 /* AppDelegate.swift in Sources */,
 			);
@@ -518,6 +657,7 @@
 		};
 		F5106F2D22EFF0D900425299 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A8C286A41DE33C7F44E47A61 /* Pods-gud-ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -536,6 +676,7 @@
 		};
 		F5106F2E22EFF0D900425299 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90075D545DD3AE62FC0EB1DA /* Pods-gud-ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -554,6 +695,7 @@
 		};
 		F5106F3C22EFF36400425299 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7D833A7819D245BF5B295D80 /* Pods-gud-iosTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -574,6 +716,7 @@
 		};
 		F5106F3D22EFF36400425299 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B9FCBAC9FB4FAEAC5A360A84 /* Pods-gud-iosTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
