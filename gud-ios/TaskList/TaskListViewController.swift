@@ -17,6 +17,7 @@ class TaskListViewController: BaseViewController {
   
   lazy var addButton: UIBarButtonItem = {
     let button = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped(_:)))
+    button.style = .done
     return button
   }()
   
@@ -79,7 +80,7 @@ class TaskListViewController: BaseViewController {
   
   private func configureView() {
     self.navigationItem.title = "why brother? why?"
-    self.navigationItem.rightBarButtonItems = [self.addButton]
+    self.navigationItem.setRightBarButtonItems([self.addButton], animated: true)
     self.view.addSubview(self.collectionView)
     self.collectionView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
     self.collectionView.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor).isActive = true
