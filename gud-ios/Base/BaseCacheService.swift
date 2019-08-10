@@ -9,4 +9,7 @@
 import Foundation
 
 class BaseCacheService: NSObject, CacheServicable {
+  override init() {
+    super.init()
+  }
 }

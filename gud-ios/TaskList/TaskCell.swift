@@ -94,6 +94,7 @@ class TaskCell: BaseCollectionViewCell, UniquelyIdentifable {
   }()
   
   private func configureView() {
+    self.backgroundColor = CustomColor.clear
     self.contentView.addSubview(self.containerView)
     self.containerView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 8).isActive = true
     self.containerViewLeftConstraint = self.containerView.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 16)
@@ -160,8 +161,7 @@ class TaskCell: BaseCollectionViewCell, UniquelyIdentifable {
   
   @objc func postNotificationToEnableEditMode(_ recognizer: UILongPressGestureRecognizer) {
     if self.isEditing == false {
-      let notification = Notification(name: Notification.Name.EditMode, object: nil, userInfo: ["isEditing" : true])
-      NotificationCenter.default.post(notification)
+      NotificationGrandeCentral.postNotificationToEnableEditMode(isEditing: true)
     }
   }
   

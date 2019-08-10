@@ -31,6 +31,7 @@ extension TaskListCoordinator: Coordinatable {
     let vc = TaskListViewController()
     vc.networkService = self.options.networkService
     vc.dataStore = self.options.cacheService
+    vc.dataStore?.delegate = vc
     let navController = TaskListNavigationController(rootViewController: vc)
     
     vc.delegate = self

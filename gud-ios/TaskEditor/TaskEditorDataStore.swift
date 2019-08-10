@@ -8,11 +8,7 @@
 
 import Foundation
 
-protocol TaskEditorDataStoreDelegate: NSObject {
-  func store(isModified: Bool)
-}
-
-class TaskEditorDataStore: NSObject {
+class TaskEditorDataStore: BaseCacheService {  
   weak var delegate: TaskEditorDataStoreDelegate?
   
   private var isModified: Bool {
@@ -23,14 +19,27 @@ class TaskEditorDataStore: NSObject {
   
   var task: Task
   
+  func updateTaskTitle(title: String) {
+    self.task.title = title
+  }
+  
+  func commitChanges() {
+    do {
+      if self.isModified {
+        try self.task.save()
+      }
+    } catch let err {
+      self.delegate?.store(didErr: err)
+    }
+  }
+  
   init(task: Task?) {
     if let unwrappedTask = task {
       self.task = unwrappedTask
       self.initialTask = unwrappedTask
     } else {
-      let newTask = Task(title: "")
-      self.task = newTask
-      self.initialTask = newTask
+      self.task = Task(title: "")
+      self.initialTask = Task(title: "")
     }
     super.init()
   }

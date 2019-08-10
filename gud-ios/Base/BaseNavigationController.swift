@@ -9,4 +9,12 @@
 import UIKit
 
 class BaseNavigationController: UINavigationController {
+  private func configureView() {
+    self.view.backgroundColor = CustomColor.orange
+  }
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    self.configureView()
+  }
 }

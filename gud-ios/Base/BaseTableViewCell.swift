@@ -1,20 +1,20 @@
 //
-//  BaseCollectionViewCell.swift
+//  BaseTableViewCell.swift
 //  gud-ios
 //
-//  Created by sudofluff on 7/31/19.
+//  Created by sudofluff on 8/9/19.
 //  Copyright © 2019 sudofluff. All rights reserved.
 //
 
 import UIKit
 
-class BaseCollectionViewCell: UICollectionViewCell {
+class BaseTableViewCell: UITableViewCell {
   private func configureView() {
     self.backgroundColor = CustomColor.orange
   }
-  
-  override init(frame: CGRect) {
-    super.init(frame: frame)
+
+  override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+    super.init(style: style, reuseIdentifier: reuseIdentifier)
     self.configureView()
   }
   

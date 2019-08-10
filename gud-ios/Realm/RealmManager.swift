@@ -8,18 +8,34 @@
 
 import RealmSwift
 
-enum RealmStoreType {
-  case `default`
-  case test
-}
-
 class RealmManager: NSObject {
-  let shared = RealmManager()
+  enum Config {
+    case development
+    case test
+    case production
+  }
   
-  fileprivate(set) var persistentStoreType: RealmStoreType
+  static private let developmentConfig = Realm.Configuration(fileURL: URL.inDocumentDirectory(filename: "default.realm"), schemaVersion: 0, migrationBlock: nil, objectTypes: [Task.self])
+
+  static private let testConfig = Realm.Configuration(fileURL: URL.inDocumentDirectory(filename: "test.realm"), schemaVersion: 0, migrationBlock: nil, objectTypes: [Task.self])
+
+  static private let productionConfig = Realm.Configuration(fileURL: URL.inDocumentDirectory(filename: "production.realm"), schemaVersion: 0, migrationBlock: nil, objectTypes: [Task.self])
   
-  fileprivate init(type: RealmStoreType = .default) {
-    self.persistentStoreType = type
+  static let shared = RealmManager()
+  
+  let config: Realm.Configuration
+  
+  lazy var db: Realm = {
+    return try! Realm(configuration: self.config)
+  }()
+  
+  lazy var pathForDefaultContainer: URL? = {
+    return self.db.configuration.fileURL
+  }()
+  
+  init(config: Realm.Configuration = RealmManager.developmentConfig) {
+    self.config = config
     super.init()
+    print(self.pathForDefaultContainer!)
   }
 }

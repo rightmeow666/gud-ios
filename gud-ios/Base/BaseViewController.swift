@@ -9,4 +9,12 @@
 import UIKit
 
 class BaseViewController: UIViewController {
+  private func configureView() {
+    self.view.backgroundColor = CustomColor.orange
+  }
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    self.configureView()
+  }
 }

@@ -27,10 +27,12 @@ class TaskEditorCoordinator: NSObject {
 extension TaskEditorCoordinator: Coordinatable {
   func start() {
     let vc = TaskEditorViewController()
+    vc.dataStore = self.options.cacheService
+    vc.networkService = self.options.networkService
     vc.delegate = self
     self.options.cacheService.delegate = vc
     let navController = TaskEditorNavigationController(rootViewController: vc)
-    
+
     self.viewController = vc
     self.navigationController = navController
     
