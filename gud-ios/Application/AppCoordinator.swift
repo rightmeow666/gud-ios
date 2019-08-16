@@ -11,7 +11,7 @@ import UIKit
 class AppCoordinator: NSObject {
   private let presenter: AppTabBarController
   
-  private var taskListCoordinator: TaskListCoordinator?
+  private var folderListCoordinator: FolderListCoordinator?
   
   init(presenter: AppTabBarController) {
     self.presenter = presenter
@@ -21,8 +21,8 @@ class AppCoordinator: NSObject {
 
 extension AppCoordinator: Coordinatable {
   func start() {
-    let options = TaskListDependencyOptions(networkService: GudNetworkService(), cacheService: TaskListDataStore())
-    self.taskListCoordinator = TaskListCoordinator(presenter: presenter, options: options)
-    self.taskListCoordinator?.start()
+    let options = FolderListDependencyOptions(networkService: GudNetworkService(), cacheService: FolderListDataStore())
+    self.folderListCoordinator = FolderListCoordinator(presenter: presenter, options: options)
+    self.folderListCoordinator?.start()
   }
 }

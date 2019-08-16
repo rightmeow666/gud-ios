@@ -1,5 +1,5 @@
 //
-//  TaskCell.swift
+//  FolderCell.swift
 //  gud-ios
 //
 //  Created by sudofluff on 7/31/19.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-class TaskCell: BaseCollectionViewCell, UniquelyIdentifable {
+class FolderCell: BaseCollectionViewCell, UniquelyIdentifable {
   /// Height of cell minus titleLabel height
-  static let minimumHeight: CGFloat = 8 + 16 + 8 + 16 + 16 + 16 + 8
+  static let MINIMUM_HEIGHT: CGFloat = 8 + 16 + 8 + 16 + 16 + 16 + 8
   
   private var containerViewLeftConstraint: NSLayoutConstraint?
   
@@ -165,9 +165,9 @@ class TaskCell: BaseCollectionViewCell, UniquelyIdentifable {
     }
   }
   
-  func configure(task: Task?) {
-    self.titleLabel.text = task?.title ?? "Untitled"
-    self.subtitleLabel.text = "subtitle should show the title of task's first child from its array"
+  func configure(folder: Folder?) {
+    self.titleLabel.text = folder?.title ?? "Untitled"
+    self.subtitleLabel.text = "subtitle should show the title of folder's first child from its array"
     self.dateLabel.text = "12/21/2019"
     self.statsLabel.text = "200"
   }

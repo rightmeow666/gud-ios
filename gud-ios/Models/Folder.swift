@@ -1,5 +1,5 @@
 //
-//  Task.swift
+//  Folder.swift
 //  gud-ios
 //
 //  Created by sudofluff on 7/31/19.
@@ -8,8 +8,8 @@
 
 import RealmSwift
 
-class Task: BaseModel {
-  @objc dynamic var taskId: String = ""
+class Folder: BaseModel {
+  @objc dynamic var folderId: String = ""
   
   @objc dynamic var title: String = ""
   
@@ -23,21 +23,21 @@ class Task: BaseModel {
   
   static func isTitleValid(title: String) -> Bool {
     let c = title.count
-    if c >= Task.TITLE_MIN_LENGTH && c <= Task.TITLE_MAX_LEGNTH {
+    if c >= Folder.TITLE_MIN_LENGTH && c <= Folder.TITLE_MAX_LEGNTH {
       return true
     } else {
       return false
     }
   }
   
-  static var all: Results<Task> {
-    return RealmManager.shared.db.objects(Task.self)
+  static var all: Results<Folder> {
+    return RealmManager.shared.db.objects(Folder.self)
   }
   
-  static func deleteAll(tasks: [Task]) throws {
+  static func deleteAll(folders: [Folder]) throws {
     do {
       try RealmManager.shared.db.write {
-        RealmManager.shared.db.delete(tasks)
+        RealmManager.shared.db.delete(folders)
       }
     } catch let err {
       throw PersistenceError.deleteError(error: err)
@@ -56,11 +56,11 @@ class Task: BaseModel {
   
   func save() throws {
     do {
-      guard self.title.count <= Task.TITLE_MAX_LEGNTH else {
-        throw PersistenceError.constraintError(message: "title should be less than or equal to \(Task.TITLE_MAX_LEGNTH) characters.")
+      guard self.title.count <= Folder.TITLE_MAX_LEGNTH else {
+        throw PersistenceError.constraintError(message: "title should be less than or equal to \(Folder.TITLE_MAX_LEGNTH) characters.")
       }
-      guard self.title.count >= Task.TITLE_MIN_LENGTH else {
-        throw PersistenceError.constraintError(message: "title should be greater than or equal to \(Task.TITLE_MIN_LENGTH) characters.")
+      guard self.title.count >= Folder.TITLE_MIN_LENGTH else {
+        throw PersistenceError.constraintError(message: "title should be greater than or equal to \(Folder.TITLE_MIN_LENGTH) characters.")
       }
       try RealmManager.shared.db.write {
         self.updatedAt = NSDate()
@@ -72,12 +72,12 @@ class Task: BaseModel {
   }
   
   override static func primaryKey() -> String? {
-    return "taskId"
+    return "folderId"
   }
   
   convenience init(title: String) {
     self.init()
     self.title = title
-    self.taskId = UUID().uuidString
+    self.folderId = UUID().uuidString
   }
 }

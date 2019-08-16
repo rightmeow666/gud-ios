@@ -1,5 +1,5 @@
 //
-//  TaskEditorNavigationController.swift
+//  FolderEditorNavigationController.swift
 //  gud-ios
 //
 //  Created by sudofluff on 8/7/19.
@@ -8,5 +8,5 @@
 
 import Foundation
 
-class TaskEditorNavigationController: BaseNavigationController {
+class FolderEditorNavigationController: BaseNavigationController {
 }

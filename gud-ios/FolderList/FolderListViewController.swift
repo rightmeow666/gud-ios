@@ -1,5 +1,5 @@
 //
-//  TaskListViewController.swift
+//  FolderListViewController.swift
 //  gud-ios
 //
 //  Created by sudofluff on 7/29/19.
@@ -9,10 +9,10 @@
 import UIKit
 import RealmSwift
 
-class TaskListViewController: BaseViewController {
-  weak var delegate: TaskListViewControllerDelegate?
+class FolderListViewController: BaseViewController {
+  weak var delegate: FolderListViewControllerDelegate?
   
-  var dataStore: TaskListDataStore?
+  var dataStore: FolderListDataStore?
   
   var networkService: GudNetworkService?
   
@@ -35,7 +35,7 @@ class TaskListViewController: BaseViewController {
   lazy private var collectionView: UICollectionView = {
     let view = UICollectionView(frame: self.view.frame, collectionViewLayout: self.flowLayout)
     view.translatesAutoresizingMaskIntoConstraints = false
-    view.register(TaskCell.self, forCellWithReuseIdentifier: TaskCell.cellId)
+    view.register(FolderCell.self, forCellWithReuseIdentifier: FolderCell.cellId)
     view.alwaysBounceVertical = true
     view.scrollsToTop = true
     view.backgroundColor = CustomColor.white
@@ -56,7 +56,7 @@ class TaskListViewController: BaseViewController {
   @objc private func deleteButtonTapped(_ sender: UIBarButtonItem) {
     if self.isEditing {
       guard let store = self.dataStore else { return }
-      store.deleteSelectedTasks()
+      store.deleteSelectedFolders()
       self.isEditing = false
     }
   }
@@ -78,7 +78,7 @@ class TaskListViewController: BaseViewController {
   }
   
   private func configureView() {
-    self.navigationItem.title = "Task List"
+    self.navigationItem.title = "Folder List"
     self.navigationItem.setRightBarButtonItems([self.addButton], animated: true)
     self.view.backgroundColor = CustomColor.white
     self.view.addSubview(self.collectionView)
@@ -101,7 +101,7 @@ class TaskListViewController: BaseViewController {
     // updating cells
     for indexPath in self.collectionView.indexPathsForVisibleItems {
       self.collectionView.deselectItem(at: indexPath, animated: false)
-      if let cell = self.collectionView.cellForItem(at: indexPath) as? TaskCell {
+      if let cell = self.collectionView.cellForItem(at: indexPath) as? FolderCell {
         cell.isEditing = isEditing
       }
     }
@@ -110,7 +110,7 @@ class TaskListViewController: BaseViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     self.configureView()
-    self.dataStore?.getTaskList()
+    self.dataStore?.getFolderList()
   }
   
   override func viewDidAppear(_ animated: Bool) {
@@ -119,50 +119,50 @@ class TaskListViewController: BaseViewController {
   }
 }
 
-extension TaskListViewController: UICollectionViewDataSource {
+extension FolderListViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return self.dataStore?.tasks?.count ?? 0
+    return self.dataStore?.folders?.count ?? 0
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TaskCell.cellId, for: indexPath) as! TaskCell
-    let task = self.dataStore?.tasks?[indexPath.item]
-    cell.configure(task: task)
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FolderCell.cellId, for: indexPath) as! FolderCell
+    let folder = self.dataStore?.folders?[indexPath.item]
+    cell.configure(folder: folder)
     return cell
   }
 }
 
-extension TaskListViewController: UICollectionViewDelegate {
+extension FolderListViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     guard let store = self.dataStore else { return }
-    guard let selectedTask = store.tasks?[indexPath.item] else { return }
+    guard let selectedFolder = store.folders?[indexPath.item] else { return }
     if self.isEditing {
-      store.appendSelectedTask(selectedTask: selectedTask)
+      store.appendSelectedFolder(selectedFolder: selectedFolder)
     } else {
-      self.delegate?.controller(didSelectTask: selectedTask)
+      self.delegate?.controller(didSelectFolder: selectedFolder)
     }
   }
   
   func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
     if self.isEditing {
       guard let store = self.dataStore else { return }
-      guard let deselectedTask = store.tasks?[indexPath.item] else { return }
+      guard let deselectedFolder = store.folders?[indexPath.item] else { return }
       if self.isEditing {
-        store.removeDeselectedTask(deselectedTask: deselectedTask)
+        store.removeDeselectedFolder(deselectedFolder: deselectedFolder)
       }
     }
   }
 }
 
-extension TaskListViewController: UICollectionViewDelegateFlowLayout {
+extension FolderListViewController: UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    if let task = self.dataStore?.tasks?[indexPath.item] {
+    if let folder = self.dataStore?.folders?[indexPath.item] {
       let titleWidth = collectionView.frame.width - 16 - 16 - 16 - 16
       let font = UIFont.preferredFont(forTextStyle: .body)
-      let titleHeight = self.heightForView(text: task.title, font: font, width: titleWidth)
-      return CGSize(width: collectionView.frame.width, height: TaskCell.minimumHeight + titleHeight)
+      let titleHeight = self.heightForView(text: folder.title, font: font, width: titleWidth)
+      return CGSize(width: collectionView.frame.width, height: FolderCell.MINIMUM_HEIGHT + titleHeight)
     }
-    return CGSize(width: collectionView.frame.width, height: TaskCell.minimumHeight + 16)
+    return CGSize(width: collectionView.frame.width, height: FolderCell.MINIMUM_HEIGHT + 16)
   }
   
   private func heightForView(text: String, font: UIFont, width: CGFloat) -> CGFloat {
@@ -176,16 +176,16 @@ extension TaskListViewController: UICollectionViewDelegateFlowLayout {
   }
 }
 
-extension TaskListViewController: TaskListDataStoreDelegate {
+extension FolderListViewController: FolderListDataStoreDelegate {
   func store(didErr error: Error) {
     print(error.localizedDescription)
   }
   
-  func store(didGetTaskList list: Results<Task>) {
+  func store(didGetFolderList list: Results<Folder>) {
     self.collectionView.reloadData()
   }
   
-  func store(didUpdateTaskList list: Results<Task>, deletedIndice: [Int], insertedIndice: [Int], updatedIndice: [Int]) {
+  func store(didUpdateFolderList list: Results<Folder>, deletedIndice: [Int], insertedIndice: [Int], updatedIndice: [Int]) {
     let ops = BlockOperation {
       let dis = deletedIndice.map({ IndexPath(item: $0, section: 0) })
       let iis = insertedIndice.map({ IndexPath(item: $0, section: 0) })

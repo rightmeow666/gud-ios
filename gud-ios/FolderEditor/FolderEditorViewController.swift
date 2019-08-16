@@ -1,5 +1,5 @@
 //
-//  TaskEditorViewController.swift
+//  FolderEditorViewController.swift
 //  gud-ios
 //
 //  Created by sudofluff on 8/7/19.
@@ -8,12 +8,12 @@
 
 import UIKit
 
-class TaskEditorViewController: BaseViewController {
-  weak var delegate: TaskEditorViewControllerDelegate?
+class FolderEditorViewController: BaseViewController {
+  weak var delegate: FolderEditorViewControllerDelegate?
   
   var networkService: GudNetworkService?
   
-  var dataStore: TaskEditorDataStore?
+  var dataStore: FolderEditorDataStore?
   
   lazy private var tableView: UITableView = {
     let view = UITableView(frame: self.view.frame, style: .grouped)
@@ -84,7 +84,7 @@ class TaskEditorViewController: BaseViewController {
   }
 }
 
-extension TaskEditorViewController: TaskEditorDataStoreDelegate {
+extension FolderEditorViewController: FolderEditorDataStoreDelegate {
   func store(didErr error: Error) {
     print(error.localizedDescription)
   }
@@ -94,14 +94,14 @@ extension TaskEditorViewController: TaskEditorDataStoreDelegate {
   }
 }
 
-extension TaskEditorViewController: UITableViewDataSource {
+extension FolderEditorViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return 1
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: TextInputCell.cellId, for: indexPath) as! TextInputCell
-    cell.configure(task: self.dataStore?.task, delegate: self)
+    cell.configure(folder: self.dataStore?.folder, delegate: self)
     return cell
   }
   
@@ -114,8 +114,8 @@ extension TaskEditorViewController: UITableViewDataSource {
   }
 }
 
-extension TaskEditorViewController: TextInputCellUpdating {
+extension FolderEditorViewController: TextInputCellUpdating {
   func textDidChange(_ text: String) {
-    self.dataStore?.updateTaskTitle(title: text)
+    self.dataStore?.updateFolderTitle(title: text)
   }
 }

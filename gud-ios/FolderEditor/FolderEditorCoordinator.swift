@@ -1,5 +1,5 @@
 //
-//  TaskEditorCoordinator.swift
+//  FolderEditorCoordinator.swift
 //  gud-ios
 //
 //  Created by sudofluff on 8/7/19.
@@ -8,30 +8,30 @@
 
 import UIKit
 
-class TaskEditorCoordinator: NSObject {
-  private let presenter: TaskListViewController
+class FolderEditorCoordinator: NSObject {
+  private let presenter: FolderListViewController
   
-  private let options: TaskEditorDependencyOptions
+  private let options: FolderEditorDependencyOptions
   
-  private var viewController: TaskEditorViewController?
+  private var viewController: FolderEditorViewController?
   
-  private var navigationController: TaskEditorNavigationController?
+  private var navigationController: FolderEditorNavigationController?
   
-  init(presenter: TaskListViewController, options: TaskEditorDependencyOptions) {
+  init(presenter: FolderListViewController, options: FolderEditorDependencyOptions) {
     self.presenter = presenter
     self.options = options
     super.init()
   }
 }
 
-extension TaskEditorCoordinator: Coordinatable {
+extension FolderEditorCoordinator: Coordinatable {
   func start() {
-    let vc = TaskEditorViewController()
+    let vc = FolderEditorViewController()
     vc.dataStore = self.options.cacheService
     vc.networkService = self.options.networkService
     vc.delegate = self
     self.options.cacheService.delegate = vc
-    let navController = TaskEditorNavigationController(rootViewController: vc)
+    let navController = FolderEditorNavigationController(rootViewController: vc)
 
     self.viewController = vc
     self.navigationController = navController
@@ -40,7 +40,7 @@ extension TaskEditorCoordinator: Coordinatable {
   }
 }
 
-extension TaskEditorCoordinator: TaskEditorViewControllerDelegate {
+extension FolderEditorCoordinator: FolderEditorViewControllerDelegate {
   func controller(didTapCancelButton button: UIBarButtonItem) {
     self.viewController?.dismiss(animated: true, completion: nil)
   }

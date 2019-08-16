@@ -29,7 +29,7 @@ class TextInputCell: BaseTableViewCell, UniquelyIdentifable {
     return label
   }()
   
-  private var task: Task?
+  private var folder: Folder?
   
   weak var delegate: TextInputCellUpdating?
   
@@ -51,13 +51,13 @@ class TextInputCell: BaseTableViewCell, UniquelyIdentifable {
     self.counterLabel.heightAnchor.constraint(equalToConstant: 22).isActive = true
   }
   
-  func configure(task: Task?, delegate: TextInputCellUpdating) {
-    self.task = task
-    self.userInputTextView.text = task?.title ?? ""
-    let count = task?.title.count ?? 0
-    self.userInputTextView.textColor = Task.isTitleValid(title: task?.title ?? "") ? CustomColor.darkText : CustomColor.roseScarlet
-    self.counterLabel.text = "\(count) = [\(Task.TITLE_MIN_LENGTH), \(Task.TITLE_MAX_LEGNTH)]"
-    self.counterLabel.textColor = Task.isTitleValid(title: task?.title ?? "") ? CustomColor.darkText : CustomColor.roseScarlet
+  func configure(folder: Folder?, delegate: TextInputCellUpdating) {
+    self.folder = folder
+    self.userInputTextView.text = folder?.title ?? ""
+    let count = folder?.title.count ?? 0
+    self.userInputTextView.textColor = Folder.isTitleValid(title: folder?.title ?? "") ? CustomColor.darkText : CustomColor.roseScarlet
+    self.counterLabel.text = "\(count) = [\(Folder.TITLE_MIN_LENGTH), \(Folder.TITLE_MAX_LEGNTH)]"
+    self.counterLabel.textColor = Folder.isTitleValid(title: folder?.title ?? "") ? CustomColor.darkText : CustomColor.roseScarlet
     self.delegate = delegate
   }
   
@@ -74,9 +74,9 @@ class TextInputCell: BaseTableViewCell, UniquelyIdentifable {
 extension TextInputCell: UITextViewDelegate {
   func textViewDidChange(_ textView: UITextView) {
     let count = textView.text.count
-    self.counterLabel.text = "\(count) = [\(Task.TITLE_MIN_LENGTH), \(Task.TITLE_MAX_LEGNTH)]"
-    self.counterLabel.textColor = Task.isTitleValid(title: textView.text) ? CustomColor.darkText : CustomColor.roseScarlet
-    self.userInputTextView.textColor = Task.isTitleValid(title: textView.text) ? CustomColor.darkText : CustomColor.roseScarlet
+    self.counterLabel.text = "\(count) = [\(Folder.TITLE_MIN_LENGTH), \(Folder.TITLE_MAX_LEGNTH)]"
+    self.counterLabel.textColor = Folder.isTitleValid(title: textView.text) ? CustomColor.darkText : CustomColor.roseScarlet
+    self.userInputTextView.textColor = Folder.isTitleValid(title: textView.text) ? CustomColor.darkText : CustomColor.roseScarlet
     self.delegate?.textDidChange(textView.text)
   }
 }

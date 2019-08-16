@@ -1,5 +1,5 @@
 //
-//  TaskListViewControllerDelegate.swift
+//  FolderListViewControllerDelegate.swift
 //  gud-ios
 //
 //  Created by sudofluff on 7/29/19.
@@ -8,8 +8,8 @@
 
 import UIKit
 
-protocol TaskListViewControllerDelegate: NSObjectProtocol {
+protocol FolderListViewControllerDelegate: NSObjectProtocol {
   func controller(didTapAddButton button: UIBarButtonItem)
   
-  func controller(didSelectTask task: Task)
+  func controller(didSelectFolder folder: Folder)
 }

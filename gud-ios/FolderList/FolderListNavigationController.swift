@@ -1,5 +1,5 @@
 //
-//  TaskListNavigationController.swift
+//  FolderListNavigationController.swift
 //  gud-ios
 //
 //  Created by sudofluff on 7/29/19.
@@ -8,10 +8,10 @@
 
 import UIKit
 
-class TaskListNavigationController: BaseNavigationController {
+class FolderListNavigationController: BaseNavigationController {
   private func configureView() {
-    self.tabBarItem.title = "Tasks"
-    self.tabBarItem.image = UIImage(named: "Tasks")
+    self.tabBarItem.title = "Folders"
+    self.tabBarItem.image = UIImage(named: "Folders")
   }
   
   override func viewDidLoad() {

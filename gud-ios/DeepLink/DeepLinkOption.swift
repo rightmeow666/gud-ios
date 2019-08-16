@@ -9,6 +9,6 @@
 import Foundation
 
 enum DeepLinkOption {
-  case taskList
-  case taskDetails
+  case folderList
+  case folderDetails
 }

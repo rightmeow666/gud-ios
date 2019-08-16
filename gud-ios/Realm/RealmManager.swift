@@ -15,11 +15,11 @@ class RealmManager: NSObject {
     case production
   }
   
-  static private let developmentConfig = Realm.Configuration(fileURL: URL.inDocumentDirectory(filename: "default.realm"), schemaVersion: 0, migrationBlock: nil, objectTypes: [Task.self])
+  static private let developmentConfig = Realm.Configuration(fileURL: URL.inDocumentDirectory(filename: "default.realm"), schemaVersion: 0, migrationBlock: nil, objectTypes: [Folder.self])
 
-  static private let testConfig = Realm.Configuration(fileURL: URL.inDocumentDirectory(filename: "test.realm"), schemaVersion: 0, migrationBlock: nil, objectTypes: [Task.self])
+  static private let testConfig = Realm.Configuration(fileURL: URL.inDocumentDirectory(filename: "test.realm"), schemaVersion: 0, migrationBlock: nil, objectTypes: [Folder.self])
 
-  static private let productionConfig = Realm.Configuration(fileURL: URL.inDocumentDirectory(filename: "production.realm"), schemaVersion: 0, migrationBlock: nil, objectTypes: [Task.self])
+  static private let productionConfig = Realm.Configuration(fileURL: URL.inDocumentDirectory(filename: "production.realm"), schemaVersion: 0, migrationBlock: nil, objectTypes: [Folder.self])
   
   static let shared = RealmManager()
   

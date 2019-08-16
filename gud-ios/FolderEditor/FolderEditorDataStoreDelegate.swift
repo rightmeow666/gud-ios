@@ -1,5 +1,5 @@
 //
-//  TaskEditorDataStoreDelegate.swift
+//  FolderEditorDataStoreDelegate.swift
 //  gud-ios
 //
 //  Created by sudofluff on 8/10/19.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol TaskEditorDataStoreDelegate: NSObjectProtocol {
+protocol FolderEditorDataStoreDelegate: NSObjectProtocol {
   func store(didErr error: Error)
   
   func store(isModified: Bool)

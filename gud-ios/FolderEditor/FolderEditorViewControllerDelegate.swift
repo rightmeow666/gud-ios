@@ -1,5 +1,5 @@
 //
-//  TaskEditorViewControllerDelegate.swift
+//  FolderEditorViewControllerDelegate.swift
 //  gud-ios
 //
 //  Created by sudofluff on 8/7/19.
@@ -8,6 +8,6 @@
 
 import UIKit
 
-protocol TaskEditorViewControllerDelegate: NSObjectProtocol {
+protocol FolderEditorViewControllerDelegate: NSObjectProtocol {
   func controller(didTapCancelButton button: UIBarButtonItem)
 }

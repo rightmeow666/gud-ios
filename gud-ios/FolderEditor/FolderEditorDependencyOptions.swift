@@ -1,5 +1,5 @@
 //
-//  TaskEditorDependencyOptions.swift
+//  FolderEditorDependencyOptions.swift
 //  gud-ios
 //
 //  Created by sudofluff on 8/7/19.
@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct TaskEditorDependencyOptions {
+struct FolderEditorDependencyOptions {
   let networkService: GudNetworkService
   
-  let cacheService: TaskEditorDataStore
+  let cacheService: FolderEditorDataStore
 }

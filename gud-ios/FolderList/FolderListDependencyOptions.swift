@@ -1,5 +1,5 @@
 //
-//  TaskListDependencyOptions.swift
+//  FolderListDependencyOptions.swift
 //  gud-ios
 //
 //  Created by sudofluff on 8/3/19.
@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct TaskListDependencyOptions {
+struct FolderListDependencyOptions {
   let networkService: GudNetworkService
   
-  let cacheService: TaskListDataStore
+  let cacheService: FolderListDataStore
 }
