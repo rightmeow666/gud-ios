@@ -51,13 +51,13 @@ class TextInputCell: BaseTableViewCell, UniquelyIdentifable {
     self.counterLabel.heightAnchor.constraint(equalToConstant: 22).isActive = true
   }
   
-  func configure(folder: Folder?, delegate: TextInputCellUpdating) {
+  func configure(folder: Folder, delegate: TextInputCellUpdating) {
     self.folder = folder
-    self.userInputTextView.text = folder?.title ?? ""
-    let count = folder?.title.count ?? 0
-    self.userInputTextView.textColor = Folder.isTitleValid(title: folder?.title ?? "") ? CustomColor.darkText : CustomColor.roseScarlet
+    self.userInputTextView.text = folder.title
+    let count = folder.title.count
+    self.userInputTextView.textColor = Folder.isTitleValid(title: folder.title) ? CustomColor.darkText : CustomColor.roseScarlet
     self.counterLabel.text = "\(count) = [\(Folder.TITLE_MIN_LENGTH), \(Folder.TITLE_MAX_LEGNTH)]"
-    self.counterLabel.textColor = Folder.isTitleValid(title: folder?.title ?? "") ? CustomColor.darkText : CustomColor.roseScarlet
+    self.counterLabel.textColor = Folder.isTitleValid(title: folder.title) ? CustomColor.darkText : CustomColor.roseScarlet
     self.delegate = delegate
   }
   

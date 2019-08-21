@@ -166,9 +166,9 @@ class FolderCell: BaseCollectionViewCell, UniquelyIdentifable {
   }
   
   func configure(folder: Folder?) {
+    self.dateLabel.text = folder != nil ? "\(folder!.createdAt)" : "createdAt unavailable"
     self.titleLabel.text = folder?.title ?? "Untitled"
-    self.subtitleLabel.text = "subtitle should show the title of folder's first child from its array"
-    self.dateLabel.text = "12/21/2019"
+    self.subtitleLabel.text = "Folder is empty"
     self.statsLabel.text = "200"
   }
   

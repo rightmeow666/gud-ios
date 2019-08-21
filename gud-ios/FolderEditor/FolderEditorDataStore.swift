@@ -11,7 +11,7 @@ import Foundation
 class FolderEditorDataStore: BaseCacheService {
   weak var delegate: FolderEditorDataStoreDelegate?
   
-  private var isModified: Bool {
+  var isModified: Bool {
     return self.initialFolder.title != self.folder.title
   }
   
@@ -25,9 +25,8 @@ class FolderEditorDataStore: BaseCacheService {
   
   func commitChanges() {
     do {
-      if self.isModified {
-        try self.folder.save()
-      }
+      try self.folder.save()
+      self.delegate?.store(didCommitChangesToFolder: self.folder)
     } catch let err {
       self.delegate?.store(didErr: err)
     }

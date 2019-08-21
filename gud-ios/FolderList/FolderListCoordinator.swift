@@ -13,11 +13,7 @@ class FolderListCoordinator: NSObject {
   
   private let options: FolderListDependencyOptions
   
-  private var viewController: FolderListViewController?
-  
-  private var navigationController: FolderListNavigationController?
-  
-  private var folderEditorCoordinator: FolderEditorCoordinator?
+  private var childCoordinator: FolderEditorCoordinator?
   
   init(presenter: AppTabBarController, options: FolderListDependencyOptions) {
     self.presenter = presenter
@@ -29,15 +25,10 @@ class FolderListCoordinator: NSObject {
 extension FolderListCoordinator: Coordinatable {
   func start() {
     let vc = FolderListViewController()
-    vc.networkService = self.options.networkService
-    vc.dataStore = self.options.cacheService
-    vc.dataStore?.delegate = vc
-    let navController = FolderListNavigationController(rootViewController: vc)
-    
+    let vm = FolderListViewModel(options: self.options, delegate: vc)
     vc.delegate = self
-    self.viewController = vc
-    self.navigationController = navController
-    
+    vc.viewModel = vm
+    let navController = FolderListNavigationController(rootViewController: vc)
     if self.presenter.viewControllers == nil {
       self.presenter.setViewControllers([navController], animated: true)
     } else {
@@ -47,15 +38,15 @@ extension FolderListCoordinator: Coordinatable {
 }
 
 extension FolderListCoordinator: FolderListViewControllerDelegate {
-  func controller(didTapAddButton button: UIBarButtonItem) {
-    guard let vc = self.viewController else { return }
+  func folderListViewController(_ controller: FolderListViewController, didTapAddButton button: UIBarButtonItem) {
     let options = FolderEditorDependencyOptions(networkService: GudNetworkService(), cacheService: FolderEditorDataStore(folder: nil))
-    self.folderEditorCoordinator = FolderEditorCoordinator(presenter: vc, options: options)
-    self.folderEditorCoordinator?.start()
+    let folderEditorCoordinator = FolderEditorCoordinator(presenter: controller, options: options)
+    self.childCoordinator = folderEditorCoordinator
+    folderEditorCoordinator.start()
   }
   
-  func controller(didSelectFolder folder: Folder) {
-    // TODO: segues to folder details
-    print("seguing to folder details")
+  func folderListViewController(_ controller: FolderListViewController, didSelectFolder folder: Folder) {
+    // TODO: segue to folder details
+    print("segue to folder details")
   }
 }

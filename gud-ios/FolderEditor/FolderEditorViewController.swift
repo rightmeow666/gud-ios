@@ -9,11 +9,9 @@
 import UIKit
 
 class FolderEditorViewController: BaseViewController {
-  weak var delegate: FolderEditorViewControllerDelegate?
+  weak var viewControllerDelegate: FolderEditorViewControllerDelegate?
   
-  var networkService: GudNetworkService?
-  
-  var dataStore: FolderEditorDataStore?
+  var viewModel: FolderEditorViewModel!
   
   lazy private var tableView: UITableView = {
     let view = UITableView(frame: self.view.frame, style: .grouped)
@@ -61,21 +59,19 @@ class FolderEditorViewController: BaseViewController {
   }
   
   @objc private func pullButtonTapped(_ sender: UIBarButtonItem) {
-    // TODO: Pull new changes from remote
-    print("Pull button tapped")
+    self.viewModel.pullChanges()
   }
   
   @objc private func pushButtonTapped(_ sender: UIBarButtonItem) {
-    // TODO: Push new changes to remote
-    print("Push new changes to remote")
+    self.viewModel.pushChanges()
   }
   
   @objc private func commitButtonTapped(_ sender: UIBarButtonItem) {
-    self.dataStore?.commitChanges()
+    self.viewModel.commitChanges()
   }
   
   @objc private func cancelButtonTapped(_ sender: UIBarButtonItem) {
-    self.delegate?.controller(didTapCancelButton: sender)
+    self.viewControllerDelegate?.folderEditorViewController(self, didTapCancelButton: sender, hasUncommittedChanges: self.viewModel.isModified)
   }
   
   override func viewDidLoad() {
@@ -84,38 +80,36 @@ class FolderEditorViewController: BaseViewController {
   }
 }
 
-extension FolderEditorViewController: FolderEditorDataStoreDelegate {
-  func store(didErr error: Error) {
+extension FolderEditorViewController: FolderEditorViewModelDelegate {
+  func viewModel(_ vm: FolderEditorViewModel, didErr error: Error) {
+    // TODO: implement error handling
     print(error.localizedDescription)
   }
   
-  func store(isModified: Bool) {
-    self.commitButton.isEnabled = isModified
+  func viewModel(_ vm: FolderEditorViewModel, didCommitChangesToFolder folder: Folder) {
+    // TODO: implement success handling
+    print("changes committed to folder: \(folder)")
   }
 }
 
 extension FolderEditorViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 1
+    return self.viewModel.numberOfRows(inSection: section)
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: TextInputCell.cellId, for: indexPath) as! TextInputCell
-    cell.configure(folder: self.dataStore?.folder, delegate: self)
+    cell.configure(folder: self.viewModel.getFolder(), delegate: self)
     return cell
   }
   
   func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    if section == 0 {
-      return "title".uppercased()
-    } else {
-      return nil
-    }
+    return self.viewModel.titleForHeader(inSection: section)
   }
 }
 
 extension FolderEditorViewController: TextInputCellUpdating {
   func textDidChange(_ text: String) {
-    self.dataStore?.updateFolderTitle(title: text)
+    self.viewModel.updateFolder(withNewTitle: text)
   }
 }

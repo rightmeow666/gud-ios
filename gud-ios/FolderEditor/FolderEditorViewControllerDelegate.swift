@@ -8,6 +8,8 @@
 
 import UIKit
 
-protocol FolderEditorViewControllerDelegate: NSObjectProtocol {
-  func controller(didTapCancelButton button: UIBarButtonItem)
+protocol FolderEditorViewControllerDelegate: NSObjectProtocol {  
+  func folderEditorViewController(_ controller: FolderEditorViewController, didTapCancelButton button: UIBarButtonItem, hasUncommittedChanges: Bool)
+  
+  func folderEditorViewController(_ controller: FolderEditorViewController, didTapCommitButton button: UIBarButtonItem, updatedFolder: Folder)
 }

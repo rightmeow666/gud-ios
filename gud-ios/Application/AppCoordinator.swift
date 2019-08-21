@@ -9,11 +9,15 @@
 import UIKit
 
 class AppCoordinator: NSObject {
-  private let presenter: AppTabBarController
+  private let options: AppDependencyOptions
   
-  private var folderListCoordinator: FolderListCoordinator?
+  private let presenter: UIWindow
   
-  init(presenter: AppTabBarController) {
+  private var childCoordinators: [Coordinatable]
+  
+  init(options: AppDependencyOptions, presenter: UIWindow) {
+    self.options = options
+    self.childCoordinators = []
     self.presenter = presenter
     super.init()
   }
@@ -21,8 +25,22 @@ class AppCoordinator: NSObject {
 
 extension AppCoordinator: Coordinatable {
   func start() {
+    // app tab bar
+    let appTabBarController = AppTabBarController()
+    let appTabBarViewModel = AppViewModel(dependencyOptions: self.options, delegate: appTabBarController)
+    appTabBarController.viewModel = appTabBarViewModel
+    appTabBarController.viewControllerDelegate = self
+    self.presenter.rootViewController = appTabBarController
+    
+    // folder list
     let options = FolderListDependencyOptions(networkService: GudNetworkService(), cacheService: FolderListDataStore())
-    self.folderListCoordinator = FolderListCoordinator(presenter: presenter, options: options)
-    self.folderListCoordinator?.start()
+    let folderListCoordinator = FolderListCoordinator(presenter: appTabBarController, options: options)
+    self.childCoordinators.append(folderListCoordinator)
+    
+    // start
+    self.childCoordinators.forEach({ $0.start() })
   }
+}
+
+extension AppCoordinator: AppTabBarControllerDelegate {
 }

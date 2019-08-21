@@ -9,7 +9,7 @@
 import RealmSwift
 
 class Folder: BaseModel {
-  @objc dynamic var folderId: String = ""
+  @objc dynamic var folderId: String = UUID().uuidString
   
   @objc dynamic var title: String = ""
   
@@ -31,7 +31,7 @@ class Folder: BaseModel {
   }
   
   static var all: Results<Folder> {
-    return RealmManager.shared.db.objects(Folder.self)
+    return RealmManager.shared.db.objects(Folder.self).sorted(byKeyPath: "createdAt", ascending: false)
   }
   
   static func deleteAll(folders: [Folder]) throws {
@@ -78,6 +78,5 @@ class Folder: BaseModel {
   convenience init(title: String) {
     self.init()
     self.title = title
-    self.folderId = UUID().uuidString
   }
 }

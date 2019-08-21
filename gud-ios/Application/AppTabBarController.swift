@@ -9,4 +9,7 @@
 import UIKit
 
 class AppTabBarController: BaseTabBarController {
+  var viewModel: AppViewModel!
+  
+  weak var viewControllerDelegate: AppTabBarControllerDelegate?
 }

@@ -12,9 +12,7 @@ import RealmSwift
 class FolderListViewController: BaseViewController {
   weak var delegate: FolderListViewControllerDelegate?
   
-  var dataStore: FolderListDataStore?
-  
-  var networkService: GudNetworkService?
+  var viewModel: FolderListViewModel!
   
   lazy private var addButton: UIBarButtonItem = {
     let button = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped(_:)))
@@ -24,6 +22,11 @@ class FolderListViewController: BaseViewController {
   
   lazy private var cancelButton: UIBarButtonItem = {
     let button = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonTapped(_:)))
+    return button
+  }()
+  
+  lazy private var editButton: UIBarButtonItem = {
+    let button = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editButtonTapped(_:)))
     return button
   }()
   
@@ -55,9 +58,14 @@ class FolderListViewController: BaseViewController {
   
   @objc private func deleteButtonTapped(_ sender: UIBarButtonItem) {
     if self.isEditing {
-      guard let store = self.dataStore else { return }
-      store.deleteSelectedFolders()
+      self.viewModel.deleteSelectedFolders()
       self.isEditing = false
+    }
+  }
+  
+  @objc private func editButtonTapped(_ sender: UIBarButtonItem) {
+    if !self.isEditing {
+      self.isEditing = true
     }
   }
   
@@ -68,7 +76,9 @@ class FolderListViewController: BaseViewController {
   }
   
   @objc private func addButtonTapped(_ sender: UIBarButtonItem) {
-    self.delegate?.controller(didTapAddButton: sender)
+    if !self.isEditing {
+      self.delegate?.folderListViewController(self, didTapAddButton: sender)
+    }
   }
   
   @objc private func setEditMode(_ notification: Notification) {
@@ -79,7 +89,7 @@ class FolderListViewController: BaseViewController {
   
   private func configureView() {
     self.navigationItem.title = "Folder List"
-    self.navigationItem.setRightBarButtonItems([self.addButton], animated: true)
+    self.navigationItem.setRightBarButtonItems([self.addButton, self.editButton], animated: true)
     self.view.backgroundColor = CustomColor.white
     self.view.addSubview(self.collectionView)
     self.collectionView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
@@ -88,15 +98,11 @@ class FolderListViewController: BaseViewController {
     self.collectionView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
   }
   
-  private func observeEditModeNotification() {
-    NotificationGrandeCentral.observeNotificationToEnableEditMode(self, selector: #selector(setEditMode(_:)))
-  }
-  
   override func setEditing(_ editing: Bool, animated: Bool) {
     super.setEditing(editing, animated: animated)
     self.collectionView.allowsMultipleSelection = isEditing
     // updating nav bar
-    self.navigationItem.setRightBarButtonItems(editing ? [self.cancelButton] : [self.addButton], animated: true)
+    self.navigationItem.setRightBarButtonItems(editing ? [self.cancelButton] : [self.addButton, self.editButton], animated: true)
     self.navigationItem.setLeftBarButtonItems(editing ? [self.deleteButton] : [], animated: true)
     // updating cells
     for indexPath in self.collectionView.indexPathsForVisibleItems {
@@ -110,23 +116,23 @@ class FolderListViewController: BaseViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     self.configureView()
-    self.dataStore?.getFolderList()
+    self.viewModel.getFolderList()
   }
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
-    self.observeEditModeNotification()
+    NotificationGrandeCentral.observeNotificationToEnableEditMode(self, selector: #selector(setEditMode(_:)))
   }
 }
 
 extension FolderListViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return self.dataStore?.folders?.count ?? 0
+    return self.viewModel.getNumberOfItems(inSection: section)
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FolderCell.cellId, for: indexPath) as! FolderCell
-    let folder = self.dataStore?.folders?[indexPath.item]
+    let folder = self.viewModel.getFolder(atIndexPath: indexPath)
     cell.configure(folder: folder)
     return cell
   }
@@ -134,35 +140,31 @@ extension FolderListViewController: UICollectionViewDataSource {
 
 extension FolderListViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    guard let store = self.dataStore else { return }
-    guard let selectedFolder = store.folders?[indexPath.item] else { return }
     if self.isEditing {
-      store.appendSelectedFolder(selectedFolder: selectedFolder)
+      self.viewModel.selectFolder(atIndexPath: indexPath)
     } else {
-      self.delegate?.controller(didSelectFolder: selectedFolder)
+      guard let folder = self.viewModel.getFolder(atIndexPath: indexPath) else { return }
+      self.delegate?.folderListViewController(self, didSelectFolder: folder)
     }
   }
   
   func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
     if self.isEditing {
-      guard let store = self.dataStore else { return }
-      guard let deselectedFolder = store.folders?[indexPath.item] else { return }
-      if self.isEditing {
-        store.removeDeselectedFolder(deselectedFolder: deselectedFolder)
-      }
+      self.viewModel.deselectFolder(atIndexPath: indexPath)
     }
   }
 }
 
 extension FolderListViewController: UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    if let folder = self.dataStore?.folders?[indexPath.item] {
+    if let folder = self.viewModel.getFolder(atIndexPath: indexPath) {
       let titleWidth = collectionView.frame.width - 16 - 16 - 16 - 16
       let font = UIFont.preferredFont(forTextStyle: .body)
       let titleHeight = self.heightForView(text: folder.title, font: font, width: titleWidth)
       return CGSize(width: collectionView.frame.width, height: FolderCell.MINIMUM_HEIGHT + titleHeight)
+    } else {
+      return CGSize(width: collectionView.frame.width, height: FolderCell.MINIMUM_HEIGHT + 16)
     }
-    return CGSize(width: collectionView.frame.width, height: FolderCell.MINIMUM_HEIGHT + 16)
   }
   
   private func heightForView(text: String, font: UIFont, width: CGFloat) -> CGFloat {
@@ -176,16 +178,16 @@ extension FolderListViewController: UICollectionViewDelegateFlowLayout {
   }
 }
 
-extension FolderListViewController: FolderListDataStoreDelegate {
-  func store(didErr error: Error) {
+extension FolderListViewController: FolderListViewModelDelegate {
+  func viewModel(_ vm: FolderListViewModel, didErr error: Error) {
     print(error.localizedDescription)
   }
   
-  func store(didGetFolderList list: Results<Folder>) {
+  func viewModel(_ vm: FolderListViewModel, didGetFolderList list: Results<Folder>) {
     self.collectionView.reloadData()
   }
   
-  func store(didUpdateFolderList list: Results<Folder>, deletedIndice: [Int], insertedIndice: [Int], updatedIndice: [Int]) {
+  func viewModel(_ vm: FolderListViewModel, didUpdateFolderList list: Results<Folder>, deletedIndice: [Int], insertedIndice: [Int], updatedIndice: [Int]) {
     let ops = BlockOperation {
       let dis = deletedIndice.map({ IndexPath(item: $0, section: 0) })
       let iis = insertedIndice.map({ IndexPath(item: $0, section: 0) })

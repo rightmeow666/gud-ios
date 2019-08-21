@@ -52,6 +52,13 @@
 		F533E1D323009D1A005A624E /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F533E1D223009D1A005A624E /* BaseModel.swift */; };
 		F533E1D72300F94A005A624E /* TextInputCellUpdating.swift in Sources */ = {isa = PBXBuildFile; fileRef = F533E1D62300F94A005A624E /* TextInputCellUpdating.swift */; };
 		F533E1D923021845005A624E /* NotificationGrandCentral.swift in Sources */ = {isa = PBXBuildFile; fileRef = F533E1D823021845005A624E /* NotificationGrandCentral.swift */; };
+		F59644B82308ECEF009EE6C8 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59644B72308ECEF009EE6C8 /* AppViewModel.swift */; };
+		F59644BA2308EE5F009EE6C8 /* AppDependencyOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59644B92308EE5F009EE6C8 /* AppDependencyOptions.swift */; };
+		F59644BC230A127D009EE6C8 /* FolderListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59644BB230A127D009EE6C8 /* FolderListViewModel.swift */; };
+		F59644BE230A5E93009EE6C8 /* FolderListViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59644BD230A5E93009EE6C8 /* FolderListViewModelDelegate.swift */; };
+		F59644C2230D3B8C009EE6C8 /* AppTabBarControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59644C1230D3B8C009EE6C8 /* AppTabBarControllerDelegate.swift */; };
+		F59644C4230DA58F009EE6C8 /* FolderEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59644C3230DA58F009EE6C8 /* FolderEditorViewModel.swift */; };
+		F59644C6230DC452009EE6C8 /* FolderEditorViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59644C5230DC452009EE6C8 /* FolderEditorViewModelDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +125,13 @@
 		F533E1D223009D1A005A624E /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		F533E1D62300F94A005A624E /* TextInputCellUpdating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputCellUpdating.swift; sourceTree = "<group>"; };
 		F533E1D823021845005A624E /* NotificationGrandCentral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationGrandCentral.swift; sourceTree = "<group>"; };
+		F59644B72308ECEF009EE6C8 /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
+		F59644B92308EE5F009EE6C8 /* AppDependencyOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencyOptions.swift; sourceTree = "<group>"; };
+		F59644BB230A127D009EE6C8 /* FolderListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderListViewModel.swift; sourceTree = "<group>"; };
+		F59644BD230A5E93009EE6C8 /* FolderListViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderListViewModelDelegate.swift; sourceTree = "<group>"; };
+		F59644C1230D3B8C009EE6C8 /* AppTabBarControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBarControllerDelegate.swift; sourceTree = "<group>"; };
+		F59644C3230DA58F009EE6C8 /* FolderEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderEditorViewModel.swift; sourceTree = "<group>"; };
+		F59644C5230DC452009EE6C8 /* FolderEditorViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderEditorViewModelDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,7 +242,10 @@
 			children = (
 				F5106F5722EFFA5B00425299 /* AppCoordinator.swift */,
 				F5106F1B22EFF0D800425299 /* AppDelegate.swift */,
+				F59644B92308EE5F009EE6C8 /* AppDependencyOptions.swift */,
 				F5106F5522EFFA1600425299 /* AppTabBarController.swift */,
+				F59644C1230D3B8C009EE6C8 /* AppTabBarControllerDelegate.swift */,
+				F59644B72308ECEF009EE6C8 /* AppViewModel.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -255,6 +272,8 @@
 				F5106F4E22EFF84600425299 /* FolderListNavigationController.swift */,
 				F5106F4A22EFF52A00425299 /* FolderListViewController.swift */,
 				F5106F5922F01AF600425299 /* FolderListViewControllerDelegate.swift */,
+				F59644BB230A127D009EE6C8 /* FolderListViewModel.swift */,
+				F59644BD230A5E93009EE6C8 /* FolderListViewModelDelegate.swift */,
 			);
 			path = FolderList;
 			sourceTree = "<group>";
@@ -314,6 +333,8 @@
 				F5106F8322FB1F0300425299 /* FolderEditorNavigationController.swift */,
 				F5106F7F22FB1D3100425299 /* FolderEditorViewController.swift */,
 				F5106F8D22FBE8AA00425299 /* FolderEditorViewControllerDelegate.swift */,
+				F59644C3230DA58F009EE6C8 /* FolderEditorViewModel.swift */,
+				F59644C5230DC452009EE6C8 /* FolderEditorViewModelDelegate.swift */,
 			);
 			path = FolderEditor;
 			sourceTree = "<group>";
@@ -503,6 +524,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5106F7622F5FF7C00425299 /* GudNetworkService.swift in Sources */,
+				F59644BE230A5E93009EE6C8 /* FolderListViewModelDelegate.swift in Sources */,
 				F5106F5122EFF86E00425299 /* FolderListCoordinator.swift in Sources */,
 				F5106F9122FCE73F00425299 /* RealmManager.swift in Sources */,
 				F533E1D323009D1A005A624E /* BaseModel.swift in Sources */,
@@ -512,9 +534,11 @@
 				F5106F7C22F6670200425299 /* BaseCacheService.swift in Sources */,
 				F5106F8222FB1E4F00425299 /* FolderEditorCoordinator.swift in Sources */,
 				F5106F6A22F2A64300425299 /* CustomColor.swift in Sources */,
+				F59644BC230A127D009EE6C8 /* FolderListViewModel.swift in Sources */,
 				F5106F4B22EFF52A00425299 /* FolderListViewController.swift in Sources */,
 				F5106F4122EFF39500425299 /* BaseViewController.swift in Sources */,
 				F5106F8C22FBC80500425299 /* Persistable.swift in Sources */,
+				F59644C4230DA58F009EE6C8 /* FolderEditorViewModel.swift in Sources */,
 				F5106F8422FB1F0300425299 /* FolderEditorNavigationController.swift in Sources */,
 				F5106F6F22F5F49C00425299 /* FolderListDependencyOptions.swift in Sources */,
 				F5106F9A22FF463200425299 /* FolderListDataStoreDelegate.swift in Sources */,
@@ -526,11 +550,14 @@
 				F5106F5A22F01AF600425299 /* FolderListViewControllerDelegate.swift in Sources */,
 				F5106F9622FE27C400425299 /* BaseTableViewCell.swift in Sources */,
 				F5106F6522F1986800425299 /* FolderListDataStore.swift in Sources */,
+				F59644C2230D3B8C009EE6C8 /* AppTabBarControllerDelegate.swift in Sources */,
 				F5106F5822EFFA5B00425299 /* AppCoordinator.swift in Sources */,
 				F5106F7222F5F84100425299 /* NetworkServicable.swift in Sources */,
 				F5106F4622EFF41800425299 /* BaseTabBarController.swift in Sources */,
 				F5106F8E22FBE8AA00425299 /* FolderEditorViewControllerDelegate.swift in Sources */,
+				F59644B82308ECEF009EE6C8 /* AppViewModel.swift in Sources */,
 				F5106F7A22F666B700425299 /* BaseNetworkService.swift in Sources */,
+				F59644C6230DC452009EE6C8 /* FolderEditorViewModelDelegate.swift in Sources */,
 				F5106F5422EFF95600425299 /* Coordinatable.swift in Sources */,
 				F5106F4F22EFF84600425299 /* FolderListNavigationController.swift in Sources */,
 				F5106F6322F1824300425299 /* UniquelyIdentifiable.swift in Sources */,
@@ -542,6 +569,7 @@
 				F5106F8822FB210200425299 /* FolderEditorDataStore.swift in Sources */,
 				F5106F6822F1996800425299 /* Folder.swift in Sources */,
 				F5106F1C22EFF0D800425299 /* AppDelegate.swift in Sources */,
+				F59644BA2308EE5F009EE6C8 /* AppDependencyOptions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

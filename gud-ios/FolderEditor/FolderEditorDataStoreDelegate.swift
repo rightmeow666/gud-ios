@@ -11,5 +11,5 @@ import Foundation
 protocol FolderEditorDataStoreDelegate: NSObjectProtocol {
   func store(didErr error: Error)
   
-  func store(isModified: Bool)
+  func store(didCommitChangesToFolder folder: Folder)
 }

@@ -9,7 +9,7 @@
 import UIKit
 
 protocol FolderListViewControllerDelegate: NSObjectProtocol {
-  func controller(didTapAddButton button: UIBarButtonItem)
+  func folderListViewController(_ controller: FolderListViewController, didTapAddButton button: UIBarButtonItem)
   
-  func controller(didSelectFolder folder: Folder)
+  func folderListViewController(_ controller: FolderListViewController, didSelectFolder folder: Folder)
 }

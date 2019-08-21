@@ -14,18 +14,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
   
-  private var appCoordinator: AppCoordinator?
+  var appCoordinator: AppCoordinator?
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    let rootViewController = AppTabBarController()
-    self.appCoordinator = AppCoordinator(presenter: rootViewController)
-    
     let win = UIWindow(frame: UIScreen.main.bounds)
-    win.rootViewController = rootViewController
     win.makeKeyAndVisible()
     win.backgroundColor = CustomColor.white
     self.window = win
-
+    
+    let options = AppDependencyOptions(networkService: GudNetworkService())
+    let ac = AppCoordinator(options: options, presenter: win)
+    self.appCoordinator = ac
     self.appCoordinator?.start()
     return true
   }
