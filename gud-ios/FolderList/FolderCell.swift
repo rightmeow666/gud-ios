@@ -64,7 +64,6 @@ class FolderCell: BaseCollectionViewCell, UniquelyIdentifable {
   
   lazy var subtitleLabel: UILabel = {
     let label = UILabel()
-    label.text = "Mauris sit amet aliquam mauris, sed dapibus nunc. Proin"
     label.font = UIFont.preferredFont(forTextStyle: .footnote)
     label.translatesAutoresizingMaskIntoConstraints = false
     return label
@@ -170,10 +169,10 @@ class FolderCell: BaseCollectionViewCell, UniquelyIdentifable {
   }
   
   func configure(folder: Folder?) {
-    self.dateLabel.text = folder != nil ? "\(self.getFormattedDate(unformattedDate: folder!.updatedAt, formatter: Folder.localDateFormatter))" : "aishdjkasd"
+    self.dateLabel.text = folder != nil ? "\(self.getFormattedDate(unformattedDate: folder!.updatedAt, formatter: Folder.localDateFormatter))" : "Invalid Folder"
     self.titleLabel.text = folder?.title ?? "Untitled"
     self.subtitleLabel.text = "Folder is empty"
-    self.statsLabel.text = "200"
+    self.statsLabel.text = "|  200 tasks"
   }
   
   override init(frame: CGRect) {

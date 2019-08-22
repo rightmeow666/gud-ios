@@ -4,7 +4,7 @@ platform :ios, '12.4'
 target 'gud-ios' do
   use_frameworks!
 
-  pod 'RealmSwift'
+  pod 'RealmSwift', '~> 3.17'
 
   target 'gud-iosTests' do
     inherit! :search_paths
