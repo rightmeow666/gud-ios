@@ -165,8 +165,12 @@ class FolderCell: BaseCollectionViewCell, UniquelyIdentifable {
     }
   }
   
+  private func getFormattedDate(unformattedDate: NSDate, formatter: DateFormatter) -> String {
+    return formatter.string(from: unformattedDate as Date)
+  }
+  
   func configure(folder: Folder?) {
-    self.dateLabel.text = folder != nil ? "\(folder!.createdAt)" : "createdAt unavailable"
+    self.dateLabel.text = folder != nil ? "\(self.getFormattedDate(unformattedDate: folder!.updatedAt, formatter: Folder.localDateFormatter))" : "aishdjkasd"
     self.titleLabel.text = folder?.title ?? "Untitled"
     self.subtitleLabel.text = "Folder is empty"
     self.statsLabel.text = "200"

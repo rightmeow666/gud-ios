@@ -9,6 +9,12 @@
 import RealmSwift
 
 class BaseModel: Object {
+  static let localDateFormatter: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyyy-MM-dd HH:mm"
+    return formatter
+  }()
+  
   enum PersistenceError: Error {
     case readError(error: Error)
     
