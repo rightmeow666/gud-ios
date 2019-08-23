@@ -18,3 +18,6 @@ class BaseViewController: UIViewController {
     self.configureView()
   }
 }
+
+extension BaseViewController: BasicAlerting {
+}

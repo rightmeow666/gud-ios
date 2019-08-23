@@ -59,10 +59,10 @@ class Folder: BaseModel {
   func save() throws {
     do {
       guard self.title.count <= Folder.TITLE_MAX_LEGNTH else {
-        throw PersistenceError.constraintError(message: "title should be less than or equal to \(Folder.TITLE_MAX_LEGNTH) characters.")
+        throw PersistenceError.customError(message: "title should be less than or equal to \(Folder.TITLE_MAX_LEGNTH) characters.")
       }
       guard self.title.count >= Folder.TITLE_MIN_LENGTH else {
-        throw PersistenceError.constraintError(message: "title should be greater than or equal to \(Folder.TITLE_MIN_LENGTH) characters.")
+        throw PersistenceError.customError(message: "title should be greater than or equal to \(Folder.TITLE_MIN_LENGTH) characters.")
       }
       try RealmManager.shared.db.write {
         self.updatedAt = Date()

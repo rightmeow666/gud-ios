@@ -60,6 +60,7 @@
 		F59644C4230DA58F009EE6C8 /* FolderEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59644C3230DA58F009EE6C8 /* FolderEditorViewModel.swift */; };
 		F59644C6230DC452009EE6C8 /* FolderEditorViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59644C5230DC452009EE6C8 /* FolderEditorViewModelDelegate.swift */; };
 		F5D9092223105EFE00757C45 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D9092123105EFE00757C45 /* Task.swift */; };
+		F5D9092623107C5700757C45 /* BasicAlerting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D9092523107C5700757C45 /* BasicAlerting.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,6 +135,7 @@
 		F59644C3230DA58F009EE6C8 /* FolderEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderEditorViewModel.swift; sourceTree = "<group>"; };
 		F59644C5230DC452009EE6C8 /* FolderEditorViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderEditorViewModelDelegate.swift; sourceTree = "<group>"; };
 		F5D9092123105EFE00757C45 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		F5D9092523107C5700757C45 /* BasicAlerting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAlerting.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -283,6 +285,7 @@
 		F5106F5222EFF93F00425299 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				F5D9092523107C5700757C45 /* BasicAlerting.swift */,
 				F5106F7322F5F84A00425299 /* CacheServicable.swift */,
 				F5106F5322EFF95600425299 /* Coordinatable.swift */,
 				F5106F7122F5F84100425299 /* NetworkServicable.swift */,
@@ -567,6 +570,7 @@
 				F5106F9422FE277900425299 /* TextInputCell.swift in Sources */,
 				F5106F8022FB1D3100425299 /* FolderEditorViewController.swift in Sources */,
 				F5D9092223105EFE00757C45 /* Task.swift in Sources */,
+				F5D9092623107C5700757C45 /* BasicAlerting.swift in Sources */,
 				F5106F8622FB1F3400425299 /* FolderEditorDependencyOptions.swift in Sources */,
 				F5106F9822FF443100425299 /* FolderEditorDataStoreDelegate.swift in Sources */,
 				F5106F5F22F1818F00425299 /* FolderCell.swift in Sources */,

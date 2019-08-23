@@ -12,4 +12,8 @@ class BaseCacheService: NSObject, CacheServicable {
   override init() {
     super.init()
   }
+  
+  enum DataStoreError: Error {
+    case customError(message: String)
+  }
 }

@@ -83,7 +83,7 @@ class FolderEditorViewController: BaseViewController {
 extension FolderEditorViewController: FolderEditorViewModelDelegate {
   func viewModel(_ vm: FolderEditorViewModel, didErr error: Error) {
     // TODO: implement error handling
-    print(error.localizedDescription)
+    self.presentAlert("You are up-to-date", message: error.localizedDescription, completion: nil)
   }
   
   func viewModel(_ vm: FolderEditorViewModel, didCommitChangesToFolder folder: Folder) {

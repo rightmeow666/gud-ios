@@ -32,6 +32,9 @@ class FolderEditorViewModel: NSObject {
   func commitChanges() {
     if self.store.isModified {
       self.store.commitChanges()
+    } else {
+      let err = FolderEditorDataStore.DataStoreError.customError(message: "No changes to commit.")
+      self.delegate?.viewModel(self, didErr: err)
     }
   }
   

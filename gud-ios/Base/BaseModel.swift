@@ -26,6 +26,6 @@ class BaseModel: Object {
     
     case deleteError(error: Error)
     
-    case constraintError(message: String)
+    case customError(message: String)
   }
 }
