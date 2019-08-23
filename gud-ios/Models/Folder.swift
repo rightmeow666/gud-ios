@@ -17,6 +17,8 @@ class Folder: BaseModel {
   
   @objc dynamic var updatedAt: Date = Date()
   
+  var tasks = List<Task>()
+  
   static let TITLE_MAX_LEGNTH: Int = 128
   
   static let TITLE_MIN_LENGTH: Int = 3

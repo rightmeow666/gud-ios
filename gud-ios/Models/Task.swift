@@ -23,6 +23,8 @@ class Task: BaseModel {
   
   @objc dynamic var isCompleted: Bool = false
   
+  let folder = LinkingObjects(fromType: Folder.self, property: "tasks")
+  
   static let TITLE_MAX_LEGNTH: Int = 512
   
   static let TITLE_MIN_LENGTH: Int = 3
