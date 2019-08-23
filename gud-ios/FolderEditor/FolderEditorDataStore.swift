@@ -26,6 +26,7 @@ class FolderEditorDataStore: BaseCacheService {
   func commitChanges() {
     do {
       try self.folder.save()
+      self.initialFolder = self.folder
       self.delegate?.store(didCommitChangesToFolder: self.folder)
     } catch let err {
       self.delegate?.store(didErr: err)
