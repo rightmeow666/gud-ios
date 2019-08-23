@@ -150,26 +150,14 @@ class FolderCell: BaseCollectionViewCell, UniquelyIdentifable {
     self.containerView.backgroundColor = isHighlighted ? CustomColor.candyWhite : CustomColor.offWhite
   }
   
-  private func addLongPressGesture(toView view: UIView) {
-    let recognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.postNotificationToEnableEditMode(_:)))
-    recognizer.allowableMovement = 10
-    recognizer.numberOfTouchesRequired = 1
-    recognizer.minimumPressDuration = 1.3
-    view.addGestureRecognizer(recognizer)
-  }
-  
   @objc func postNotificationToEnableEditMode(_ recognizer: UILongPressGestureRecognizer) {
     if self.isEditing == false {
       NotificationGrandeCentral.postNotificationToEnableEditMode(isEditing: true)
     }
   }
   
-  private func getFormattedDate(unformattedDate: NSDate, formatter: DateFormatter) -> String {
-    return formatter.string(from: unformattedDate as Date)
-  }
-  
   func configure(folder: Folder?) {
-    self.dateLabel.text = folder != nil ? "\(self.getFormattedDate(unformattedDate: folder!.updatedAt, formatter: Folder.localDateFormatter))" : "Invalid Folder"
+    self.dateLabel.text = folder != nil ? "\(folder!.getFormattedDateString(unformattedDate: folder!.createdAt))" : "Invalid Folder"
     self.titleLabel.text = folder?.title ?? "Untitled"
     self.subtitleLabel.text = "Folder is empty"
     self.statsLabel.text = "|  200 tasks"
@@ -178,7 +166,7 @@ class FolderCell: BaseCollectionViewCell, UniquelyIdentifable {
   override init(frame: CGRect) {
     super.init(frame: frame)
     self.configureView()
-    self.addLongPressGesture(toView: self.containerView)
+    self.addLongPressGesture(toView: self.containerView, target: self, action: #selector(postNotificationToEnableEditMode(_:)))
   }
   
   required init?(coder aDecoder: NSCoder) {

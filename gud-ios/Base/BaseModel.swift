@@ -15,6 +15,10 @@ class BaseModel: Object {
     return formatter
   }()
   
+  func getFormattedDateString(unformattedDate: NSDate, formatter: DateFormatter = BaseModel.localDateFormatter) -> String {
+    return formatter.string(from: unformattedDate as Date)
+  }
+  
   enum PersistenceError: Error {
     case readError(error: Error)
     
