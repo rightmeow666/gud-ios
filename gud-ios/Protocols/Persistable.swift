@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol Persistable {
+protocol Persistable where Self: NSObject {
   associatedtype ExplicitSelf = Self
   
   typealias BeforeSave = () -> Void
