@@ -13,9 +13,9 @@ class Folder: BaseModel {
   
   @objc dynamic var title: String = ""
   
-  @objc dynamic var createdAt: NSDate = NSDate()
+  @objc dynamic var createdAt: Date = Date()
   
-  @objc dynamic var updatedAt: NSDate = NSDate()
+  @objc dynamic var updatedAt: Date = Date()
   
   static let TITLE_MAX_LEGNTH: Int = 128
   
@@ -63,7 +63,7 @@ class Folder: BaseModel {
         throw PersistenceError.constraintError(message: "title should be greater than or equal to \(Folder.TITLE_MIN_LENGTH) characters.")
       }
       try RealmManager.shared.db.write {
-        self.updatedAt = NSDate()
+        self.updatedAt = Date()
         RealmManager.shared.db.add(self, update: .error)
       }
     } catch let err {

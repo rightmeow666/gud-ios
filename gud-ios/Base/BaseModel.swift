@@ -11,12 +11,12 @@ import RealmSwift
 class BaseModel: Object {
   static let localDateFormatter: DateFormatter = {
     let formatter = DateFormatter()
-    formatter.dateFormat = "yyyy-MM-dd HH:mm"
+    formatter.dateFormat = "yyyy-MM-dd HH:mm zzz"
     return formatter
   }()
   
-  func getFormattedDateString(unformattedDate: NSDate, formatter: DateFormatter = BaseModel.localDateFormatter) -> String {
-    return formatter.string(from: unformattedDate as Date)
+  func getFormattedDateString(unformattedDate: Date, formatter: DateFormatter = BaseModel.localDateFormatter) -> String {
+    return formatter.string(from: unformattedDate)
   }
   
   enum PersistenceError: Error {

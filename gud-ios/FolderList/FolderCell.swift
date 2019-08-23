@@ -160,7 +160,7 @@ class FolderCell: BaseCollectionViewCell, UniquelyIdentifable {
     self.dateLabel.text = folder != nil ? "\(folder!.getFormattedDateString(unformattedDate: folder!.createdAt))" : "Invalid Folder"
     self.titleLabel.text = folder?.title ?? "Untitled"
     self.subtitleLabel.text = "Folder is empty"
-    self.statsLabel.text = "|  200 tasks"
+    self.statsLabel.text = "200 tasks"
   }
   
   override init(frame: CGRect) {
