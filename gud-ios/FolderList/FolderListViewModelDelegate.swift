@@ -9,9 +9,11 @@
 import RealmSwift
 
 protocol FolderListViewModelDelegate: NSObjectProtocol {
+  func shouldUpdateEditMode(_ vm: FolderListViewModel, isEditing: Bool)
+  
+  func didGetFolderList(_ vm: FolderListViewModel)
+  
   func viewModel(_ vm: FolderListViewModel, didErr error: Error)
-  
-  func viewModel(_ vm: FolderListViewModel, didGetFolderList list: Results<Folder>)
-  
-  func viewModel(_ vm: FolderListViewModel, didUpdateFolderList list: Results<Folder>, deletedIndice: [Int], insertedIndice: [Int], updatedIndice: [Int])
+    
+  func viewModel(_ vm: FolderListViewModel, deletedIndice: [Int], insertedIndice: [Int], modifiedIndice: [Int])
 }

@@ -9,15 +9,11 @@
 import RealmSwift
 
 class FolderListDataStore: BaseCacheService {
-  weak var delegate: FolderListDataStoreDelegate?
+//  weak var delegate: FolderListDataStoreDelegate?
   
   var realmNotificationToken: NotificationToken?
   
-  var folders: Results<Folder>? {
-    didSet {
-      self.observeFoldersForChanges()
-    }
-  }
+  var folders: Results<Folder>?
   
   /// Array of unique selected folders
   var selectedFolders: [Folder] = []
@@ -30,32 +26,25 @@ class FolderListDataStore: BaseCacheService {
     self.selectedFolders.removeAll(where: { $0.folderId == folder.folderId })
   }
   
-  func deleteSelectedFolders() {
+  func deleteSelectedFolders(completion: (Result<String, Error>) -> Void) {
     do {
+      let numberOfFolders = self.selectedFolders.count
       try Folder.deleteAll(folders: self.selectedFolders)
+      completion(.success("\(numberOfFolders) Folders deleted"))
     } catch let err {
-      self.delegate?.store(didErr: err)
+      completion(.failure(err))
     }
   }
   
-  func observeFoldersForChanges() {
-    self.realmNotificationToken = self.folders?.observe({ [weak self] (changes) in
-      guard let strongSelf = self else { return }
-      guard let list = strongSelf.folders else { return }
-      switch changes {
-      case .initial:
-        self?.delegate?.store(didGetFolderList: list)
-      case .update(_, deletions: let deletions, insertions: let insertions, modifications: let modifications):
-        self?.delegate?.store(didUpdateFolderList: list, deletedIndice: deletions, insertedIndice: insertions, updatedIndice: modifications)
-        break
-      case .error(let err):
-        self?.delegate?.store(didErr: err)
-      }
+  func observeFoldersForChanges(completion: @escaping (RealmCollectionChange<Results<Folder>>) -> Void) {
+    self.realmNotificationToken = self.folders?.observe({ (changes) in
+      completion(changes)
     })
   }
   
-  func getFolderList() {
+  func getFolderList(completion: (() -> Void)? = nil) {
     self.folders = Folder.all
+    completion?()
   }
   
   override init() {

@@ -48,7 +48,6 @@
 		F5106F9422FE277900425299 /* TextInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F9322FE277900425299 /* TextInputCell.swift */; };
 		F5106F9622FE27C400425299 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F9522FE27C400425299 /* BaseTableViewCell.swift */; };
 		F5106F9822FF443100425299 /* FolderEditorDataStoreDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F9722FF443100425299 /* FolderEditorDataStoreDelegate.swift */; };
-		F5106F9A22FF463200425299 /* FolderListDataStoreDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F9922FF463200425299 /* FolderListDataStoreDelegate.swift */; };
 		F533E1D323009D1A005A624E /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F533E1D223009D1A005A624E /* BaseModel.swift */; };
 		F533E1D72300F94A005A624E /* TextInputCellUpdating.swift in Sources */ = {isa = PBXBuildFile; fileRef = F533E1D62300F94A005A624E /* TextInputCellUpdating.swift */; };
 		F533E1D923021845005A624E /* NotificationGrandCentral.swift in Sources */ = {isa = PBXBuildFile; fileRef = F533E1D823021845005A624E /* NotificationGrandCentral.swift */; };
@@ -123,7 +122,6 @@
 		F5106F9322FE277900425299 /* TextInputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputCell.swift; sourceTree = "<group>"; };
 		F5106F9522FE27C400425299 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		F5106F9722FF443100425299 /* FolderEditorDataStoreDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderEditorDataStoreDelegate.swift; sourceTree = "<group>"; };
-		F5106F9922FF463200425299 /* FolderListDataStoreDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderListDataStoreDelegate.swift; sourceTree = "<group>"; };
 		F533E1D223009D1A005A624E /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		F533E1D62300F94A005A624E /* TextInputCellUpdating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputCellUpdating.swift; sourceTree = "<group>"; };
 		F533E1D823021845005A624E /* NotificationGrandCentral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationGrandCentral.swift; sourceTree = "<group>"; };
@@ -271,7 +269,6 @@
 				F5106F5E22F1818F00425299 /* FolderCell.swift */,
 				F5106F5022EFF86E00425299 /* FolderListCoordinator.swift */,
 				F5106F6422F1986800425299 /* FolderListDataStore.swift */,
-				F5106F9922FF463200425299 /* FolderListDataStoreDelegate.swift */,
 				F5106F6E22F5F49C00425299 /* FolderListDependencyOptions.swift */,
 				F5106F4E22EFF84600425299 /* FolderListNavigationController.swift */,
 				F5106F4A22EFF52A00425299 /* FolderListViewController.swift */,
@@ -547,7 +544,6 @@
 				F59644C4230DA58F009EE6C8 /* FolderEditorViewModel.swift in Sources */,
 				F5106F8422FB1F0300425299 /* FolderEditorNavigationController.swift in Sources */,
 				F5106F6F22F5F49C00425299 /* FolderListDependencyOptions.swift in Sources */,
-				F5106F9A22FF463200425299 /* FolderListDataStoreDelegate.swift in Sources */,
 				F533E1D72300F94A005A624E /* TextInputCellUpdating.swift in Sources */,
 				F5106F5622EFFA1600425299 /* AppTabBarController.swift in Sources */,
 				F5106F5D22F0949900425299 /* DeepLinkOption.swift in Sources */,

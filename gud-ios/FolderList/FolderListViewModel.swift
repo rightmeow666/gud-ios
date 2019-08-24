@@ -16,11 +16,30 @@ class FolderListViewModel: NSObject {
   weak var delegate: FolderListViewModelDelegate?
   
   func deleteSelectedFolders() {
-    self.cacheService.deleteSelectedFolders()
+    self.cacheService.deleteSelectedFolders { (result) in
+      switch result {
+      case .failure(let err):
+        self.delegate?.viewModel(self, didErr: err)
+      case .success(let successMsg):
+        print(successMsg)
+        self.delegate?.shouldUpdateEditMode(self, isEditing: false)
+      }
+    }
   }
   
   func getFolderList() {
-    self.cacheService.getFolderList()
+    self.cacheService.getFolderList {
+      self.cacheService.observeFoldersForChanges(completion: { (change) in
+        switch change {
+        case .initial:
+          self.delegate?.didGetFolderList(self)
+        case .update(_, deletions: let deletions, insertions: let insertions, modifications: let modifications):
+          self.delegate?.viewModel(self, deletedIndice: deletions, insertedIndice: insertions, modifiedIndice: modifications)
+        case .error(let err):
+          self.delegate?.viewModel(self, didErr: err)
+        }
+      })
+    }
   }
   
   func getNumberOfItems(inSection section: Int) -> Int {
@@ -46,20 +65,5 @@ class FolderListViewModel: NSObject {
     self.cacheService = options.cacheService
     self.delegate = delegate
     super.init()
-    self.cacheService.delegate = self
-  }
-}
-
-extension FolderListViewModel: FolderListDataStoreDelegate {
-  func store(didErr error: Error) {
-    self.delegate?.viewModel(self, didErr: error)
-  }
-  
-  func store(didGetFolderList list: Results<Folder>) {
-    self.delegate?.viewModel(self, didGetFolderList: list)
-  }
-  
-  func store(didUpdateFolderList list: Results<Folder>, deletedIndice: [Int], insertedIndice: [Int], updatedIndice: [Int]) {
-    self.delegate?.viewModel(self, didUpdateFolderList: list, deletedIndice: deletedIndice, insertedIndice: insertedIndice, updatedIndice: updatedIndice)
   }
 }

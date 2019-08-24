@@ -59,7 +59,6 @@ class FolderListViewController: BaseViewController {
   @objc private func deleteButtonTapped(_ sender: UIBarButtonItem) {
     if self.isEditing {
       self.viewModel.deleteSelectedFolders()
-      self.isEditing = false
     }
   }
   
@@ -179,19 +178,23 @@ extension FolderListViewController: UICollectionViewDelegateFlowLayout {
 }
 
 extension FolderListViewController: FolderListViewModelDelegate {
-  func viewModel(_ vm: FolderListViewModel, didErr error: Error) {
-    print(error.localizedDescription)
+  func shouldUpdateEditMode(_ vm: FolderListViewModel, isEditing: Bool) {
+    self.isEditing = isEditing
   }
   
-  func viewModel(_ vm: FolderListViewModel, didGetFolderList list: Results<Folder>) {
+  func didGetFolderList(_ vm: FolderListViewModel) {
     self.collectionView.reloadData()
   }
   
-  func viewModel(_ vm: FolderListViewModel, didUpdateFolderList list: Results<Folder>, deletedIndice: [Int], insertedIndice: [Int], updatedIndice: [Int]) {
+  func viewModel(_ vm: FolderListViewModel, didErr error: Error) {
+    self.presentAlert("Error", message: error.localizedDescription, completion: nil)
+  }
+  
+  func viewModel(_ vm: FolderListViewModel, deletedIndice: [Int], insertedIndice: [Int], modifiedIndice: [Int]) {
     let ops = BlockOperation {
       let dis = deletedIndice.map({ IndexPath(item: $0, section: 0) })
       let iis = insertedIndice.map({ IndexPath(item: $0, section: 0) })
-      let uis = updatedIndice.map({ IndexPath(item: $0, section: 0) })
+      let uis = modifiedIndice.map({ IndexPath(item: $0, section: 0) })
       self.collectionView.deleteItems(at: dis)
       self.collectionView.insertItems(at: iis)
       self.collectionView.reloadItems(at: uis)
