@@ -9,6 +9,12 @@
 import UIKit
 import RealmSwift
 
+protocol FolderListViewControllerDelegate: NSObjectProtocol {
+  func folderListViewController(_ controller: FolderListViewController, didTapAddButton button: UIBarButtonItem)
+  
+  func folderListViewController(_ controller: FolderListViewController, didSelectFolder folder: Folder)
+}
+
 class FolderListViewController: BaseViewController {
   weak var delegate: FolderListViewControllerDelegate?
   

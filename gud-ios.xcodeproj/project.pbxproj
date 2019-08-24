@@ -22,7 +22,6 @@
 		F5106F5422EFF95600425299 /* Coordinatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F5322EFF95600425299 /* Coordinatable.swift */; };
 		F5106F5622EFFA1600425299 /* AppTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F5522EFFA1600425299 /* AppTabBarController.swift */; };
 		F5106F5822EFFA5B00425299 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F5722EFFA5B00425299 /* AppCoordinator.swift */; };
-		F5106F5A22F01AF600425299 /* FolderListViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F5922F01AF600425299 /* FolderListViewControllerDelegate.swift */; };
 		F5106F5D22F0949900425299 /* DeepLinkOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F5C22F0949900425299 /* DeepLinkOption.swift */; };
 		F5106F5F22F1818F00425299 /* FolderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F5E22F1818F00425299 /* FolderCell.swift */; };
 		F5106F6122F181AF00425299 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F6022F181AF00425299 /* BaseCollectionViewCell.swift */; };
@@ -43,21 +42,17 @@
 		F5106F8622FB1F3400425299 /* FolderEditorDependencyOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F8522FB1F3400425299 /* FolderEditorDependencyOptions.swift */; };
 		F5106F8822FB210200425299 /* FolderEditorDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F8722FB210200425299 /* FolderEditorDataStore.swift */; };
 		F5106F8C22FBC80500425299 /* Persistable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F8B22FBC80500425299 /* Persistable.swift */; };
-		F5106F8E22FBE8AA00425299 /* FolderEditorViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F8D22FBE8AA00425299 /* FolderEditorViewControllerDelegate.swift */; };
 		F5106F9122FCE73F00425299 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F9022FCE73F00425299 /* RealmManager.swift */; };
 		F5106F9422FE277900425299 /* TextInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F9322FE277900425299 /* TextInputCell.swift */; };
 		F5106F9622FE27C400425299 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F9522FE27C400425299 /* BaseTableViewCell.swift */; };
-		F5106F9822FF443100425299 /* FolderEditorDataStoreDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F9722FF443100425299 /* FolderEditorDataStoreDelegate.swift */; };
 		F533E1D323009D1A005A624E /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F533E1D223009D1A005A624E /* BaseModel.swift */; };
 		F533E1D72300F94A005A624E /* TextInputCellUpdating.swift in Sources */ = {isa = PBXBuildFile; fileRef = F533E1D62300F94A005A624E /* TextInputCellUpdating.swift */; };
 		F533E1D923021845005A624E /* NotificationGrandCentral.swift in Sources */ = {isa = PBXBuildFile; fileRef = F533E1D823021845005A624E /* NotificationGrandCentral.swift */; };
 		F59644B82308ECEF009EE6C8 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59644B72308ECEF009EE6C8 /* AppViewModel.swift */; };
 		F59644BA2308EE5F009EE6C8 /* AppDependencyOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59644B92308EE5F009EE6C8 /* AppDependencyOptions.swift */; };
 		F59644BC230A127D009EE6C8 /* FolderListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59644BB230A127D009EE6C8 /* FolderListViewModel.swift */; };
-		F59644BE230A5E93009EE6C8 /* FolderListViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59644BD230A5E93009EE6C8 /* FolderListViewModelDelegate.swift */; };
 		F59644C2230D3B8C009EE6C8 /* AppTabBarControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59644C1230D3B8C009EE6C8 /* AppTabBarControllerDelegate.swift */; };
 		F59644C4230DA58F009EE6C8 /* FolderEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59644C3230DA58F009EE6C8 /* FolderEditorViewModel.swift */; };
-		F59644C6230DC452009EE6C8 /* FolderEditorViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59644C5230DC452009EE6C8 /* FolderEditorViewModelDelegate.swift */; };
 		F5D9092223105EFE00757C45 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D9092123105EFE00757C45 /* Task.swift */; };
 		F5D9092623107C5700757C45 /* BasicAlerting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D9092523107C5700757C45 /* BasicAlerting.swift */; };
 /* End PBXBuildFile section */
@@ -96,7 +91,6 @@
 		F5106F5322EFF95600425299 /* Coordinatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinatable.swift; sourceTree = "<group>"; };
 		F5106F5522EFFA1600425299 /* AppTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBarController.swift; sourceTree = "<group>"; };
 		F5106F5722EFFA5B00425299 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
-		F5106F5922F01AF600425299 /* FolderListViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderListViewControllerDelegate.swift; sourceTree = "<group>"; };
 		F5106F5C22F0949900425299 /* DeepLinkOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkOption.swift; sourceTree = "<group>"; };
 		F5106F5E22F1818F00425299 /* FolderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderCell.swift; sourceTree = "<group>"; };
 		F5106F6022F181AF00425299 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -117,21 +111,17 @@
 		F5106F8522FB1F3400425299 /* FolderEditorDependencyOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderEditorDependencyOptions.swift; sourceTree = "<group>"; };
 		F5106F8722FB210200425299 /* FolderEditorDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderEditorDataStore.swift; sourceTree = "<group>"; };
 		F5106F8B22FBC80500425299 /* Persistable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistable.swift; sourceTree = "<group>"; };
-		F5106F8D22FBE8AA00425299 /* FolderEditorViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderEditorViewControllerDelegate.swift; sourceTree = "<group>"; };
 		F5106F9022FCE73F00425299 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		F5106F9322FE277900425299 /* TextInputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputCell.swift; sourceTree = "<group>"; };
 		F5106F9522FE27C400425299 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
-		F5106F9722FF443100425299 /* FolderEditorDataStoreDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderEditorDataStoreDelegate.swift; sourceTree = "<group>"; };
 		F533E1D223009D1A005A624E /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		F533E1D62300F94A005A624E /* TextInputCellUpdating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputCellUpdating.swift; sourceTree = "<group>"; };
 		F533E1D823021845005A624E /* NotificationGrandCentral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationGrandCentral.swift; sourceTree = "<group>"; };
 		F59644B72308ECEF009EE6C8 /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
 		F59644B92308EE5F009EE6C8 /* AppDependencyOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencyOptions.swift; sourceTree = "<group>"; };
 		F59644BB230A127D009EE6C8 /* FolderListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderListViewModel.swift; sourceTree = "<group>"; };
-		F59644BD230A5E93009EE6C8 /* FolderListViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderListViewModelDelegate.swift; sourceTree = "<group>"; };
 		F59644C1230D3B8C009EE6C8 /* AppTabBarControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBarControllerDelegate.swift; sourceTree = "<group>"; };
 		F59644C3230DA58F009EE6C8 /* FolderEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderEditorViewModel.swift; sourceTree = "<group>"; };
-		F59644C5230DC452009EE6C8 /* FolderEditorViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderEditorViewModelDelegate.swift; sourceTree = "<group>"; };
 		F5D9092123105EFE00757C45 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		F5D9092523107C5700757C45 /* BasicAlerting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAlerting.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -272,9 +262,7 @@
 				F5106F6E22F5F49C00425299 /* FolderListDependencyOptions.swift */,
 				F5106F4E22EFF84600425299 /* FolderListNavigationController.swift */,
 				F5106F4A22EFF52A00425299 /* FolderListViewController.swift */,
-				F5106F5922F01AF600425299 /* FolderListViewControllerDelegate.swift */,
 				F59644BB230A127D009EE6C8 /* FolderListViewModel.swift */,
-				F59644BD230A5E93009EE6C8 /* FolderListViewModelDelegate.swift */,
 			);
 			path = FolderList;
 			sourceTree = "<group>";
@@ -331,13 +319,10 @@
 			children = (
 				F5106F8122FB1E4F00425299 /* FolderEditorCoordinator.swift */,
 				F5106F8722FB210200425299 /* FolderEditorDataStore.swift */,
-				F5106F9722FF443100425299 /* FolderEditorDataStoreDelegate.swift */,
 				F5106F8522FB1F3400425299 /* FolderEditorDependencyOptions.swift */,
 				F5106F8322FB1F0300425299 /* FolderEditorNavigationController.swift */,
 				F5106F7F22FB1D3100425299 /* FolderEditorViewController.swift */,
-				F5106F8D22FBE8AA00425299 /* FolderEditorViewControllerDelegate.swift */,
 				F59644C3230DA58F009EE6C8 /* FolderEditorViewModel.swift */,
-				F59644C5230DC452009EE6C8 /* FolderEditorViewModelDelegate.swift */,
 			);
 			path = FolderEditor;
 			sourceTree = "<group>";
@@ -527,7 +512,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5106F7622F5FF7C00425299 /* GudNetworkService.swift in Sources */,
-				F59644BE230A5E93009EE6C8 /* FolderListViewModelDelegate.swift in Sources */,
 				F5106F5122EFF86E00425299 /* FolderListCoordinator.swift in Sources */,
 				F5106F9122FCE73F00425299 /* RealmManager.swift in Sources */,
 				F533E1D323009D1A005A624E /* BaseModel.swift in Sources */,
@@ -549,17 +533,14 @@
 				F5106F5D22F0949900425299 /* DeepLinkOption.swift in Sources */,
 				F5106F4822EFF43B00425299 /* BaseNavigationController.swift in Sources */,
 				F5106F7422F5F84A00425299 /* CacheServicable.swift in Sources */,
-				F5106F5A22F01AF600425299 /* FolderListViewControllerDelegate.swift in Sources */,
 				F5106F9622FE27C400425299 /* BaseTableViewCell.swift in Sources */,
 				F5106F6522F1986800425299 /* FolderListDataStore.swift in Sources */,
 				F59644C2230D3B8C009EE6C8 /* AppTabBarControllerDelegate.swift in Sources */,
 				F5106F5822EFFA5B00425299 /* AppCoordinator.swift in Sources */,
 				F5106F7222F5F84100425299 /* NetworkServicable.swift in Sources */,
 				F5106F4622EFF41800425299 /* BaseTabBarController.swift in Sources */,
-				F5106F8E22FBE8AA00425299 /* FolderEditorViewControllerDelegate.swift in Sources */,
 				F59644B82308ECEF009EE6C8 /* AppViewModel.swift in Sources */,
 				F5106F7A22F666B700425299 /* BaseNetworkService.swift in Sources */,
-				F59644C6230DC452009EE6C8 /* FolderEditorViewModelDelegate.swift in Sources */,
 				F5106F5422EFF95600425299 /* Coordinatable.swift in Sources */,
 				F5106F4F22EFF84600425299 /* FolderListNavigationController.swift in Sources */,
 				F5106F6322F1824300425299 /* UniquelyIdentifiable.swift in Sources */,
@@ -568,7 +549,6 @@
 				F5D9092223105EFE00757C45 /* Task.swift in Sources */,
 				F5D9092623107C5700757C45 /* BasicAlerting.swift in Sources */,
 				F5106F8622FB1F3400425299 /* FolderEditorDependencyOptions.swift in Sources */,
-				F5106F9822FF443100425299 /* FolderEditorDataStoreDelegate.swift in Sources */,
 				F5106F5F22F1818F00425299 /* FolderCell.swift in Sources */,
 				F5106F8822FB210200425299 /* FolderEditorDataStore.swift in Sources */,
 				F5106F6822F1996800425299 /* Folder.swift in Sources */,

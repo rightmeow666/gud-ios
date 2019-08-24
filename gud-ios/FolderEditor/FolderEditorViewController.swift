@@ -8,6 +8,12 @@
 
 import UIKit
 
+protocol FolderEditorViewControllerDelegate: NSObjectProtocol {
+  func folderEditorViewController(_ controller: FolderEditorViewController, didTapCancelButton button: UIBarButtonItem, hasUncommittedChanges: Bool)
+  
+  func folderEditorViewController(_ controller: FolderEditorViewController, didTapCommitButton button: UIBarButtonItem, updatedFolder: Folder)
+}
+
 class FolderEditorViewController: BaseViewController {
   weak var viewControllerDelegate: FolderEditorViewControllerDelegate?
   
@@ -81,14 +87,13 @@ class FolderEditorViewController: BaseViewController {
 }
 
 extension FolderEditorViewController: FolderEditorViewModelDelegate {
-  func viewModel(_ vm: FolderEditorViewModel, didErr error: Error) {
-    // TODO: implement error handling
-    self.presentAlert("You are up-to-date", message: error.localizedDescription, completion: nil)
+  func didCommitChanges(_ vm: FolderEditorViewModel, withMessage message: String) {
+    // TODO: handle success
   }
   
-  func viewModel(_ vm: FolderEditorViewModel, didCommitChangesToFolder folder: Folder) {
-    // TODO: implement success handling
-    print("changes committed to folder: \(folder)")
+  func viewModel(_ vm: FolderEditorViewModel, didErr error: Error) {
+    // TODO: implement error handling
+    self.presentAlert("Error", message: error.localizedDescription, completion: nil)
   }
 }
 

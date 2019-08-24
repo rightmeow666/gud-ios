@@ -8,6 +8,12 @@
 
 import Foundation
 
+protocol FolderEditorViewModelDelegate: NSObjectProtocol {
+  func viewModel(_ vm: FolderEditorViewModel, didErr error: Error)
+  
+  func didCommitChanges(_ vm: FolderEditorViewModel, withMessage message: String)
+}
+
 class FolderEditorViewModel: NSObject {
   private var networkService: GudNetworkService
   
@@ -30,11 +36,14 @@ class FolderEditorViewModel: NSObject {
   }
   
   func commitChanges() {
-    if self.store.isModified {
-      self.store.commitChanges()
-    } else {
-      let err = FolderEditorDataStore.DataStoreError.customError(message: "No changes to commit.")
-      self.delegate?.viewModel(self, didErr: err)
+    self.store.commitChanges { (result) in
+      switch result {
+      case .failure(let err):
+        self.delegate?.viewModel(self, didErr: err)
+      case .success(let successMessage):
+        print(successMessage)
+        self.delegate?.didCommitChanges(self, withMessage: successMessage)
+      }
     }
   }
   
@@ -63,15 +72,5 @@ class FolderEditorViewModel: NSObject {
   
   func updateFolder(withNewTitle title: String) {
     self.store.updateFolderTitle(title: title)
-  }
-}
-
-extension FolderEditorViewModel: FolderEditorDataStoreDelegate {
-  func store(didErr error: Error) {
-    self.delegate?.viewModel(self, didErr: error)
-  }
-  
-  func store(didCommitChangesToFolder folder: Folder) {
-    self.delegate?.viewModel(self, didCommitChangesToFolder: folder)
   }
 }

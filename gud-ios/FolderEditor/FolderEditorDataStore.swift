@@ -8,9 +8,13 @@
 
 import Foundation
 
-class FolderEditorDataStore: BaseCacheService {
-  weak var delegate: FolderEditorDataStoreDelegate?
+protocol FolderEditorDataStoreDelegate: NSObjectProtocol {
+  func store(didErr error: Error)
   
+  func store(didCommitChangesToFolder folder: Folder)
+}
+
+class FolderEditorDataStore: BaseCacheService {
   var isModified: Bool {
     return self.initialFolder.title != self.folder.title
   }
@@ -23,13 +27,16 @@ class FolderEditorDataStore: BaseCacheService {
     self.folder.title = title
   }
   
-  func commitChanges() {
+  func commitChanges(completion: (Result<String, Error>) -> Void) {
     do {
+      guard self.isModified else {
+        throw DataStoreError.customError(message: "No changes to commit")
+      }
       try self.folder.save()
       self.initialFolder = self.folder
-      self.delegate?.store(didCommitChangesToFolder: self.folder)
+      completion(.success("Changes committed successfully"))
     } catch let err {
-      self.delegate?.store(didErr: err)
+      completion(.failure(err))
     }
   }
   
