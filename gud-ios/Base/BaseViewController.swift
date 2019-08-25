@@ -21,3 +21,9 @@ class BaseViewController: UIViewController {
 
 extension BaseViewController: BasicAlerting {
 }
+
+extension BaseViewController: UIPopoverPresentationControllerDelegate {
+  func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+    return .none
+  }
+}

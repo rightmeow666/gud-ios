@@ -10,9 +10,11 @@ import UIKit
 import RealmSwift
 
 protocol FolderListViewControllerDelegate: NSObjectProtocol {
-  func folderListViewController(_ controller: FolderListViewController, didTapAddButton button: UIBarButtonItem)
+  func folderListViewController(_ controller: FolderListViewController, didSelectAddOptionOnSourceView sourceView: UIBarButtonItem)
   
   func folderListViewController(_ controller: FolderListViewController, didSelectFolder folder: Folder)
+  
+  func folderListViewController(_ controller: FolderListViewController, didTapMoreButton button: UIBarButtonItem)
 }
 
 class FolderListViewController: BaseViewController {
@@ -20,19 +22,13 @@ class FolderListViewController: BaseViewController {
   
   var viewModel: FolderListViewModel!
   
-  lazy private var addButton: UIBarButtonItem = {
-    let button = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped(_:)))
-    button.style = .done
+  lazy private var moreButton: UIBarButtonItem = {
+    let button = UIBarButtonItem(image: UIImage(named: "More"), style: .plain, target: self, action: #selector(moreButtonTapped(_:)))
     return button
   }()
   
   lazy private var cancelButton: UIBarButtonItem = {
     let button = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonTapped(_:)))
-    return button
-  }()
-  
-  lazy private var editButton: UIBarButtonItem = {
-    let button = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editButtonTapped(_:)))
     return button
   }()
   
@@ -62,27 +58,21 @@ class FolderListViewController: BaseViewController {
     return layout
   }()
   
+  @objc private func moreButtonTapped(_ sender: UIBarButtonItem) {
+    if !self.isEditing {
+      self.delegate?.folderListViewController(self, didTapMoreButton: sender)
+    }
+  }
+  
   @objc private func deleteButtonTapped(_ sender: UIBarButtonItem) {
     if self.isEditing {
       self.viewModel.deleteSelectedFolders()
     }
   }
   
-  @objc private func editButtonTapped(_ sender: UIBarButtonItem) {
-    if !self.isEditing {
-      self.isEditing = true
-    }
-  }
-  
   @objc private func cancelButtonTapped(_ sender: UIBarButtonItem) {
     if self.isEditing {
       self.isEditing = false
-    }
-  }
-  
-  @objc private func addButtonTapped(_ sender: UIBarButtonItem) {
-    if !self.isEditing {
-      self.delegate?.folderListViewController(self, didTapAddButton: sender)
     }
   }
   
@@ -94,7 +84,7 @@ class FolderListViewController: BaseViewController {
   
   private func configureView() {
     self.navigationItem.title = "Folder List"
-    self.navigationItem.setRightBarButtonItems([self.addButton, self.editButton], animated: true)
+    self.navigationItem.setRightBarButtonItems([self.moreButton], animated: true)
     self.view.backgroundColor = CustomColor.white
     self.view.addSubview(self.collectionView)
     self.collectionView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
@@ -107,7 +97,7 @@ class FolderListViewController: BaseViewController {
     super.setEditing(editing, animated: animated)
     self.collectionView.allowsMultipleSelection = isEditing
     // updating nav bar
-    self.navigationItem.setRightBarButtonItems(editing ? [self.cancelButton] : [self.addButton, self.editButton], animated: true)
+    self.navigationItem.setRightBarButtonItems(editing ? [self.cancelButton] : [self.moreButton], animated: true)
     self.navigationItem.setLeftBarButtonItems(editing ? [self.deleteButton] : [], animated: true)
     // updating cells
     for indexPath in self.collectionView.indexPathsForVisibleItems {
@@ -210,5 +200,33 @@ extension FolderListViewController: FolderListViewModelDelegate {
     }) { (completed) in
       self.collectionView.scrollsToTop()
     }
+  }
+}
+
+extension FolderListViewController: DropdownMenuViewControllerDelegate {
+  func dropdownMenuViewController(_ controller: DropdownMenuViewController, didSelectRowAt indexPath: IndexPath) {
+    guard let selectedOption = self.viewModel.getSelectedMenuOption(atIndex: indexPath.item) else { return }
+    switch selectedOption {
+    case .Edit:
+      if !self.isEditing {
+        controller.dismiss(animated: true) {
+          self.isEditing = true
+        }
+      }
+    case .New:
+      controller.dismiss(animated: true) {
+        self.delegate?.folderListViewController(self, didSelectAddOptionOnSourceView: self.moreButton)
+      }
+    }
+  }
+}
+
+extension FolderListViewController: DropdownMenuViewControllerDataSource {
+  func dropdownMenuViewController(_ controller: DropdownMenuViewController, numberOfRowsInSection section: Int) -> Int {
+    return self.viewModel.getNumberOfMenuOptions(inSection: section)
+  }
+  
+  func dropdownMenuViewController(_ controller: DropdownMenuViewController, titleForRowAt indexPath: IndexPath) -> String {
+    return self.viewModel.getTitleOfMenuOptions(atIndex: indexPath.item) ?? ""
   }
 }

@@ -11,5 +11,7 @@ import Foundation
 struct FolderListDependencyOptions {
   let networkService: GudNetworkService
   
-  let cacheService: FolderListDataStore
+  let folderListCacheService: FolderListDataStore
+  
+  let dropdownMenuCacheService: FolderListDropdownMenuDataStore
 }

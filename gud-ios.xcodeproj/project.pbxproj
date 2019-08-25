@@ -55,6 +55,10 @@
 		F59644C4230DA58F009EE6C8 /* FolderEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59644C3230DA58F009EE6C8 /* FolderEditorViewModel.swift */; };
 		F5D9092223105EFE00757C45 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D9092123105EFE00757C45 /* Task.swift */; };
 		F5D9092623107C5700757C45 /* BasicAlerting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D9092523107C5700757C45 /* BasicAlerting.swift */; };
+		F5D9093023150D1E00757C45 /* DropdownMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D9092F23150D1E00757C45 /* DropdownMenuViewController.swift */; };
+		F5D909332315100100757C45 /* FolderListDropdownMenuCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D909322315100100757C45 /* FolderListDropdownMenuCoordinator.swift */; };
+		F5D909352315144D00757C45 /* DropdownMenuSourceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D909342315144D00757C45 /* DropdownMenuSourceView.swift */; };
+		F5D909382316FDAC00757C45 /* FolderListDropdownMenuDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D909372316FDAC00757C45 /* FolderListDropdownMenuDataStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +128,10 @@
 		F59644C3230DA58F009EE6C8 /* FolderEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderEditorViewModel.swift; sourceTree = "<group>"; };
 		F5D9092123105EFE00757C45 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		F5D9092523107C5700757C45 /* BasicAlerting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAlerting.swift; sourceTree = "<group>"; };
+		F5D9092F23150D1E00757C45 /* DropdownMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropdownMenuViewController.swift; sourceTree = "<group>"; };
+		F5D909322315100100757C45 /* FolderListDropdownMenuCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderListDropdownMenuCoordinator.swift; sourceTree = "<group>"; };
+		F5D909342315144D00757C45 /* DropdownMenuSourceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownMenuSourceView.swift; sourceTree = "<group>"; };
+		F5D909372316FDAC00757C45 /* FolderListDropdownMenuDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderListDropdownMenuDataStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +200,9 @@
 				F5106F4322EFF3C200425299 /* Application */,
 				F5106F3F22EFF38900425299 /* Base */,
 				F5106F5B22F0948C00425299 /* DeepLink */,
+				F5106F7E22FA88B700425299 /* FolderEditor */,
+				F5106F4922EFF51400425299 /* FolderList */,
+				F5D90936231540CC00757C45 /* FolderListDropdownMenu */,
 				F5106F6B22F40BA400425299 /* Helpers */,
 				F5106F6622F1993F00425299 /* Models */,
 				F5106F5222EFF93F00425299 /* Protocols */,
@@ -199,8 +210,6 @@
 				F5106F7022F5F82900425299 /* Services */,
 				F5106F9222FE26D600425299 /* Shared */,
 				F5106F4422EFF3D000425299 /* Supporting Files */,
-				F5106F7E22FA88B700425299 /* FolderEditor */,
-				F5106F4922EFF51400425299 /* FolderList */,
 			);
 			path = "gud-ios";
 			sourceTree = "<group>";
@@ -340,8 +349,27 @@
 			children = (
 				F5106F9322FE277900425299 /* TextInputCell.swift */,
 				F533E1D62300F94A005A624E /* TextInputCellUpdating.swift */,
+				F5D9093123150FEE00757C45 /* DropdownMenu */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		F5D9093123150FEE00757C45 /* DropdownMenu */ = {
+			isa = PBXGroup;
+			children = (
+				F5D909342315144D00757C45 /* DropdownMenuSourceView.swift */,
+				F5D9092F23150D1E00757C45 /* DropdownMenuViewController.swift */,
+			);
+			path = DropdownMenu;
+			sourceTree = "<group>";
+		};
+		F5D90936231540CC00757C45 /* FolderListDropdownMenu */ = {
+			isa = PBXGroup;
+			children = (
+				F5D909322315100100757C45 /* FolderListDropdownMenuCoordinator.swift */,
+				F5D909372316FDAC00757C45 /* FolderListDropdownMenuDataStore.swift */,
+			);
+			path = FolderListDropdownMenu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -524,6 +552,7 @@
 				F59644BC230A127D009EE6C8 /* FolderListViewModel.swift in Sources */,
 				F5106F4B22EFF52A00425299 /* FolderListViewController.swift in Sources */,
 				F5106F4122EFF39500425299 /* BaseViewController.swift in Sources */,
+				F5D909352315144D00757C45 /* DropdownMenuSourceView.swift in Sources */,
 				F5106F8C22FBC80500425299 /* Persistable.swift in Sources */,
 				F59644C4230DA58F009EE6C8 /* FolderEditorViewModel.swift in Sources */,
 				F5106F8422FB1F0300425299 /* FolderEditorNavigationController.swift in Sources */,
@@ -534,11 +563,14 @@
 				F5106F4822EFF43B00425299 /* BaseNavigationController.swift in Sources */,
 				F5106F7422F5F84A00425299 /* CacheServicable.swift in Sources */,
 				F5106F9622FE27C400425299 /* BaseTableViewCell.swift in Sources */,
+				F5D9093023150D1E00757C45 /* DropdownMenuViewController.swift in Sources */,
+				F5D909332315100100757C45 /* FolderListDropdownMenuCoordinator.swift in Sources */,
 				F5106F6522F1986800425299 /* FolderListDataStore.swift in Sources */,
 				F59644C2230D3B8C009EE6C8 /* AppTabBarControllerDelegate.swift in Sources */,
 				F5106F5822EFFA5B00425299 /* AppCoordinator.swift in Sources */,
 				F5106F7222F5F84100425299 /* NetworkServicable.swift in Sources */,
 				F5106F4622EFF41800425299 /* BaseTabBarController.swift in Sources */,
+				F5D909382316FDAC00757C45 /* FolderListDropdownMenuDataStore.swift in Sources */,
 				F59644B82308ECEF009EE6C8 /* AppViewModel.swift in Sources */,
 				F5106F7A22F666B700425299 /* BaseNetworkService.swift in Sources */,
 				F5106F5422EFF95600425299 /* Coordinatable.swift in Sources */,

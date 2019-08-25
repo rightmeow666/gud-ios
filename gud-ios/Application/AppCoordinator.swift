@@ -33,7 +33,7 @@ extension AppCoordinator: Coordinatable {
     self.presenter.rootViewController = appTabBarController
     
     // folder list
-    let options = FolderListDependencyOptions(networkService: GudNetworkService(), cacheService: FolderListDataStore())
+    let options = FolderListDependencyOptions(networkService: GudNetworkService(), folderListCacheService: FolderListDataStore(), dropdownMenuCacheService: FolderListDropdownMenuDataStore())
     let folderListCoordinator = FolderListCoordinator(presenter: appTabBarController, options: options)
     self.childCoordinators.append(folderListCoordinator)
     

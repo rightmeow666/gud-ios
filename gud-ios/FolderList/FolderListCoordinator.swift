@@ -13,7 +13,9 @@ class FolderListCoordinator: NSObject {
   
   private let options: FolderListDependencyOptions
   
-  private var childCoordinator: FolderEditorCoordinator?
+  private var editorCoordinator: FolderEditorCoordinator?
+  
+  private var dropdownMenuCoordinator: FolderListDropdownMenuCoordinator?
   
   init(presenter: AppTabBarController, options: FolderListDependencyOptions) {
     self.presenter = presenter
@@ -38,15 +40,22 @@ extension FolderListCoordinator: Coordinatable {
 }
 
 extension FolderListCoordinator: FolderListViewControllerDelegate {
-  func folderListViewController(_ controller: FolderListViewController, didTapAddButton button: UIBarButtonItem) {
+  func folderListViewController(_ controller: FolderListViewController, didSelectAddOptionOnSourceView sourceView: UIBarButtonItem) {
     let options = FolderEditorDependencyOptions(networkService: GudNetworkService(), cacheService: FolderEditorDataStore(folder: nil))
     let folderEditorCoordinator = FolderEditorCoordinator(presenter: controller, options: options)
-    self.childCoordinator = folderEditorCoordinator
+    self.editorCoordinator = folderEditorCoordinator
     folderEditorCoordinator.start()
   }
   
   func folderListViewController(_ controller: FolderListViewController, didSelectFolder folder: Folder) {
     // TODO: segue to folder details
     print("segue to folder details")
+  }
+  
+  func folderListViewController(_ controller: FolderListViewController, didTapMoreButton button: UIBarButtonItem) {
+    let sourceView = DropdownMenuSourceView.UIBarButtonItem(item: button)
+    let coordinator = FolderListDropdownMenuCoordinator(presenter: controller, sourceView: sourceView, preferredContentSize: CGSize(width: controller.view.frame.width / 2, height: 88))
+    self.dropdownMenuCoordinator = coordinator
+    coordinator.start()
   }
 }

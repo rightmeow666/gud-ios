@@ -21,12 +21,14 @@ protocol FolderListViewModelDelegate: NSObjectProtocol {
 class FolderListViewModel: NSObject {
   private let networkService: GudNetworkService
   
-  private let cacheService: FolderListDataStore
+  private let folderListCacheService: FolderListDataStore
+  
+  private let folderListDropdownMenuCacheService: FolderListDropdownMenuDataStore
   
   weak var delegate: FolderListViewModelDelegate?
   
   func deleteSelectedFolders() {
-    self.cacheService.deleteSelectedFolders { (result) in
+    self.folderListCacheService.deleteSelectedFolders { (result) in
       switch result {
       case .failure(let err):
         self.delegate?.viewModel(self, didErr: err)
@@ -38,8 +40,8 @@ class FolderListViewModel: NSObject {
   }
   
   func getFolderList() {
-    self.cacheService.getFolderList {
-      self.cacheService.observeFoldersForChanges(completion: { (change) in
+    self.folderListCacheService.getFolderList {
+      self.folderListCacheService.observeFoldersForChanges(completion: { (change) in
         switch change {
         case .initial:
           self.delegate?.didGetFolderList(self)
@@ -52,27 +54,40 @@ class FolderListViewModel: NSObject {
     }
   }
   
+  func getNumberOfMenuOptions(inSection section: Int) -> Int {
+    return self.folderListDropdownMenuCacheService.numberOfOptions
+  }
+  
+  func getTitleOfMenuOptions(atIndex index: Int) -> String? {
+    return self.folderListDropdownMenuCacheService.getTitleForOption(atIndex: index)
+  }
+  
+  func getSelectedMenuOption(atIndex index: Int) -> FolderListDropdownMenuDataStore.DataSource? {
+    return self.folderListDropdownMenuCacheService.getOption(atIndex: index)
+  }
+  
   func getNumberOfItems(inSection section: Int) -> Int {
-    return self.cacheService.folders?.count ?? 0
+    return self.folderListCacheService.folders?.count ?? 0
   }
   
   func getFolder(atIndexPath indexPath: IndexPath) -> Folder? {
-    return self.cacheService.folders?[indexPath.item]
+    return self.folderListCacheService.folders?[indexPath.item]
   }
   
   func selectFolder(atIndexPath indexPath: IndexPath) {
-    guard let selectedFolder = self.cacheService.folders?[indexPath.item] else { return }
-    self.cacheService.appendSelectedFolder(selectedFolder: selectedFolder)
+    guard let selectedFolder = self.folderListCacheService.folders?[indexPath.item] else { return }
+    self.folderListCacheService.appendSelectedFolder(selectedFolder: selectedFolder)
   }
   
   func deselectFolder(atIndexPath indexPath: IndexPath) {
-    guard let deselectedFolder = self.cacheService.folders?[indexPath.item] else { return }
-    self.cacheService.removeDeselectedFolder(deselectedFolder: deselectedFolder)
+    guard let deselectedFolder = self.folderListCacheService.folders?[indexPath.item] else { return }
+    self.folderListCacheService.removeDeselectedFolder(deselectedFolder: deselectedFolder)
   }
   
   init(options: FolderListDependencyOptions, delegate: FolderListViewModelDelegate) {
     self.networkService = options.networkService
-    self.cacheService = options.cacheService
+    self.folderListCacheService = options.folderListCacheService
+    self.folderListDropdownMenuCacheService = options.dropdownMenuCacheService
     self.delegate = delegate
     super.init()
   }
