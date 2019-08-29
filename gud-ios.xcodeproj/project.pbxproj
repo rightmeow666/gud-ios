@@ -59,6 +59,8 @@
 		F5D909332315100100757C45 /* FolderListDropdownMenuCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D909322315100100757C45 /* FolderListDropdownMenuCoordinator.swift */; };
 		F5D909352315144D00757C45 /* DropdownMenuSourceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D909342315144D00757C45 /* DropdownMenuSourceView.swift */; };
 		F5D909382316FDAC00757C45 /* FolderListDropdownMenuDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D909372316FDAC00757C45 /* FolderListDropdownMenuDataStore.swift */; };
+		F5D9093B23186F7D00757C45 /* TaskListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D9093A23186F7D00757C45 /* TaskListCoordinator.swift */; };
+		F5D9093D2318701B00757C45 /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D9093C2318701B00757C45 /* TaskListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,6 +134,8 @@
 		F5D909322315100100757C45 /* FolderListDropdownMenuCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderListDropdownMenuCoordinator.swift; sourceTree = "<group>"; };
 		F5D909342315144D00757C45 /* DropdownMenuSourceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownMenuSourceView.swift; sourceTree = "<group>"; };
 		F5D909372316FDAC00757C45 /* FolderListDropdownMenuDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderListDropdownMenuDataStore.swift; sourceTree = "<group>"; };
+		F5D9093A23186F7D00757C45 /* TaskListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListCoordinator.swift; sourceTree = "<group>"; };
+		F5D9093C2318701B00757C45 /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +214,7 @@
 				F5106F7022F5F82900425299 /* Services */,
 				F5106F9222FE26D600425299 /* Shared */,
 				F5106F4422EFF3D000425299 /* Supporting Files */,
+				F5D9093923186F6100757C45 /* TaskList */,
 			);
 			path = "gud-ios";
 			sourceTree = "<group>";
@@ -370,6 +375,15 @@
 				F5D909372316FDAC00757C45 /* FolderListDropdownMenuDataStore.swift */,
 			);
 			path = FolderListDropdownMenu;
+			sourceTree = "<group>";
+		};
+		F5D9093923186F6100757C45 /* TaskList */ = {
+			isa = PBXGroup;
+			children = (
+				F5D9093A23186F7D00757C45 /* TaskListCoordinator.swift */,
+				F5D9093C2318701B00757C45 /* TaskListViewController.swift */,
+			);
+			path = TaskList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -562,6 +576,7 @@
 				F5106F5D22F0949900425299 /* DeepLinkOption.swift in Sources */,
 				F5106F4822EFF43B00425299 /* BaseNavigationController.swift in Sources */,
 				F5106F7422F5F84A00425299 /* CacheServicable.swift in Sources */,
+				F5D9093B23186F7D00757C45 /* TaskListCoordinator.swift in Sources */,
 				F5106F9622FE27C400425299 /* BaseTableViewCell.swift in Sources */,
 				F5D9093023150D1E00757C45 /* DropdownMenuViewController.swift in Sources */,
 				F5D909332315100100757C45 /* FolderListDropdownMenuCoordinator.swift in Sources */,
@@ -573,6 +588,7 @@
 				F5D909382316FDAC00757C45 /* FolderListDropdownMenuDataStore.swift in Sources */,
 				F59644B82308ECEF009EE6C8 /* AppViewModel.swift in Sources */,
 				F5106F7A22F666B700425299 /* BaseNetworkService.swift in Sources */,
+				F5D9093D2318701B00757C45 /* TaskListViewController.swift in Sources */,
 				F5106F5422EFF95600425299 /* Coordinatable.swift in Sources */,
 				F5106F4F22EFF84600425299 /* FolderListNavigationController.swift in Sources */,
 				F5106F6322F1824300425299 /* UniquelyIdentifiable.swift in Sources */,
