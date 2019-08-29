@@ -9,8 +9,6 @@
 import RealmSwift
 
 class FolderListDataStore: BaseCacheService {
-//  weak var delegate: FolderListDataStoreDelegate?
-  
   var realmNotificationToken: NotificationToken?
   
   var folders: Results<Folder>?
@@ -28,9 +26,8 @@ class FolderListDataStore: BaseCacheService {
   
   func deleteSelectedFolders(completion: (Result<String, Error>) -> Void) {
     do {
-      let numberOfFolders = self.selectedFolders.count
       try Folder.deleteAll(folders: self.selectedFolders)
-      completion(.success("\(numberOfFolders) Folders deleted"))
+      completion(.success("Folder(s) deleted"))
     } catch let err {
       completion(.failure(err))
     }
