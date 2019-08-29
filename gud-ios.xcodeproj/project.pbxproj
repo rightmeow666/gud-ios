@@ -64,6 +64,7 @@
 		F5D90941231880A800757C45 /* TaskListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D90940231880A800757C45 /* TaskListViewModel.swift */; };
 		F5D90943231880FC00757C45 /* TaskListDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D90942231880FC00757C45 /* TaskListDataStore.swift */; };
 		F5D909452318817D00757C45 /* TaskListDependencyOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D909442318817D00757C45 /* TaskListDependencyOptions.swift */; };
+		F5D9094723188AC400757C45 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D9094623188AC400757C45 /* TaskCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +143,7 @@
 		F5D90940231880A800757C45 /* TaskListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewModel.swift; sourceTree = "<group>"; };
 		F5D90942231880FC00757C45 /* TaskListDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListDataStore.swift; sourceTree = "<group>"; };
 		F5D909442318817D00757C45 /* TaskListDependencyOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListDependencyOptions.swift; sourceTree = "<group>"; };
+		F5D9094623188AC400757C45 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -386,6 +388,7 @@
 		F5D9093923186F6100757C45 /* TaskList */ = {
 			isa = PBXGroup;
 			children = (
+				F5D9094623188AC400757C45 /* TaskCell.swift */,
 				F5D9093A23186F7D00757C45 /* TaskListCoordinator.swift */,
 				F5D90942231880FC00757C45 /* TaskListDataStore.swift */,
 				F5D909442318817D00757C45 /* TaskListDependencyOptions.swift */,
@@ -571,6 +574,7 @@
 				F5106F6122F181AF00425299 /* BaseCollectionViewCell.swift in Sources */,
 				F5106F7C22F6670200425299 /* BaseCacheService.swift in Sources */,
 				F5106F8222FB1E4F00425299 /* FolderEditorCoordinator.swift in Sources */,
+				F5D9094723188AC400757C45 /* TaskCell.swift in Sources */,
 				F5106F6A22F2A64300425299 /* CustomColor.swift in Sources */,
 				F59644BC230A127D009EE6C8 /* FolderListViewModel.swift in Sources */,
 				F5106F4B22EFF52A00425299 /* FolderListViewController.swift in Sources */,

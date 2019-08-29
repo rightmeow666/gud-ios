@@ -22,3 +22,9 @@ extension UICollectionView {
     self.scrollToItem(at: firstAvailableIndexPath, at: .top, animated: true)
   }
 }
+
+extension Date {
+  var toString: String {
+    return self.description
+  }
+}

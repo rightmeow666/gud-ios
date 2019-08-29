@@ -17,6 +17,8 @@ class Task: BaseModel {
   
   @objc dynamic var expiredAt: Date? = nil
   
+  @objc dynamic var imageData: Data? = nil
+  
   @objc dynamic var createdAt: Date = Date()
   
   @objc dynamic var updatedAt: Date = Date()

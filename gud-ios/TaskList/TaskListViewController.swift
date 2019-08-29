@@ -24,6 +24,7 @@ class TaskListViewController: BaseViewController {
     view.dataSource = self
     view.estimatedRowHeight = 56
     view.rowHeight = UITableView.automaticDimension
+    view.register(TaskCell.self, forCellReuseIdentifier: TaskCell.cellId)
     return view
   }()
   
@@ -75,7 +76,8 @@ extension TaskListViewController: UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    return BaseTableViewCell()
+    let cell = tableView.dequeueReusableCell(withIdentifier: TaskCell.cellId, for: indexPath) as! TaskCell
+    return cell
   }
 }
 
