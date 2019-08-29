@@ -28,12 +28,10 @@ class FolderListViewModel: NSObject {
   weak var delegate: FolderListViewModelDelegate?
   
   func deleteSelectedFolders() {
-    self.folderListCacheService.deleteSelectedFolders { (result) in
-      switch result {
-      case .failure(let err):
+    self.folderListCacheService.deleteSelectedFolders { (error) in
+      if let err = error {
         self.delegate?.viewModel(self, didErr: err)
-      case .success(let successMsg):
-        print(successMsg)
+      } else {
         self.delegate?.shouldUpdateEditMode(self, isEditing: false)
       }
     }

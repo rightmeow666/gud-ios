@@ -36,13 +36,11 @@ class FolderEditorViewModel: NSObject {
   }
   
   func commitChanges() {
-    self.store.commitChanges { (result) in
-      switch result {
-      case .failure(let err):
+    self.store.commitChanges { (error) in
+      if let err = error {
         self.delegate?.viewModel(self, didErr: err)
-      case .success(let successMessage):
-        print(successMessage)
-        self.delegate?.didCommitChanges(self, withMessage: successMessage)
+      } else {
+        self.delegate?.didCommitChanges(self, withMessage: "Changes committed")
       }
     }
   }

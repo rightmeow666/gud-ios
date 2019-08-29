@@ -27,16 +27,16 @@ class FolderEditorDataStore: BaseCacheService {
     self.folder.title = title
   }
   
-  func commitChanges(completion: (Result<String, Error>) -> Void) {
+  func commitChanges(completion: (Error?) -> Void) {
     do {
       guard self.isModified else {
         throw DataStoreError.customError(message: "No changes to commit")
       }
       try self.folder.save()
       self.initialFolder = self.folder
-      completion(.success("Changes committed successfully"))
+      completion(nil)
     } catch let err {
-      completion(.failure(err))
+      completion(err)
     }
   }
   
