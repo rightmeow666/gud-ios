@@ -10,8 +10,8 @@ import Foundation
 
 class FolderListDropdownMenuDataStore: BaseCacheService {
   enum DataSource: Int, CaseIterable {
-    case Edit
     case New
+    case Edit
     
     var description: String {
       switch self {
