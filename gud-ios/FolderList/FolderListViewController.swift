@@ -76,12 +76,6 @@ class FolderListViewController: BaseViewController {
     }
   }
   
-  @objc private func setEditMode(_ notification: Notification) {
-    if let isEditing = notification.userInfo?["isEditing"] as? Bool {
-      self.isEditing = isEditing
-    }
-  }
-  
   private func configureView() {
     self.navigationItem.title = "Folder List"
     self.navigationItem.setRightBarButtonItems([self.moreButton], animated: true)
@@ -112,11 +106,6 @@ class FolderListViewController: BaseViewController {
     super.viewDidLoad()
     self.configureView()
     self.viewModel.getFolderList()
-  }
-  
-  override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(animated)
-    NotificationGrandeCentral.observeNotificationToEnableEditMode(self, selector: #selector(setEditMode(_:)))
   }
 }
 
