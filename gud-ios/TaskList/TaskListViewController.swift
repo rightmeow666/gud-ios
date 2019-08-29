@@ -9,6 +9,7 @@
 import UIKit
 
 protocol TaskListViewControllerDelegate: NSObjectProtocol {
+  func taskListViewController(_ controller: TaskListViewController, didTapAddButton button: UIBarButtonItem)
 }
 
 class TaskListViewController: BaseViewController {
@@ -26,19 +27,18 @@ class TaskListViewController: BaseViewController {
     return view
   }()
   
-  lazy private var moreButton: UIBarButtonItem = {
-    let button = UIBarButtonItem(image: UIImage(named: "More"), style: .plain, target: self, action: #selector(moreButtonTapped(_:)))
+  lazy private var addButton: UIBarButtonItem = {
+    let button = UIBarButtonItem(image: UIImage(named: "Add"), style: .plain, target: self, action: #selector(addButtonTapped(_:)))
     return button
   }()
   
-  @objc private func moreButtonTapped(_ sender: UIBarButtonItem) {
-    // TODO: segue to dropdown menu
-    print("segue to dropdown menu")
+  @objc private func addButtonTapped(_ sender: UIBarButtonItem) {
+    self.delegate?.taskListViewController(self, didTapAddButton: sender)
   }
   
   private func configureView() {
     self.view.backgroundColor = .white
-    self.navigationItem.setRightBarButtonItems([self.moreButton], animated: true)
+    self.navigationItem.setRightBarButtonItems([self.addButton], animated: true)
     self.view.addSubview(self.tableView)
     self.tableView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
     self.tableView.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor).isActive = true
@@ -67,11 +67,11 @@ extension TaskListViewController: UITableViewDelegate {
 
 extension TaskListViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 1
+    return self.viewModel.getNumberOfItems(inSection: section)
   }
   
   func numberOfSections(in tableView: UITableView) -> Int {
-    return 1
+    return self.viewModel.getNumberOfSections()
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

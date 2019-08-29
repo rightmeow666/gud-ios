@@ -22,6 +22,14 @@ class TaskListViewModel: NSObject {
     return self.taskListCacheService.folder.title
   }
   
+  func getNumberOfItems(inSection section: Int) -> Int {
+    return self.taskListCacheService.folder.tasks.count
+  }
+  
+  func getNumberOfSections() -> Int {
+    return 1
+  }
+  
   init(options: TaskListDependencyOptions, delegate: TaskListViewModelDelegate) {
     self.networkService = options.networkService
     self.taskListCacheService = options.taskListCacheService
