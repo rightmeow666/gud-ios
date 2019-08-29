@@ -48,8 +48,10 @@ extension FolderListCoordinator: FolderListViewControllerDelegate {
   }
   
   func folderListViewController(_ controller: FolderListViewController, didSelectFolder folder: Folder) {
-    // TODO: segue to folder details
-    print("segue to folder details")
+    // TODO: segue to task list viewController
+    guard let navController = controller.navigationController as? FolderListNavigationController else { return }
+    let coordinator = TaskListCoordinator(presenter: controller, presentingNavController: navController, selectedFolder: folder)
+    coordinator.start()
   }
   
   func folderListViewController(_ controller: FolderListViewController, didTapMoreButton button: UIBarButtonItem) {

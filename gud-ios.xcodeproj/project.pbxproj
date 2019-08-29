@@ -61,6 +61,9 @@
 		F5D909382316FDAC00757C45 /* FolderListDropdownMenuDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D909372316FDAC00757C45 /* FolderListDropdownMenuDataStore.swift */; };
 		F5D9093B23186F7D00757C45 /* TaskListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D9093A23186F7D00757C45 /* TaskListCoordinator.swift */; };
 		F5D9093D2318701B00757C45 /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D9093C2318701B00757C45 /* TaskListViewController.swift */; };
+		F5D90941231880A800757C45 /* TaskListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D90940231880A800757C45 /* TaskListViewModel.swift */; };
+		F5D90943231880FC00757C45 /* TaskListDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D90942231880FC00757C45 /* TaskListDataStore.swift */; };
+		F5D909452318817D00757C45 /* TaskListDependencyOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D909442318817D00757C45 /* TaskListDependencyOptions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +139,9 @@
 		F5D909372316FDAC00757C45 /* FolderListDropdownMenuDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderListDropdownMenuDataStore.swift; sourceTree = "<group>"; };
 		F5D9093A23186F7D00757C45 /* TaskListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListCoordinator.swift; sourceTree = "<group>"; };
 		F5D9093C2318701B00757C45 /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
+		F5D90940231880A800757C45 /* TaskListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewModel.swift; sourceTree = "<group>"; };
+		F5D90942231880FC00757C45 /* TaskListDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListDataStore.swift; sourceTree = "<group>"; };
+		F5D909442318817D00757C45 /* TaskListDependencyOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListDependencyOptions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -381,7 +387,10 @@
 			isa = PBXGroup;
 			children = (
 				F5D9093A23186F7D00757C45 /* TaskListCoordinator.swift */,
+				F5D90942231880FC00757C45 /* TaskListDataStore.swift */,
+				F5D909442318817D00757C45 /* TaskListDependencyOptions.swift */,
 				F5D9093C2318701B00757C45 /* TaskListViewController.swift */,
+				F5D90940231880A800757C45 /* TaskListViewModel.swift */,
 			);
 			path = TaskList;
 			sourceTree = "<group>";
@@ -566,6 +575,7 @@
 				F59644BC230A127D009EE6C8 /* FolderListViewModel.swift in Sources */,
 				F5106F4B22EFF52A00425299 /* FolderListViewController.swift in Sources */,
 				F5106F4122EFF39500425299 /* BaseViewController.swift in Sources */,
+				F5D90943231880FC00757C45 /* TaskListDataStore.swift in Sources */,
 				F5D909352315144D00757C45 /* DropdownMenuSourceView.swift in Sources */,
 				F5106F8C22FBC80500425299 /* Persistable.swift in Sources */,
 				F59644C4230DA58F009EE6C8 /* FolderEditorViewModel.swift in Sources */,
@@ -588,8 +598,10 @@
 				F5D909382316FDAC00757C45 /* FolderListDropdownMenuDataStore.swift in Sources */,
 				F59644B82308ECEF009EE6C8 /* AppViewModel.swift in Sources */,
 				F5106F7A22F666B700425299 /* BaseNetworkService.swift in Sources */,
+				F5D909452318817D00757C45 /* TaskListDependencyOptions.swift in Sources */,
 				F5D9093D2318701B00757C45 /* TaskListViewController.swift in Sources */,
 				F5106F5422EFF95600425299 /* Coordinatable.swift in Sources */,
+				F5D90941231880A800757C45 /* TaskListViewModel.swift in Sources */,
 				F5106F4F22EFF84600425299 /* FolderListNavigationController.swift in Sources */,
 				F5106F6322F1824300425299 /* UniquelyIdentifiable.swift in Sources */,
 				F5106F9422FE277900425299 /* TextInputCell.swift in Sources */,

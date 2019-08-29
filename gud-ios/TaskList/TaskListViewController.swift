@@ -8,7 +8,14 @@
 
 import UIKit
 
+protocol TaskListViewControllerDelegate: NSObjectProtocol {
+}
+
 class TaskListViewController: BaseViewController {
+  weak var delegate: TaskListViewControllerDelegate?
+  
+  var viewModel: TaskListViewModel!
+  
   lazy private var tableView: UITableView = {
     let view = UITableView(frame: self.view.frame, style: .grouped)
     view.translatesAutoresizingMaskIntoConstraints = false
@@ -25,7 +32,8 @@ class TaskListViewController: BaseViewController {
   }()
   
   @objc private func moreButtonTapped(_ sender: UIBarButtonItem) {
-    // segue to dropdown menu
+    // TODO: segue to dropdown menu
+    print("segue to dropdown menu")
   }
   
   private func configureView() {
@@ -36,6 +44,7 @@ class TaskListViewController: BaseViewController {
     self.tableView.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor).isActive = true
     self.tableView.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor).isActive = true
     self.tableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+    self.title = self.viewModel.viewControllerTitle
   }
   
   override func viewDidLoad() {
@@ -68,4 +77,8 @@ extension TaskListViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     return BaseTableViewCell()
   }
+}
+
+extension TaskListViewController: TaskListViewModelDelegate {
+  
 }
