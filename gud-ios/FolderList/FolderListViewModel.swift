@@ -28,6 +28,7 @@ class FolderListViewModel: NSObject {
   weak var delegate: FolderListViewModelDelegate?
   
   func deleteSelectedFolders() {
+    guard self.folderListCacheService.selectedFolders.count > 0 else { return }
     self.folderListCacheService.deleteSelectedFolders { (error) in
       if let err = error {
         self.delegate?.viewModel(self, didErr: err)
