@@ -40,7 +40,7 @@ class FolderListDataStore: BaseCacheService {
   }
   
   func getFolderList(completion: (() -> Void)? = nil) {
-    self.folders = Folder.findAll(sortedBy: "createdAt", ascending: false)
+    self.folders = Folder.findAll(byPredicate: nil, sortedBy: "createdAt", ascending: false)
     completion?()
   }
   

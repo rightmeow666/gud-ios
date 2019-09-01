@@ -21,7 +21,7 @@ protocol RLMPersistable where Self: BaseModel {
   
   static func find(_ id: String) -> Self?
   
-  static func findAll(sortedBy keyPath: String, ascending: Bool) -> Results<Self>
+  static func findAll(byPredicate predicate: NSPredicate?, sortedBy keyPath: String, ascending: Bool) -> Results<Self>
   
   static func create(_ block: () -> Self) -> Self
   
@@ -41,8 +41,12 @@ extension RLMPersistable {
     return RealmManager.shared.db.object(ofType: self, forPrimaryKey: id)
   }
   
-  static func findAll(sortedBy keyPath: String, ascending: Bool) -> Results<Self> {
-    return RealmManager.shared.db.objects(self).sorted(byKeyPath: keyPath, ascending: ascending)
+  static func findAll(byPredicate predicate: NSPredicate?, sortedBy keyPath: String, ascending: Bool) -> Results<Self> {
+    if let p = predicate {
+      return RealmManager.shared.db.objects(self).filter(p).sorted(byKeyPath: keyPath, ascending: ascending)
+    } else {
+      return RealmManager.shared.db.objects(self).sorted(byKeyPath: keyPath, ascending: ascending)
+    }
   }
   
   static func create(_ block: () -> Self) -> Self {
