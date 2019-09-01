@@ -10,7 +10,11 @@ import Foundation
 
 class TaskEditorDataStore: BaseCacheService {
   var isModified: Bool {
-    return self.initialTask.title != self.task.title
+    if self.initialTask.title != self.task.title || self.initialTask.isCompleted != self.task.isCompleted {
+      return true
+    } else {
+      return false
+    }
   }
   
   var task: Task
