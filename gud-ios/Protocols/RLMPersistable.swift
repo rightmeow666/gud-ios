@@ -8,10 +8,13 @@
 
 import RealmSwift
 
+/// A block that takes throwing operations to provide some kind of validation before saving it into Realm. This is the second block to be called.
 typealias BeforeSaveBlock = () throws -> Void
 
+/// A block that takes modifications of an RLM Object. This is the first block to be called before save.
 typealias OnSaveBlock = () -> Void
 
+/// A traditional callback block invoked after a save operation.
 typealias AfterSaveBlock = () -> Void
 
 protocol RLMPersistable where Self: BaseModel {
@@ -73,9 +76,9 @@ extension RLMPersistable {
   /// - Throws: Both beforeSave or onSave can throw errors.
   func save(_ block: OnSaveBlock) throws {
     do {
-      try self.beforeSave?()
       try RealmManager.shared.db.write {
         block()
+        try self.beforeSave?()
         self.updatedAt = Date()
         RealmManager.shared.db.add(self)
       }
