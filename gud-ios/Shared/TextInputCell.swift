@@ -31,6 +31,8 @@ class TextInputCell: BaseTableViewCell, UniquelyIdentifable {
   
   private var folder: Folder?
   
+  private var task: Task?
+  
   weak var delegate: TextInputCellUpdating?
   
   private func configureView() {
@@ -58,6 +60,16 @@ class TextInputCell: BaseTableViewCell, UniquelyIdentifable {
     self.userInputTextView.textColor = Folder.isTitleValid(title: folder.title) ? CustomColor.darkText : CustomColor.roseScarlet
     self.counterLabel.text = "\(count) = [\(Folder.TITLE_MIN_LENGTH), \(Folder.TITLE_MAX_LEGNTH)]"
     self.counterLabel.textColor = Folder.isTitleValid(title: folder.title) ? CustomColor.darkText : CustomColor.roseScarlet
+    self.delegate = delegate
+  }
+  
+  func configure(task: Task, delegate: TextInputCellUpdating) {
+    self.task = task
+    self.userInputTextView.text = task.title
+    let count = task.title.count
+    self.userInputTextView.textColor = Task.isTitleValid(title: task.title) ? CustomColor.darkText : CustomColor.roseScarlet
+    self.counterLabel.text = "\(count) = [\(Task.TITLE_MIN_LENGTH), \(Task.TITLE_MAX_LEGNTH)]"
+    self.counterLabel.textColor = Task.isTitleValid(title: task.title) ? CustomColor.darkText : CustomColor.roseScarlet
     self.delegate = delegate
   }
   

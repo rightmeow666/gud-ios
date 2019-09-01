@@ -32,6 +32,15 @@ final class Task: BaseModel, RLMPersistable {
     return block
   }
   
+  static func isTitleValid(title: String) -> Bool {
+    let c = title.count
+    if c >= Task.TITLE_MIN_LENGTH && c <= Task.TITLE_MAX_LEGNTH {
+      return true
+    } else {
+      return false
+    }
+  }
+  
   let folder = LinkingObjects(fromType: Folder.self, property: "tasks")
   
   static let TITLE_MAX_LEGNTH: Int = 512
