@@ -37,7 +37,7 @@ extension TaskEditorViewController: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: TextInputCell.cellId, for: indexPath) as! TextInputCell
-    cell.configure(task: self.viewModel.getTask(), delegate: self)
+    cell.configure(self.viewModel.getTask().title, delegate: self, validTextInputRange: Task.TITLE_MIN_LENGTH...Task.TITLE_MAX_LEGNTH)
     return cell
   }
 }

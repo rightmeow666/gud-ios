@@ -29,9 +29,7 @@ class TextInputCell: BaseTableViewCell, UniquelyIdentifable {
     return label
   }()
   
-  private var folder: Folder?
-  
-  private var task: Task?
+  var range: ClosedRange<Int>?
   
   weak var delegate: TextInputCellUpdating?
   
@@ -53,24 +51,24 @@ class TextInputCell: BaseTableViewCell, UniquelyIdentifable {
     self.counterLabel.heightAnchor.constraint(equalToConstant: 22).isActive = true
   }
   
-  func configure(folder: Folder, delegate: TextInputCellUpdating) {
-    self.folder = folder
-    self.userInputTextView.text = folder.title
-    let count = folder.title.count
-    self.userInputTextView.textColor = Folder.isTitleValid(title: folder.title) ? CustomColor.darkText : CustomColor.roseScarlet
-    self.counterLabel.text = "\(count) = [\(Folder.TITLE_MIN_LENGTH), \(Folder.TITLE_MAX_LEGNTH)]"
-    self.counterLabel.textColor = Folder.isTitleValid(title: folder.title) ? CustomColor.darkText : CustomColor.roseScarlet
+  func configure(_ textInput: String, delegate: TextInputCellUpdating, validTextInputRange range: ClosedRange<Int>? = nil) {
+    self.userInputTextView.text = textInput
+    self.range = range
     self.delegate = delegate
+    self.configureViewStyle(textInput, validTextInputRange: range)
   }
   
-  func configure(task: Task, delegate: TextInputCellUpdating) {
-    self.task = task
-    self.userInputTextView.text = task.title
-    let count = task.title.count
-    self.userInputTextView.textColor = Task.isTitleValid(title: task.title) ? CustomColor.darkText : CustomColor.roseScarlet
-    self.counterLabel.text = "\(count) = [\(Task.TITLE_MIN_LENGTH), \(Task.TITLE_MAX_LEGNTH)]"
-    self.counterLabel.textColor = Task.isTitleValid(title: task.title) ? CustomColor.darkText : CustomColor.roseScarlet
-    self.delegate = delegate
+  private func configureViewStyle(_ textInput: String, validTextInputRange range: ClosedRange<Int>? = nil) {
+    let c = textInput.count
+    if let r = range {
+      self.userInputTextView.textColor = (r ~= c) ? CustomColor.darkText : CustomColor.roseScarlet
+      self.counterLabel.text = "\(c) = [\(r.min()!), \(r.max()!)]"
+      self.counterLabel.textColor = (r ~= c) ? CustomColor.darkText : CustomColor.roseScarlet
+    } else {
+      self.userInputTextView.textColor = CustomColor.darkText
+      self.counterLabel.text = "\(c) = [-∞, +∞]"
+      self.counterLabel.textColor = CustomColor.darkText
+    }
   }
   
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -85,10 +83,7 @@ class TextInputCell: BaseTableViewCell, UniquelyIdentifable {
 
 extension TextInputCell: UITextViewDelegate {
   func textViewDidChange(_ textView: UITextView) {
-    let count = textView.text.count
-    self.counterLabel.text = "\(count) = [\(Folder.TITLE_MIN_LENGTH), \(Folder.TITLE_MAX_LEGNTH)]"
-    self.counterLabel.textColor = Folder.isTitleValid(title: textView.text) ? CustomColor.darkText : CustomColor.roseScarlet
-    self.userInputTextView.textColor = Folder.isTitleValid(title: textView.text) ? CustomColor.darkText : CustomColor.roseScarlet
+    self.configureViewStyle(textView.text, validTextInputRange: self.range)
     self.delegate?.textDidChange(textView.text)
   }
 }

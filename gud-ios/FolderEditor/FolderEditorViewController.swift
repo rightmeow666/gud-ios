@@ -105,7 +105,7 @@ extension FolderEditorViewController: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: TextInputCell.cellId, for: indexPath) as! TextInputCell
-    cell.configure(folder: self.viewModel.getFolder(), delegate: self)
+    cell.configure(self.viewModel.getFolder().title, delegate: self, validTextInputRange: Folder.TITLE_MIN_LENGTH...Folder.TITLE_MAX_LEGNTH)
     return cell
   }
   
