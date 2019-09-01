@@ -41,7 +41,6 @@
 		F5106F8422FB1F0300425299 /* FolderEditorNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F8322FB1F0300425299 /* FolderEditorNavigationController.swift */; };
 		F5106F8622FB1F3400425299 /* FolderEditorDependencyOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F8522FB1F3400425299 /* FolderEditorDependencyOptions.swift */; };
 		F5106F8822FB210200425299 /* FolderEditorDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F8722FB210200425299 /* FolderEditorDataStore.swift */; };
-		F5106F8C22FBC80500425299 /* Persistable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F8B22FBC80500425299 /* Persistable.swift */; };
 		F5106F9122FCE73F00425299 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F9022FCE73F00425299 /* RealmManager.swift */; };
 		F5106F9422FE277900425299 /* TextInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F9322FE277900425299 /* TextInputCell.swift */; };
 		F5106F9622FE27C400425299 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F9522FE27C400425299 /* BaseTableViewCell.swift */; };
@@ -65,6 +64,13 @@
 		F5D90943231880FC00757C45 /* TaskListDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D90942231880FC00757C45 /* TaskListDataStore.swift */; };
 		F5D909452318817D00757C45 /* TaskListDependencyOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D909442318817D00757C45 /* TaskListDependencyOptions.swift */; };
 		F5D9094723188AC400757C45 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D9094623188AC400757C45 /* TaskCell.swift */; };
+		F5D9094A2319B1BB00757C45 /* TaskEditorCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D909492319B1BB00757C45 /* TaskEditorCoordinator.swift */; };
+		F5D9094C2319B2B000757C45 /* TaskEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D9094B2319B2B000757C45 /* TaskEditorViewController.swift */; };
+		F5D9094E2319B31200757C45 /* TaskEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D9094D2319B31200757C45 /* TaskEditorViewModel.swift */; };
+		F5D909502319B3A400757C45 /* TaskEditorDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D9094F2319B3A400757C45 /* TaskEditorDataStore.swift */; };
+		F5D909522319B3C900757C45 /* TaskEditorDependencyOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D909512319B3C900757C45 /* TaskEditorDependencyOptions.swift */; };
+		F5D90954231A8B9000757C45 /* DateFormatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D90953231A8B9000757C45 /* DateFormatable.swift */; };
+		F5D90956231A9C8700757C45 /* RLMPersistable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D90955231A9C8700757C45 /* RLMPersistable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,7 +126,6 @@
 		F5106F8322FB1F0300425299 /* FolderEditorNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderEditorNavigationController.swift; sourceTree = "<group>"; };
 		F5106F8522FB1F3400425299 /* FolderEditorDependencyOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderEditorDependencyOptions.swift; sourceTree = "<group>"; };
 		F5106F8722FB210200425299 /* FolderEditorDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderEditorDataStore.swift; sourceTree = "<group>"; };
-		F5106F8B22FBC80500425299 /* Persistable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistable.swift; sourceTree = "<group>"; };
 		F5106F9022FCE73F00425299 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		F5106F9322FE277900425299 /* TextInputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputCell.swift; sourceTree = "<group>"; };
 		F5106F9522FE27C400425299 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
@@ -144,6 +149,13 @@
 		F5D90942231880FC00757C45 /* TaskListDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListDataStore.swift; sourceTree = "<group>"; };
 		F5D909442318817D00757C45 /* TaskListDependencyOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListDependencyOptions.swift; sourceTree = "<group>"; };
 		F5D9094623188AC400757C45 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
+		F5D909492319B1BB00757C45 /* TaskEditorCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditorCoordinator.swift; sourceTree = "<group>"; };
+		F5D9094B2319B2B000757C45 /* TaskEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditorViewController.swift; sourceTree = "<group>"; };
+		F5D9094D2319B31200757C45 /* TaskEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditorViewModel.swift; sourceTree = "<group>"; };
+		F5D9094F2319B3A400757C45 /* TaskEditorDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditorDataStore.swift; sourceTree = "<group>"; };
+		F5D909512319B3C900757C45 /* TaskEditorDependencyOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditorDependencyOptions.swift; sourceTree = "<group>"; };
+		F5D90953231A8B9000757C45 /* DateFormatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatable.swift; sourceTree = "<group>"; };
+		F5D90955231A9C8700757C45 /* RLMPersistable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RLMPersistable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +234,7 @@
 				F5106F7022F5F82900425299 /* Services */,
 				F5106F9222FE26D600425299 /* Shared */,
 				F5106F4422EFF3D000425299 /* Supporting Files */,
+				F5D909482319B19000757C45 /* TaskEditor */,
 				F5D9093923186F6100757C45 /* TaskList */,
 			);
 			path = "gud-ios";
@@ -295,8 +308,9 @@
 				F5D9092523107C5700757C45 /* BasicAlerting.swift */,
 				F5106F7322F5F84A00425299 /* CacheServicable.swift */,
 				F5106F5322EFF95600425299 /* Coordinatable.swift */,
+				F5D90953231A8B9000757C45 /* DateFormatable.swift */,
 				F5106F7122F5F84100425299 /* NetworkServicable.swift */,
-				F5106F8B22FBC80500425299 /* Persistable.swift */,
+				F5D90955231A9C8700757C45 /* RLMPersistable.swift */,
 				F5106F6222F1824300425299 /* UniquelyIdentifiable.swift */,
 			);
 			path = Protocols;
@@ -396,6 +410,18 @@
 				F5D90940231880A800757C45 /* TaskListViewModel.swift */,
 			);
 			path = TaskList;
+			sourceTree = "<group>";
+		};
+		F5D909482319B19000757C45 /* TaskEditor */ = {
+			isa = PBXGroup;
+			children = (
+				F5D909492319B1BB00757C45 /* TaskEditorCoordinator.swift */,
+				F5D9094F2319B3A400757C45 /* TaskEditorDataStore.swift */,
+				F5D909512319B3C900757C45 /* TaskEditorDependencyOptions.swift */,
+				F5D9094B2319B2B000757C45 /* TaskEditorViewController.swift */,
+				F5D9094D2319B31200757C45 /* TaskEditorViewModel.swift */,
+			);
+			path = TaskEditor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -567,8 +593,10 @@
 			files = (
 				F5106F7622F5FF7C00425299 /* GudNetworkService.swift in Sources */,
 				F5106F5122EFF86E00425299 /* FolderListCoordinator.swift in Sources */,
+				F5D9094E2319B31200757C45 /* TaskEditorViewModel.swift in Sources */,
 				F5106F9122FCE73F00425299 /* RealmManager.swift in Sources */,
 				F533E1D323009D1A005A624E /* BaseModel.swift in Sources */,
+				F5D9094C2319B2B000757C45 /* TaskEditorViewController.swift in Sources */,
 				F5106F6D22F40BD700425299 /* Extensions.swift in Sources */,
 				F533E1D923021845005A624E /* NotificationGrandCentral.swift in Sources */,
 				F5106F6122F181AF00425299 /* BaseCollectionViewCell.swift in Sources */,
@@ -579,15 +607,16 @@
 				F59644BC230A127D009EE6C8 /* FolderListViewModel.swift in Sources */,
 				F5106F4B22EFF52A00425299 /* FolderListViewController.swift in Sources */,
 				F5106F4122EFF39500425299 /* BaseViewController.swift in Sources */,
+				F5D90956231A9C8700757C45 /* RLMPersistable.swift in Sources */,
 				F5D90943231880FC00757C45 /* TaskListDataStore.swift in Sources */,
 				F5D909352315144D00757C45 /* DropdownMenuSourceView.swift in Sources */,
-				F5106F8C22FBC80500425299 /* Persistable.swift in Sources */,
 				F59644C4230DA58F009EE6C8 /* FolderEditorViewModel.swift in Sources */,
 				F5106F8422FB1F0300425299 /* FolderEditorNavigationController.swift in Sources */,
 				F5106F6F22F5F49C00425299 /* FolderListDependencyOptions.swift in Sources */,
 				F533E1D72300F94A005A624E /* TextInputCellUpdating.swift in Sources */,
 				F5106F5622EFFA1600425299 /* AppTabBarController.swift in Sources */,
 				F5106F5D22F0949900425299 /* DeepLinkOption.swift in Sources */,
+				F5D909522319B3C900757C45 /* TaskEditorDependencyOptions.swift in Sources */,
 				F5106F4822EFF43B00425299 /* BaseNavigationController.swift in Sources */,
 				F5106F7422F5F84A00425299 /* CacheServicable.swift in Sources */,
 				F5D9093B23186F7D00757C45 /* TaskListCoordinator.swift in Sources */,
@@ -597,10 +626,13 @@
 				F5106F6522F1986800425299 /* FolderListDataStore.swift in Sources */,
 				F59644C2230D3B8C009EE6C8 /* AppTabBarControllerDelegate.swift in Sources */,
 				F5106F5822EFFA5B00425299 /* AppCoordinator.swift in Sources */,
+				F5D9094A2319B1BB00757C45 /* TaskEditorCoordinator.swift in Sources */,
 				F5106F7222F5F84100425299 /* NetworkServicable.swift in Sources */,
+				F5D90954231A8B9000757C45 /* DateFormatable.swift in Sources */,
 				F5106F4622EFF41800425299 /* BaseTabBarController.swift in Sources */,
 				F5D909382316FDAC00757C45 /* FolderListDropdownMenuDataStore.swift in Sources */,
 				F59644B82308ECEF009EE6C8 /* AppViewModel.swift in Sources */,
+				F5D909502319B3A400757C45 /* TaskEditorDataStore.swift in Sources */,
 				F5106F7A22F666B700425299 /* BaseNetworkService.swift in Sources */,
 				F5D909452318817D00757C45 /* TaskListDependencyOptions.swift in Sources */,
 				F5D9093D2318701B00757C45 /* TaskListViewController.swift in Sources */,

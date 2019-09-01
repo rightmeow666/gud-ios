@@ -21,12 +21,12 @@ class FolderListDataStore: BaseCacheService {
   }
   
   func removeDeselectedFolder(deselectedFolder folder: Folder) {
-    self.selectedFolders.removeAll(where: { $0.folderId == folder.folderId })
+    self.selectedFolders.removeAll(where: { $0.id == folder.id })
   }
   
   func deleteSelectedFolders(completion: (Error?) -> Void) {
     do {
-      try Folder.deleteAll(folders: self.selectedFolders)
+      try Folder.deleteAll(self.selectedFolders)
       completion(nil)
     } catch let err {
       completion(err)
@@ -40,7 +40,7 @@ class FolderListDataStore: BaseCacheService {
   }
   
   func getFolderList(completion: (() -> Void)? = nil) {
-    self.folders = Folder.all
+    self.folders = Folder.findAll(sortedBy: "createdAt", ascending: false)
     completion?()
   }
   

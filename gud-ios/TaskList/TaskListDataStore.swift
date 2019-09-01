@@ -11,8 +11,11 @@ import RealmSwift
 class TaskListDataStore: BaseCacheService {
   var folder: Folder
   
+  var tasks: List<Task>
+  
   init(selectedFolder: Folder) {
     self.folder = selectedFolder
+    self.tasks = folder.tasks
     super.init()
   }
 }

@@ -8,23 +8,27 @@
 
 import RealmSwift
 
-class BaseModel: Object {
-  static let localDateFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateFormat = "yyyy-MM-dd HH:mm zzz"
-    return formatter
-  }()
+class BaseModel: Object, DateFormatable {
+  @objc dynamic var id: String = ""
   
-  func getFormattedDateString(unformattedDate: Date, formatter: DateFormatter = BaseModel.localDateFormatter) -> String {
-    return formatter.string(from: unformattedDate)
+  @objc dynamic var createdAt: Date? = nil
+  
+  @objc dynamic var updatedAt: Date? = nil
+  
+  var createdAtFormattedString: String {
+    guard let d = self.createdAt else { return "" }
+    return self.formattedDateString(d)
+  }
+  
+  var updatedAtFormattedString: String {
+    guard let d = self.updatedAt else { return "" }
+    return self.formattedDateString(d)
   }
   
   enum PersistenceError: Error {
-    case readError(error: Error)
-    
     case saveError(error: Error)
     
-    case deleteError(error: Error)
+    case deletetionError(error: Error)
     
     case customError(message: String)
   }

@@ -8,14 +8,8 @@
 
 import RealmSwift
 
-class Folder: BaseModel {
-  @objc dynamic var folderId: String = UUID().uuidString
-  
+final class Folder: BaseModel, RLMPersistable {
   @objc dynamic var title: String = ""
-  
-  @objc dynamic var createdAt: Date = Date()
-  
-  @objc dynamic var updatedAt: Date = Date()
   
   var tasks = List<Task>()
   
@@ -32,53 +26,19 @@ class Folder: BaseModel {
     }
   }
   
-  static var all: Results<Folder> {
-    return RealmManager.shared.db.objects(Folder.self).sorted(byKeyPath: "createdAt", ascending: false)
-  }
-  
-  static func deleteAll(folders: [Folder]) throws {
-    do {
-      try RealmManager.shared.db.write {
-        RealmManager.shared.db.delete(folders)
-      }
-    } catch let err {
-      throw PersistenceError.deleteError(error: err)
-    }
-  }
-  
-  func delete() throws {
-    do {
-      try RealmManager.shared.db.write {
-        RealmManager.shared.db.delete(self)
-      }
-    } catch let err {
-      throw PersistenceError.deleteError(error: err)
-    }
-  }
-  
-  func save() throws {
-    do {
+  var beforeSave: BeforeSaveBlock? {
+    let block: BeforeSaveBlock = {
       guard self.title.count <= Folder.TITLE_MAX_LEGNTH else {
         throw PersistenceError.customError(message: "title should be less than or equal to \(Folder.TITLE_MAX_LEGNTH) characters.")
       }
       guard self.title.count >= Folder.TITLE_MIN_LENGTH else {
         throw PersistenceError.customError(message: "title should be greater than or equal to \(Folder.TITLE_MIN_LENGTH) characters.")
       }
-      try RealmManager.shared.db.write {
-        self.updatedAt = Date()
-        RealmManager.shared.db.add(self, update: .error)
-      }
-    } catch let err {
-      throw PersistenceError.saveError(error: err)
     }
+    return block
   }
   
   override static func primaryKey() -> String? {
-    return "folderId"
-  }
-  
-  convenience init(title: String) {
-    self.init()
-    self.title = title
+    return "id"
   }
 }

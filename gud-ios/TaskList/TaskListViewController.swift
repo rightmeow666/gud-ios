@@ -56,7 +56,7 @@ class TaskListViewController: BaseViewController {
 
 extension TaskListViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-    // TODO: present toggle button for complete / pending action
+    // TODO: present toggle button for complete / pending action && edit action
     return nil
   }
   
@@ -82,5 +82,4 @@ extension TaskListViewController: UITableViewDataSource {
 }
 
 extension TaskListViewController: TaskListViewModelDelegate {
-  
 }

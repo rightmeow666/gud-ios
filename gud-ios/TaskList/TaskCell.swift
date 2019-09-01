@@ -83,7 +83,7 @@ class TaskCell: BaseTableViewCell, UniquelyIdentifable {
   
   func configure(task: Task?) {
     self.titleTextView.text = task?.title ?? ""
-    self.dateLabel.text = task?.createdAt.toString ?? ""
+    self.dateLabel.text = task?.createdAtFormattedString
     if let data = task?.imageData {
       self.imageDataView.image = UIImage(data: data)
       self.imageDataView.isHidden = false

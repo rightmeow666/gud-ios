@@ -6,7 +6,7 @@
 //  Copyright © 2019 sudofluff. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class TaskListCoordinator: NSObject {
   private let presenter: FolderListViewController
@@ -25,11 +25,17 @@ class TaskListCoordinator: NSObject {
 
 extension TaskListCoordinator: Coordinatable {
   func start() {
-    // vm, nav, dependencies
     let vc = TaskListViewController()
     let options = TaskListDependencyOptions(networkService: GudNetworkService(), taskListCacheService: TaskListDataStore(selectedFolder: self.selectedFolder))
     let vm = TaskListViewModel(options: options, delegate: vc)
     vc.viewModel = vm
     self.presentingNavController.pushViewController(vc, animated: true)
+  }
+}
+
+extension TaskListCoordinator: TaskListViewControllerDelegate {
+  func taskListViewController(_ controller: TaskListViewController, didTapAddButton button: UIBarButtonItem) {
+    // TODO: segue to task editor
+    print(123)
   }
 }

@@ -151,7 +151,7 @@ class FolderCell: BaseCollectionViewCell, UniquelyIdentifable {
   }
   
   func configure(folder: Folder?) {
-    self.dateLabel.text = folder != nil ? "\(folder!.getFormattedDateString(unformattedDate: folder!.createdAt))" : "Invalid Folder"
+    self.dateLabel.text = folder != nil ? folder!.createdAtFormattedString : "Invalid date"
     self.titleLabel.text = folder?.title ?? "Untitled"
     self.subtitleLabel.text = "Folder is empty"
     self.statsLabel.text = "200 tasks"

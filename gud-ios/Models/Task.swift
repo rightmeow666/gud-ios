@@ -8,9 +8,7 @@
 
 import RealmSwift
 
-class Task: BaseModel {
-  @objc dynamic var taskId: String = UUID().uuidString
-  
+final class Task: BaseModel, RLMPersistable {
   @objc dynamic var folderId: String = ""
   
   @objc dynamic var title: String = ""
@@ -19,11 +17,22 @@ class Task: BaseModel {
   
   @objc dynamic var imageData: Data? = nil
   
-  @objc dynamic var createdAt: Date = Date()
-  
-  @objc dynamic var updatedAt: Date = Date()
-  
   @objc dynamic var isCompleted: Bool = false
+  
+  var beforeSave: BeforeSaveBlock? {
+    let block: BeforeSaveBlock = {
+      if self.folderId.count <= 0 {
+        throw PersistenceError.customError(message: "folderId cannot be empty")
+      }
+      if self.title.count >= Task.TITLE_MAX_LEGNTH {
+        throw PersistenceError.customError(message: "title should be less than or equal to \(Task.TITLE_MAX_LEGNTH) characters.")
+      }
+      if self.title.count <= Task.TITLE_MIN_LENGTH {
+        throw PersistenceError.customError(message: "title should be greater than or equal to \(Task.TITLE_MIN_LENGTH) characters.")
+      }
+    }
+    return block
+  }
   
   let folder = LinkingObjects(fromType: Folder.self, property: "tasks")
   
@@ -31,54 +40,7 @@ class Task: BaseModel {
   
   static let TITLE_MIN_LENGTH: Int = 3
   
-  static var all: Results<Task> {
-    return RealmManager.shared.db.objects(Task.self).sorted(byKeyPath: "createdAt", ascending: true)
-  }
-  
-  static func deleteAll(tasks: [Task]) throws {
-    do {
-      try RealmManager.shared.db.write {
-        RealmManager.shared.db.delete(tasks)
-      }
-    } catch let err {
-      throw PersistenceError.deleteError(error: err)
-    }
-  }
-  
-  func delete() throws {
-    do {
-      try RealmManager.shared.db.write {
-        RealmManager.shared.db.delete(self)
-      }
-    } catch let err {
-      throw PersistenceError.deleteError(error: err)
-    }
-  }
-  
-  func save() throws {
-    do {
-      guard self.title.count <= Task.TITLE_MAX_LEGNTH else {
-        throw PersistenceError.customError(message: "title should be less than or equal to \(Task.TITLE_MAX_LEGNTH) characters.")
-      }
-      guard self.title.count >= Task.TITLE_MIN_LENGTH else {
-        throw PersistenceError.customError(message: "title should be greater than or equal to \(Task.TITLE_MIN_LENGTH) characters.")
-      }
-      try RealmManager.shared.db.write {
-        self.updatedAt = Date()
-        RealmManager.shared.db.add(self, update: .error)
-      }
-    } catch let err {
-      throw PersistenceError.saveError(error: err)
-    }
-  }
-  
   override static func primaryKey() -> String? {
-    return "taskId"
-  }
-  
-  convenience init(folderId: String, title: String) {
-    self.init()
-    self.folderId = folderId
-    self.title = title
+    return "id"
   }
 }

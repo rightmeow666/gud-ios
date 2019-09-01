@@ -32,8 +32,9 @@ class FolderEditorDataStore: BaseCacheService {
       guard self.isModified else {
         throw DataStoreError.customError(message: "No changes to commit")
       }
-      try self.folder.save()
-      self.initialFolder = self.folder
+      try self.folder.save({
+        self.initialFolder = self.folder
+      })
       completion(nil)
     } catch let err {
       completion(err)
@@ -45,8 +46,12 @@ class FolderEditorDataStore: BaseCacheService {
       self.folder = unwrappedFolder
       self.initialFolder = unwrappedFolder
     } else {
-      self.folder = Folder(title: "")
-      self.initialFolder = Folder(title: "")
+      self.folder = Folder.create({ () -> Folder in
+        return Folder()
+      })
+      self.initialFolder = Folder.create({ () -> Folder in
+        return Folder()
+      })
     }
     super.init()
   }
