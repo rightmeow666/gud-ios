@@ -51,6 +51,17 @@ class TaskListViewController: BaseViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     self.configureView()
+    
+    let t = Task.create { () -> Task in
+      let t = Task()
+      t.title = "abc"
+      t.folderId = "123"
+      return t
+    }
+    
+    try! t.save {
+      t.title = "1"
+    }
   }
 }
 

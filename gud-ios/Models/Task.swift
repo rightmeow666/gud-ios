@@ -23,11 +23,9 @@ final class Task: BaseModel, RLMPersistable {
     let block: BeforeSaveBlock = {
       if self.folderId.count <= 0 {
         throw PersistenceError.customError(message: "folderId cannot be empty")
-      }
-      if self.title.count >= Task.TITLE_MAX_LEGNTH {
+      } else if self.title.count > Task.TITLE_MAX_LEGNTH {
         throw PersistenceError.customError(message: "title should be less than or equal to \(Task.TITLE_MAX_LEGNTH) characters.")
-      }
-      if self.title.count <= Task.TITLE_MIN_LENGTH {
+      } else if self.title.count < Task.TITLE_MIN_LENGTH {
         throw PersistenceError.customError(message: "title should be greater than or equal to \(Task.TITLE_MIN_LENGTH) characters.")
       }
     }

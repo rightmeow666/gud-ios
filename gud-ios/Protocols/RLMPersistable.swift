@@ -67,6 +67,10 @@ extension RLMPersistable {
     }
   }
   
+  /// Perform a save operation on the realm object
+  ///
+  /// - Parameter block: When updating an object with new values, write all the assignments inside of the OnSaveBlock.
+  /// - Throws: Both beforeSave or onSave can throw errors.
   func save(_ block: OnSaveBlock) throws {
     do {
       try self.beforeSave?()
