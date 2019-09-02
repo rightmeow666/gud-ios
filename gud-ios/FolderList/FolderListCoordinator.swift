@@ -17,6 +17,8 @@ class FolderListCoordinator: NSObject {
   
   private var dropdownMenuCoordinator: FolderListDropdownMenuCoordinator?
   
+  private var taskListCoordinator: TaskListCoordinator?
+  
   init(presenter: AppTabBarController, options: FolderListDependencyOptions) {
     self.presenter = presenter
     self.options = options
@@ -48,9 +50,10 @@ extension FolderListCoordinator: FolderListViewControllerDelegate {
   }
   
   func folderListViewController(_ controller: FolderListViewController, didSelectFolder folder: Folder) {
-    // TODO: segue to task list viewController
     guard let navController = controller.navigationController as? FolderListNavigationController else { return }
-    let coordinator = TaskListCoordinator(presenter: controller, presentingNavController: navController, selectedFolder: folder)
+    let options = TaskListDependencyOptions(networkService: GudNetworkService(), taskListCacheService: TaskListDataStore(selectedFolder: folder))
+    let coordinator = TaskListCoordinator(presenter: navController, options: options)
+    self.taskListCoordinator = coordinator
     coordinator.start()
   }
   

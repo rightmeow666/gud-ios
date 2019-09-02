@@ -15,6 +15,14 @@ extension URL {
   }
 }
 
+extension UITableView {
+  func scrollsToTop() {
+    let sortedIndexPaths = self.indexPathsForVisibleRows?.sorted(by: <)
+    guard let firstAvailableIndexPath = sortedIndexPaths?.first else { return }
+    self.scrollToRow(at: firstAvailableIndexPath, at: .top, animated: true)
+  }
+}
+
 extension UICollectionView {
   func scrollsToTop() {
     let sortedIndexPaths = self.indexPathsForVisibleItems.sorted(by: <)

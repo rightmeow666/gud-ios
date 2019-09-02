@@ -9,6 +9,9 @@
 import Foundation
 
 protocol TaskEditorViewModelDelegate: NSObjectProtocol {
+  func viewModel(_ vm: TaskEditorViewModel, didErr error: Error)
+  
+  func didCommitChanges(_ vm: TaskEditorViewModel, withMessage message: String)
 }
 
 class TaskEditorViewModel: NSObject {
@@ -32,8 +35,18 @@ class TaskEditorViewModel: NSObject {
     return 1
   }
   
+  func numberOfSections() -> Int {
+    return 1
+  }
+  
   func commitChanges() {
-    
+    self.store.commitChanges { (error) in
+      if let err = error {
+        self.delegate?.viewModel(self, didErr: err)
+      } else {
+        self.delegate?.didCommitChanges(self, withMessage: "Changes committed")
+      }
+    }
   }
   
   func getTask() -> Task {
@@ -60,6 +73,6 @@ class TaskEditorViewModel: NSObject {
   }
   
   func updateTask(withNewTitle title: String) {
-    // TODO: provide update title api
+    self.store.updateTaskTitle(title: title)
   }
 }

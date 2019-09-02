@@ -71,6 +71,7 @@
 		F5D909522319B3C900757C45 /* TaskEditorDependencyOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D909512319B3C900757C45 /* TaskEditorDependencyOptions.swift */; };
 		F5D90954231A8B9000757C45 /* DateFormatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D90953231A8B9000757C45 /* DateFormatable.swift */; };
 		F5D90956231A9C8700757C45 /* RLMPersistable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D90955231A9C8700757C45 /* RLMPersistable.swift */; };
+		F5D90958231C82FA00757C45 /* TaskEditorNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D90957231C82FA00757C45 /* TaskEditorNavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -156,6 +157,7 @@
 		F5D909512319B3C900757C45 /* TaskEditorDependencyOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditorDependencyOptions.swift; sourceTree = "<group>"; };
 		F5D90953231A8B9000757C45 /* DateFormatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatable.swift; sourceTree = "<group>"; };
 		F5D90955231A9C8700757C45 /* RLMPersistable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RLMPersistable.swift; sourceTree = "<group>"; };
+		F5D90957231C82FA00757C45 /* TaskEditorNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditorNavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -418,6 +420,7 @@
 				F5D909492319B1BB00757C45 /* TaskEditorCoordinator.swift */,
 				F5D9094F2319B3A400757C45 /* TaskEditorDataStore.swift */,
 				F5D909512319B3C900757C45 /* TaskEditorDependencyOptions.swift */,
+				F5D90957231C82FA00757C45 /* TaskEditorNavigationController.swift */,
 				F5D9094B2319B2B000757C45 /* TaskEditorViewController.swift */,
 				F5D9094D2319B31200757C45 /* TaskEditorViewModel.swift */,
 			);
@@ -620,6 +623,7 @@
 				F5106F4822EFF43B00425299 /* BaseNavigationController.swift in Sources */,
 				F5106F7422F5F84A00425299 /* CacheServicable.swift in Sources */,
 				F5D9093B23186F7D00757C45 /* TaskListCoordinator.swift in Sources */,
+				F5D90958231C82FA00757C45 /* TaskEditorNavigationController.swift in Sources */,
 				F5106F9622FE27C400425299 /* BaseTableViewCell.swift in Sources */,
 				F5D9093023150D1E00757C45 /* DropdownMenuViewController.swift in Sources */,
 				F5D909332315100100757C45 /* FolderListDropdownMenuCoordinator.swift in Sources */,

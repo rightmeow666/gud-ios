@@ -21,13 +21,20 @@ class TaskEditorDataStore: BaseCacheService {
   
   private var initialTask: Task
   
-  func commitChanges(_ title: String, completion: (Error?) -> Void) {
+  private var parentFolder: Folder
+  
+  func updateTaskTitle(title: String) {
+    self.task.title = title
+  }
+  
+  func commitChanges(completion: (Error?) -> Void) {
     do {
       guard self.isModified else {
         throw DataStoreError.customError(message: "No changes to commit")
       }
       try self.task.save {
-        self.initialTask.title = title
+        self.initialTask = self.task
+        self.parentFolder.tasks.append(self.task)
       }
       completion(nil)
     } catch let err {
@@ -35,19 +42,20 @@ class TaskEditorDataStore: BaseCacheService {
     }
   }
   
-  init(task: Task?, folderId: String) {
+  init(task: Task?, parentFolder: Folder) {
+    self.parentFolder = parentFolder
     if let t = task {
       self.task = t
       self.initialTask = t
     } else {
       self.task = Task.create { () -> Task in
         let t = Task()
-        t.folderId = folderId
+        t.folderId = parentFolder.id
         return t
       }
       self.initialTask = Task.create({ () -> Task in
         let t = Task()
-        t.folderId = folderId
+        t.folderId = parentFolder.id
         return t
       })
     }

@@ -18,13 +18,15 @@ class TaskListViewController: BaseViewController {
   var viewModel: TaskListViewModel!
   
   lazy private var tableView: UITableView = {
-    let view = UITableView(frame: self.view.frame, style: .grouped)
+    let view = UITableView(frame: self.view.frame, style: .plain)
     view.translatesAutoresizingMaskIntoConstraints = false
-    view.delegate = self
-    view.dataSource = self
     view.estimatedRowHeight = 56
     view.rowHeight = UITableView.automaticDimension
+    view.scrollsToTop = true
+    view.allowsMultipleSelection = false
     view.register(TaskCell.self, forCellReuseIdentifier: TaskCell.cellId)
+    view.delegate = self
+    view.dataSource = self
     return view
   }()
   
@@ -38,6 +40,7 @@ class TaskListViewController: BaseViewController {
   }
   
   private func configureView() {
+    self.navigationItem.title = self.viewModel.viewControllerTitle
     self.view.backgroundColor = .white
     self.navigationItem.setRightBarButtonItems([self.addButton], animated: true)
     self.view.addSubview(self.tableView)
@@ -45,25 +48,25 @@ class TaskListViewController: BaseViewController {
     self.tableView.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor).isActive = true
     self.tableView.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor).isActive = true
     self.tableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-    self.title = self.viewModel.viewControllerTitle
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
     self.configureView()
+    self.viewModel.getTaskList()
   }
 }
 
 extension TaskListViewController: UITableViewDelegate {
-  func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-    // TODO: present toggle button for complete / pending action && edit action
-    return nil
-  }
-  
-  func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-    // TODO: present delete button
-    return nil
-  }
+//  func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+//    // TODO: present toggle button for complete / pending action && edit action
+//    return nil
+//  }
+//  
+//  func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+//    // TODO: present delete button
+//    return nil
+//  }
 }
 
 extension TaskListViewController: UITableViewDataSource {
@@ -77,9 +80,35 @@ extension TaskListViewController: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: TaskCell.cellId, for: indexPath) as! TaskCell
+    if let t = self.viewModel.getTask(atIndex: indexPath.row) {
+      cell.configure(task: t)
+    }
     return cell
   }
 }
 
 extension TaskListViewController: TaskListViewModelDelegate {
+  func didGetTaskList(_ vm: TaskListViewModel) {
+    self.tableView.reloadData()
+  }
+  
+  func viewModel(_ vm: TaskListViewModel, deletedIndice: [Int], insertedIndice: [Int], modifiedIndice: [Int]) {
+    let ops = BlockOperation {
+      let dis = deletedIndice.map({ IndexPath(item: $0, section: 0) })
+      let iis = insertedIndice.map({ IndexPath(item: $0, section: 0) })
+      let uis = modifiedIndice.map({ IndexPath(item: $0, section: 0) })
+      self.tableView.deleteRows(at: dis, with: .automatic)
+      self.tableView.insertRows(at: iis, with: .automatic)
+      self.tableView.reloadRows(at: uis, with: .automatic)
+    }
+    self.tableView.performBatchUpdates({
+      ops.start()
+    }) { (completed) in
+      self.tableView.scrollsToTop()
+    }
+  }
+  
+  func viewModel(_ vm: TaskListViewModel, didErr error: Error) {
+    self.presentAlert("Error", message: error.localizedDescription, completion: nil)
+  }
 }

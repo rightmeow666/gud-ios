@@ -9,13 +9,25 @@
 import RealmSwift
 
 class TaskListDataStore: BaseCacheService {
+  var realmNotificationToken: NotificationToken?
+  
   var folder: Folder
   
-  var tasks: List<Task>
+  var tasks: Results<Task>?
   
   init(selectedFolder: Folder) {
     self.folder = selectedFolder
-    self.tasks = folder.tasks
     super.init()
+  }
+  
+  func getTaskList(completion: (() -> Void)? = nil) {
+    self.tasks = folder.tasks.sorted(byKeyPath: "createdAt", ascending: true)
+    completion?()
+  }
+  
+  func observeTasksForChanges(completion: @escaping (RealmCollectionChange<Results<Task>>) -> Void) {
+    self.realmNotificationToken = self.tasks?.observe({ (changes) in
+      completion(changes)
+    })
   }
 }

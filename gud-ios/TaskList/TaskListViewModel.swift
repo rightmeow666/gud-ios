@@ -9,6 +9,11 @@
 import Foundation
 
 protocol TaskListViewModelDelegate: NSObjectProtocol {
+  func didGetTaskList(_ vm: TaskListViewModel)
+  
+  func viewModel(_ vm: TaskListViewModel, deletedIndice: [Int], insertedIndice: [Int], modifiedIndice: [Int])
+  
+  func viewModel(_ vm: TaskListViewModel, didErr error: Error)
 }
 
 class TaskListViewModel: NSObject {
@@ -28,6 +33,26 @@ class TaskListViewModel: NSObject {
   
   func getNumberOfSections() -> Int {
     return 1
+  }
+  
+  func getTaskList() {
+    self.taskListCacheService.getTaskList {
+      self.taskListCacheService.observeTasksForChanges(completion: { (change) in
+        switch change {
+        case .initial:
+          self.delegate?.didGetTaskList(self)
+        case .update(_, deletions: let deletions, insertions: let insertions, modifications: let modifications):
+          self.delegate?.viewModel(self, deletedIndice: deletions, insertedIndice: insertions, modifiedIndice: modifications)
+        case .error(let err):
+          self.delegate?.viewModel(self, didErr: err)
+        }
+      })
+    }
+  }
+  
+  func getTask(atIndex index: Int) -> Task? {
+    return self.taskListCacheService.tasks?[index]
+    
   }
   
   init(options: TaskListDependencyOptions, delegate: TaskListViewModelDelegate) {

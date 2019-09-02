@@ -9,7 +9,7 @@
 import UIKit
 
 class TaskCell: BaseTableViewCell, UniquelyIdentifable {
-  private let IMAGEDATAVIEWSIZE = CGSize(width: 44, height: 44)
+  private let IMAGE_DATA_VIEW_SIZE = CGSize(width: 44, height: 44)
   
   lazy var containerView: UIView = {
     let view = UIView()
@@ -26,6 +26,7 @@ class TaskCell: BaseTableViewCell, UniquelyIdentifable {
   lazy var titleTextView: UITextView = {
     let view = UITextView()
     view.isScrollEnabled = false
+    view.isEditable = false
     view.translatesAutoresizingMaskIntoConstraints = false
     return view
   }()
@@ -77,8 +78,8 @@ class TaskCell: BaseTableViewCell, UniquelyIdentifable {
     self.stackView.leftAnchor.constraint(equalTo: self.containerView.leftAnchor).isActive = true
     self.stackView.rightAnchor.constraint(equalTo: self.containerView.rightAnchor).isActive = true
     self.stackView.bottomAnchor.constraint(equalTo: self.separatorView.topAnchor).isActive = true
-    self.imageDataView.widthAnchor.constraint(equalToConstant: self.IMAGEDATAVIEWSIZE.width).isActive = true
-    self.imageDataView.heightAnchor.constraint(equalToConstant: self.IMAGEDATAVIEWSIZE.height).isActive = true
+    self.imageDataView.widthAnchor.constraint(equalToConstant: self.IMAGE_DATA_VIEW_SIZE.width).isActive = true
+    self.imageDataView.heightAnchor.constraint(equalToConstant: self.IMAGE_DATA_VIEW_SIZE.height).isActive = true
   }
   
   func configure(task: Task?) {
@@ -92,8 +93,12 @@ class TaskCell: BaseTableViewCell, UniquelyIdentifable {
     }
   }
   
-  override func awakeFromNib() {
-    super.awakeFromNib()
+  override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+    super.init(style: style, reuseIdentifier: reuseIdentifier)
     self.configureView()
+  }
+  
+  required init?(coder aDecoder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
   }
 }
