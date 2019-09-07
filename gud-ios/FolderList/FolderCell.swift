@@ -95,30 +95,31 @@ class FolderCell: BaseCollectionViewCell, UniquelyIdentifable {
   private func configureView() {
     self.backgroundColor = CustomColor.clear
     self.contentView.addSubview(self.containerView)
+    self.contentView.addSubview(self.indicatorView)
+    self.containerView.addSubview(self.titleLabel)
+    self.containerView.addSubview(self.subtitleLabel)
+    self.containerView.addSubview(self.stackView)
+    
     self.containerView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 8).isActive = true
     self.containerViewLeftConstraint = self.containerView.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 16)
     self.containerViewLeftConstraint?.isActive = true
     self.containerView.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -16).isActive = true
     self.containerView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -8).isActive = true
     
-    self.contentView.addSubview(self.indicatorView)
     self.indicatorView.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 16).isActive = true
     self.indicatorView.centerYAnchor.constraint(equalTo: self.containerView.centerYAnchor, constant: 0).isActive = true
     self.indicatorView.widthAnchor.constraint(equalToConstant: 22).isActive = true
     self.indicatorView.heightAnchor.constraint(equalToConstant: 22).isActive = true
     
-    self.containerView.addSubview(self.titleLabel)
     self.titleLabel.topAnchor.constraint(equalTo: self.containerView.topAnchor, constant: 16).isActive = true
     self.titleLabel.leftAnchor.constraint(equalTo: self.containerView.leftAnchor, constant: 16).isActive = true
     self.titleLabel.rightAnchor.constraint(equalTo: self.containerView.rightAnchor, constant: -16).isActive = true
     
-    self.containerView.addSubview(self.subtitleLabel)
     self.subtitleLabel.heightAnchor.constraint(equalToConstant: 16).isActive = true
     self.subtitleLabel.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor, constant: 8).isActive = true
     self.subtitleLabel.leftAnchor.constraint(equalTo: self.containerView.leftAnchor, constant: 16).isActive = true
     self.subtitleLabel.rightAnchor.constraint(lessThanOrEqualTo: self.containerView.rightAnchor, constant: -16).isActive = true
     
-    self.containerView.addSubview(self.stackView)
     self.stackView.heightAnchor.constraint(equalToConstant: 16).isActive = true
     self.stackView.topAnchor.constraint(equalTo: self.subtitleLabel.bottomAnchor, constant: 0).isActive = true
     self.stackView.leftAnchor.constraint(equalTo: self.containerView.leftAnchor, constant: 16).isActive = true
@@ -153,8 +154,12 @@ class FolderCell: BaseCollectionViewCell, UniquelyIdentifable {
   func configure(folder: Folder?) {
     self.dateLabel.text = folder != nil ? folder!.createdAtFormattedString : "Invalid date"
     self.titleLabel.text = folder?.title ?? "Untitled"
-    self.subtitleLabel.text = "Folder is empty"
-    self.statsLabel.text = "200 tasks"
+    if let t = folder?.tasks.first?.title {
+      self.subtitleLabel.text = t
+    } else {
+      self.subtitleLabel.text = "Empty folder"
+    }
+    self.statsLabel.text = "\(folder?.tasks.count ?? 0) tasks"
   }
   
   override init(frame: CGRect) {

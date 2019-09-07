@@ -8,22 +8,23 @@
 
 import UIKit
 
-class TaskCell: BaseTableViewCell, UniquelyIdentifable {
+class TaskCell: UITableViewCell, UniquelyIdentifable {
   private let IMAGE_DATA_VIEW_SIZE = CGSize(width: 44, height: 44)
   
-  lazy var containerView: UIView = {
+  lazy private var containerView: UIView = {
+    let view = UIView()
+    view.backgroundColor = CustomColor.orange
+    view.translatesAutoresizingMaskIntoConstraints = false
+    return view
+  }()
+  
+  lazy private var completionIndicatorView: UIView = {
     let view = UIView()
     view.translatesAutoresizingMaskIntoConstraints = false
     return view
   }()
   
-  lazy var completionIndicatorView: UIView = {
-    let view = UIView()
-    view.translatesAutoresizingMaskIntoConstraints = false
-    return view
-  }()
-  
-  lazy var titleTextView: UITextView = {
+  lazy private var titleTextView: UITextView = {
     let view = UITextView()
     view.isScrollEnabled = false
     view.isEditable = false
@@ -31,55 +32,48 @@ class TaskCell: BaseTableViewCell, UniquelyIdentifable {
     return view
   }()
   
-  lazy var dateLabel: UILabel = {
+  lazy private var dateLabel: UILabel = {
     let label = UILabel()
     label.translatesAutoresizingMaskIntoConstraints = false
     return label
   }()
   
-  lazy var imageDataView: UIImageView = {
+  lazy private var imageDataView: UIImageView = {
     let view = UIImageView()
     view.translatesAutoresizingMaskIntoConstraints = false
     return view
   }()
   
-  lazy var stackView: UIStackView = {
-    let view = UIStackView(arrangedSubviews: [self.titleTextView, self.imageDataView])
+  lazy private var stackView: UIStackView = {
+    let view = UIStackView()
     view.axis = .horizontal
     view.translatesAutoresizingMaskIntoConstraints = false
     return view
   }()
   
-  lazy var separatorView: UIView = {
+  lazy private var separatorView: UIView = {
     let view = UIView()
     view.translatesAutoresizingMaskIntoConstraints = false
     return view
   }()
   
   private func configureView() {
-    self.backgroundColor = CustomColor.clear
+    self.contentView.backgroundColor = .offWhite
+    self.selectionStyle = .none
     self.contentView.addSubview(self.containerView)
-    self.contentView.addSubview(self.completionIndicatorView)
+    self.containerView.addSubview(self.titleTextView)
+    self.containerView.addSubview(self.separatorView)
+    self.containerView.addSubview(self.stackView)
+    self.containerView.addSubview(self.dateLabel)
+    self.containerView.addSubview(self.completionIndicatorView)
     self.containerView.topAnchor.constraint(equalTo: self.contentView.topAnchor).isActive = true
     self.containerView.rightAnchor.constraint(equalTo: self.contentView.rightAnchor).isActive = true
     self.containerView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor).isActive = true
-    self.containerView.leftAnchor.constraint(equalTo: self.completionIndicatorView.rightAnchor).isActive = true
-    self.completionIndicatorView.topAnchor.constraint(equalTo: self.contentView.topAnchor).isActive = true
-    self.completionIndicatorView.leftAnchor.constraint(equalTo: self.contentView.leftAnchor).isActive = true
-    self.completionIndicatorView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor).isActive = true
+    self.containerView.leftAnchor.constraint(equalTo: self.contentView.leftAnchor).isActive = true
+    self.completionIndicatorView.topAnchor.constraint(equalTo: self.containerView.topAnchor).isActive = true
+    self.completionIndicatorView.leftAnchor.constraint(equalTo: self.containerView.leftAnchor).isActive = true
+    self.completionIndicatorView.bottomAnchor.constraint(equalTo: self.containerView.bottomAnchor).isActive = true
     self.completionIndicatorView.widthAnchor.constraint(equalToConstant: 1).isActive = true
-    self.containerView.addSubview(self.separatorView)
-    self.separatorView.leftAnchor.constraint(equalTo: self.containerView.leftAnchor).isActive = true
-    self.separatorView.bottomAnchor.constraint(equalTo: self.containerView.bottomAnchor).isActive = true
-    self.separatorView.rightAnchor.constraint(equalTo: self.containerView.rightAnchor).isActive = true
-    self.separatorView.heightAnchor.constraint(equalToConstant: 1).isActive = true
-    self.contentView.addSubview(self.stackView)
-    self.stackView.topAnchor.constraint(equalTo: self.containerView.topAnchor).isActive = true
-    self.stackView.leftAnchor.constraint(equalTo: self.containerView.leftAnchor).isActive = true
-    self.stackView.rightAnchor.constraint(equalTo: self.containerView.rightAnchor).isActive = true
-    self.stackView.bottomAnchor.constraint(equalTo: self.separatorView.topAnchor).isActive = true
-    self.imageDataView.widthAnchor.constraint(equalToConstant: self.IMAGE_DATA_VIEW_SIZE.width).isActive = true
-    self.imageDataView.heightAnchor.constraint(equalToConstant: self.IMAGE_DATA_VIEW_SIZE.height).isActive = true
   }
   
   func configure(task: Task?) {

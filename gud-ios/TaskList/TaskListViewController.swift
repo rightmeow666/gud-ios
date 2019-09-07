@@ -20,8 +20,9 @@ class TaskListViewController: BaseViewController {
   lazy private var tableView: UITableView = {
     let view = UITableView(frame: self.view.frame, style: .plain)
     view.translatesAutoresizingMaskIntoConstraints = false
-    view.estimatedRowHeight = 56
+    view.estimatedRowHeight = 88
     view.rowHeight = UITableView.automaticDimension
+    view.backgroundColor = CustomColor.white
     view.scrollsToTop = true
     view.allowsMultipleSelection = false
     view.register(TaskCell.self, forCellReuseIdentifier: TaskCell.cellId)
@@ -58,15 +59,15 @@ class TaskListViewController: BaseViewController {
 }
 
 extension TaskListViewController: UITableViewDelegate {
-//  func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-//    // TODO: present toggle button for complete / pending action && edit action
-//    return nil
-//  }
-//  
-//  func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-//    // TODO: present delete button
-//    return nil
-//  }
+  func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    // TODO: present toggle button for complete / pending action && edit action
+    return nil
+  }
+  
+  func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    // TODO: present delete button
+    return nil
+  }
 }
 
 extension TaskListViewController: UITableViewDataSource {
@@ -80,9 +81,8 @@ extension TaskListViewController: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: TaskCell.cellId, for: indexPath) as! TaskCell
-    if let t = self.viewModel.getTask(atIndex: indexPath.row) {
-      cell.configure(task: t)
-    }
+    let t = self.viewModel.getTask(atIndex: indexPath.row)
+    cell.configure(task: t)
     return cell
   }
 }
