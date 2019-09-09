@@ -81,8 +81,9 @@ extension TaskListViewController: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: TaskCell.cellId, for: indexPath) as! TaskCell
-    let t = self.viewModel.getTask(atIndex: indexPath.row)
-    cell.configure(task: t)
+    if let t = self.viewModel.getTask(atIndex: indexPath.row) {
+      cell.configure(task: t)
+    }
     return cell
   }
 }
