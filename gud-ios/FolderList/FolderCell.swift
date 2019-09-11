@@ -140,9 +140,9 @@ class FolderCell: BaseCollectionViewCell, UniquelyIdentifable {
     if self.isEditing {
       UIView.animate(withDuration: 0.15, delay: 0, options: [.allowUserInteraction], animations: {
         self.containerView.transform = isSelected ? CGAffineTransform.init(scaleX: 1.03, y: 1.03) : CGAffineTransform.identity
-        self.containerView.layer.borderColor = isSelected ? CustomColor.roseScarlet.cgColor : CustomColor.clear.cgColor
+        self.containerView.layer.borderColor = isSelected ? CustomColor.scarletCarson.cgColor : CustomColor.clear.cgColor
         self.containerView.layer.borderWidth = isSelected ? 1 : 0
-        self.indicatorView.backgroundColor = isSelected ? CustomColor.roseScarlet : CustomColor.clear
+        self.indicatorView.backgroundColor = isSelected ? CustomColor.scarletCarson : CustomColor.clear
       }, completion: nil)
     }
   }

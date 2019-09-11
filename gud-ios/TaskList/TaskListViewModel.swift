@@ -52,7 +52,14 @@ class TaskListViewModel: NSObject {
   
   func getTask(atIndex index: Int) -> Task? {
     return self.taskListCacheService.tasks?[index]
-    
+  }
+  
+  func removeTask(atIndex index: Int) {
+    do {
+      try self.taskListCacheService.removeTask(atIndex: index)
+    } catch let err {
+      self.delegate?.viewModel(self, didErr: err)
+    }
   }
   
   init(options: TaskListDependencyOptions, delegate: TaskListViewModelDelegate) {

@@ -17,10 +17,17 @@ class TaskListViewController: BaseViewController {
   
   var viewModel: TaskListViewModel!
   
+  var pendingAction: UIContextualAction!
+  
+  var completeAction: UIContextualAction!
+  
+  var deleteAction: UIContextualAction!
+  
   lazy private var tableView: UITableView = {
     let view = UITableView(frame: self.view.frame, style: .plain)
     view.translatesAutoresizingMaskIntoConstraints = false
-    view.estimatedRowHeight = 88
+    view.estimatedRowHeight = 64
+    view.separatorStyle = .none
     view.rowHeight = UITableView.automaticDimension
     view.backgroundColor = CustomColor.white
     view.scrollsToTop = true
@@ -65,8 +72,15 @@ extension TaskListViewController: UITableViewDelegate {
   }
   
   func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-    // TODO: present delete button
-    return nil
+    self.deleteAction = UIContextualAction(style: .destructive, title: nil, handler: { (action, view, done) in
+      self.viewModel.removeTask(atIndex: indexPath.row)
+      done(true)
+    })
+    self.deleteAction.image = UIImage(named: "Delete")
+    self.deleteAction.backgroundColor = CustomColor.scarletCarson
+    let swipeActionConfigurations = UISwipeActionsConfiguration(actions: [deleteAction])
+    swipeActionConfigurations.performsFirstActionWithFullSwipe = false
+    return swipeActionConfigurations
   }
 }
 

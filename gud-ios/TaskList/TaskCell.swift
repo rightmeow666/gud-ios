@@ -11,6 +11,8 @@ import UIKit
 class TaskCell: UITableViewCell, UniquelyIdentifable {
   private var IMAGE_DATA_VIEW_SIZE = CGSize(width: 44, height: 0)
   
+  private var imageViewHeightConstraint: NSLayoutConstraint!
+  
   lazy private var containerView: UIView = {
     let view = UIView()
     view.backgroundColor = CustomColor.offWhite
@@ -30,7 +32,7 @@ class TaskCell: UITableViewCell, UniquelyIdentifable {
     view.isScrollEnabled = false
     view.font = UIFont.preferredFont(forTextStyle: .body)
     view.isEditable = false
-    view.backgroundColor = CustomColor.red
+    view.backgroundColor = CustomColor.clear
     view.translatesAutoresizingMaskIntoConstraints = false
     return view
   }()
@@ -53,7 +55,7 @@ class TaskCell: UITableViewCell, UniquelyIdentifable {
   
   lazy private var separatorView: UIView = {
     let view = UIView()
-    view.backgroundColor = .red
+    view.backgroundColor = CustomColor.lightGray
     view.translatesAutoresizingMaskIntoConstraints = false
     return view
   }()
@@ -96,7 +98,7 @@ class TaskCell: UITableViewCell, UniquelyIdentifable {
   func configure(task: Task) {
     self.titleTextView.text = task.title
     self.dateLabel.text = task.createdAtFormattedString
-    self.completionIndicatorView.backgroundColor = task.isCompleted ? CustomColor.seaweedGreen : CustomColor.seaweedGreen
+    self.completionIndicatorView.backgroundColor = task.isCompleted ? CustomColor.seaweedGreen : CustomColor.clear
     UIView.animate(withDuration: 1, animations: {
       if let data = task.imageData {
         self.imageDataView.image = UIImage(data: data)

@@ -25,6 +25,14 @@ class TaskListDataStore: BaseCacheService {
     completion?()
   }
   
+  func removeTask(atIndex index: Int) throws {
+    guard let t = self.tasks?[index] else {
+      throw DataStoreError.customError(message: "Index is out of bound at index: \(index)")
+      return
+    }
+    try t.delete()
+  }
+  
   func observeTasksForChanges(completion: @escaping (RealmCollectionChange<Results<Task>>) -> Void) {
     self.realmNotificationToken = self.tasks?.observe({ (changes) in
       completion(changes)

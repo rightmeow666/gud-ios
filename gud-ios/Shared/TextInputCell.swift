@@ -61,9 +61,9 @@ class TextInputCell: BaseTableViewCell, UniquelyIdentifable {
   private func configureViewStyle(_ textInput: String, validTextInputRange range: ClosedRange<Int>? = nil) {
     let c = textInput.count
     if let r = range {
-      self.userInputTextView.textColor = (r ~= c) ? CustomColor.darkText : CustomColor.roseScarlet
+      self.userInputTextView.textColor = (r ~= c) ? CustomColor.darkText : CustomColor.scarletCarson
       self.counterLabel.text = "\(c) = [\(r.min()!), \(r.max()!)]"
-      self.counterLabel.textColor = (r ~= c) ? CustomColor.darkText : CustomColor.roseScarlet
+      self.counterLabel.textColor = (r ~= c) ? CustomColor.darkText : CustomColor.scarletCarson
     } else {
       self.userInputTextView.textColor = CustomColor.darkText
       self.counterLabel.text = "\(c) = [-∞, +∞]"
