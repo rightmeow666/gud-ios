@@ -92,7 +92,6 @@ class TaskCell: UITableViewCell, UniquelyIdentifable {
     self.titleTextView.topAnchor.constraint(equalTo: self.containerView.topAnchor, constant: 8).isActive = true
     self.titleTextView.leftAnchor.constraint(equalTo: self.containerView.leftAnchor, constant: 16).isActive = true
     self.titleTextView.rightAnchor.constraint(equalTo: self.containerView.rightAnchor, constant: -16).isActive = true
-    self.titleTextView.heightAnchor.constraint(greaterThanOrEqualToConstant: 22).isActive = true
     self.titleTextView.bottomAnchor.constraint(equalTo: self.stackView.topAnchor, constant: -4).isActive = true
     
     self.stackView.leftAnchor.constraint(equalTo: self.containerView.leftAnchor, constant: 16).isActive = true
