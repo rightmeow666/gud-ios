@@ -114,9 +114,6 @@ class TaskCell: UITableViewCell, UniquelyIdentifable {
     self.dateLabel.text = "Created at: " + task.createdAtFormattedString
     self.completionIndicatorView.backgroundColor = task.isCompleted ? CustomColor.seaweedGreen : CustomColor.mandarinOrange
     self.imageDataView.isHidden = task.imageData == nil ? true : false
-    UIView.animate(withDuration: 1) {
-      self.layoutIfNeeded()
-    }
   }
   
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
