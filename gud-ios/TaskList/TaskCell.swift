@@ -33,6 +33,7 @@ class TaskCell: UITableViewCell, UniquelyIdentifable {
     view.font = UIFont.preferredFont(forTextStyle: .body)
     view.isEditable = false
     view.backgroundColor = CustomColor.clear
+    view.contentInset = UIEdgeInsets(top: 0, left: -5, bottom: 0, right: 0)
     view.translatesAutoresizingMaskIntoConstraints = false
     return view
   }()
@@ -80,13 +81,14 @@ class TaskCell: UITableViewCell, UniquelyIdentifable {
     self.titleTextView.topAnchor.constraint(equalTo: self.containerView.topAnchor, constant: 8).isActive = true
     self.titleTextView.leftAnchor.constraint(equalTo: self.containerView.leftAnchor, constant: 16).isActive = true
     self.titleTextView.rightAnchor.constraint(equalTo: self.containerView.rightAnchor, constant: -16).isActive = true
+    self.titleTextView.heightAnchor.constraint(greaterThanOrEqualToConstant: 22).isActive = true
     self.titleTextView.bottomAnchor.constraint(equalTo: self.imageDataView.topAnchor, constant: -8).isActive = true
     self.imageDataView.bottomAnchor.constraint(equalTo: self.dateLabel.topAnchor, constant: -8).isActive = true
     self.imageDataView.leftAnchor.constraint(equalTo: self.containerView.leftAnchor, constant: 16).isActive = true
     self.imageDataView.heightAnchor.constraint(equalToConstant: self.IMAGE_DATA_VIEW_SIZE.height).isActive = true
     self.imageDataView.widthAnchor.constraint(equalToConstant: self.IMAGE_DATA_VIEW_SIZE.width).isActive = true
     self.dateLabel.leftAnchor.constraint(equalTo: self.containerView.leftAnchor, constant: 16).isActive = true
-    self.dateLabel.heightAnchor.constraint(equalToConstant: 11).isActive = true
+    self.dateLabel.heightAnchor.constraint(equalToConstant: 22).isActive = true
     self.dateLabel.rightAnchor.constraint(equalTo: self.containerView.rightAnchor, constant: -16).isActive = true
     self.dateLabel.bottomAnchor.constraint(equalTo: self.containerView.bottomAnchor, constant: -16).isActive = true
     self.separatorView.leftAnchor.constraint(equalTo: self.containerView.leftAnchor, constant: 16).isActive = true
@@ -98,7 +100,7 @@ class TaskCell: UITableViewCell, UniquelyIdentifable {
   func configure(task: Task) {
     self.titleTextView.text = task.title
     self.dateLabel.text = task.createdAtFormattedString
-    self.completionIndicatorView.backgroundColor = task.isCompleted ? CustomColor.seaweedGreen : CustomColor.clear
+    self.completionIndicatorView.backgroundColor = task.isCompleted ? CustomColor.seaweedGreen : CustomColor.mandarinOrange
     UIView.animate(withDuration: 1, animations: {
       if let data = task.imageData {
         self.imageDataView.image = UIImage(data: data)

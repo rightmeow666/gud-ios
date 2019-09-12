@@ -54,9 +54,22 @@ class TaskListViewModel: NSObject {
     return self.taskListCacheService.tasks?[index]
   }
   
+  func isTaskCompleted(atIndex index: Int) -> Bool {
+    guard let t = self.getTask(atIndex: index) else { return false }
+    return t.isCompleted
+  }
+  
   func removeTask(atIndex index: Int) {
     do {
       try self.taskListCacheService.removeTask(atIndex: index)
+    } catch let err {
+      self.delegate?.viewModel(self, didErr: err)
+    }
+  }
+  
+  func toggleCompletion(atIndex index: Int, isCompleted: Bool) {
+    do {
+      try self.taskListCacheService.toggleCompletion(atIndex: index, isCompleted: isCompleted)
     } catch let err {
       self.delegate?.viewModel(self, didErr: err)
     }

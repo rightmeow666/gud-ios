@@ -17,11 +17,9 @@ class TaskListViewController: BaseViewController {
   
   var viewModel: TaskListViewModel!
   
-  var pendingAction: UIContextualAction!
+  private var toggleAction: UIContextualAction!
   
-  var completeAction: UIContextualAction!
-  
-  var deleteAction: UIContextualAction!
+  private var deleteAction: UIContextualAction!
   
   lazy private var tableView: UITableView = {
     let view = UITableView(frame: self.view.frame, style: .plain)
@@ -67,8 +65,16 @@ class TaskListViewController: BaseViewController {
 
 extension TaskListViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-    // TODO: present toggle button for complete / pending action && edit action
-    return nil
+    let isCompleted = self.viewModel.isTaskCompleted(atIndex: indexPath.row)
+    self.toggleAction = UIContextualAction(style: .normal, title: nil, handler: { (action, view, done) in
+      self.viewModel.toggleCompletion(atIndex: indexPath.row, isCompleted: !isCompleted)
+      done(true)
+    })
+    self.toggleAction.image = isCompleted ? UIImage(named: "More") : UIImage(named: "Tick")
+    self.toggleAction.backgroundColor = isCompleted ? CustomColor.mandarinOrange : CustomColor.seaweedGreen
+    let swipeActionConfig = UISwipeActionsConfiguration(actions: [toggleAction])
+    swipeActionConfig.performsFirstActionWithFullSwipe = true
+    return swipeActionConfig
   }
   
   func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
