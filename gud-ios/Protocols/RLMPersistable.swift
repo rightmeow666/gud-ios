@@ -30,6 +30,8 @@ protocol RLMPersistable where Self: BaseModel {
   
   static func deleteAll(_ objects: [Self]) throws
   
+  static func purge() throws
+  
   func save(_ block: OnSaveBlock) throws
   
   func delete() throws
@@ -61,12 +63,15 @@ extension RLMPersistable {
   }
   
   static func deleteAll(_ objects: [Self]) throws {
-    do {
-      try RealmManager.shared.db.write {
-        RealmManager.shared.db.delete(objects)
-      }
-    } catch let err {
-      throw PersistenceError.deletetionError(error: err)
+    try RealmManager.shared.db.write {
+      RealmManager.shared.db.delete(objects)
+    }
+  }
+  
+  static func purge() throws {
+    let allObjs = RealmManager.shared.db.objects(self)
+    try RealmManager.shared.db.write {
+      RealmManager.shared.db.delete(allObjs)
     }
   }
   
@@ -75,26 +80,18 @@ extension RLMPersistable {
   /// - Parameter block: When updating an object with new values, write all the assignments inside of the OnSaveBlock.
   /// - Throws: Both beforeSave or onSave can throw errors.
   func save(_ block: OnSaveBlock) throws {
-    do {
-      try RealmManager.shared.db.write {
-        block()
-        try self.beforeSave?()
-        self.updatedAt = Date()
-        RealmManager.shared.db.add(self)
-      }
-      self.afterSave?()
-    } catch let err {
-      throw PersistenceError.saveError(error: err)
+    try RealmManager.shared.db.write {
+      block()
+      try self.beforeSave?()
+      self.updatedAt = Date()
+      RealmManager.shared.db.add(self)
     }
+    self.afterSave?()
   }
   
   func delete() throws {
-    do {
-      try RealmManager.shared.db.write {
-        RealmManager.shared.db.delete(self)
-      }
-    } catch let err {
-      throw PersistenceError.deletetionError(error: err)
+    try RealmManager.shared.db.write {
+      RealmManager.shared.db.delete(self)
     }
   }
 }

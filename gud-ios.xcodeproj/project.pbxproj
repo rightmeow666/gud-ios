@@ -47,6 +47,7 @@
 		F533E1D323009D1A005A624E /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F533E1D223009D1A005A624E /* BaseModel.swift */; };
 		F533E1D72300F94A005A624E /* TextInputCellUpdating.swift in Sources */ = {isa = PBXBuildFile; fileRef = F533E1D62300F94A005A624E /* TextInputCellUpdating.swift */; };
 		F533E1D923021845005A624E /* NotificationGrandCentral.swift in Sources */ = {isa = PBXBuildFile; fileRef = F533E1D823021845005A624E /* NotificationGrandCentral.swift */; };
+		F56B73CF232DB84100E6F958 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56B73CE232DB84100E6F958 /* Environment.swift */; };
 		F59644B82308ECEF009EE6C8 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59644B72308ECEF009EE6C8 /* AppViewModel.swift */; };
 		F59644BA2308EE5F009EE6C8 /* AppDependencyOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59644B92308EE5F009EE6C8 /* AppDependencyOptions.swift */; };
 		F59644BC230A127D009EE6C8 /* FolderListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59644BB230A127D009EE6C8 /* FolderListViewModel.swift */; };
@@ -133,6 +134,7 @@
 		F533E1D223009D1A005A624E /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		F533E1D62300F94A005A624E /* TextInputCellUpdating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputCellUpdating.swift; sourceTree = "<group>"; };
 		F533E1D823021845005A624E /* NotificationGrandCentral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationGrandCentral.swift; sourceTree = "<group>"; };
+		F56B73CE232DB84100E6F958 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Environment.swift; path = ../Application/Environment.swift; sourceTree = "<group>"; };
 		F59644B72308ECEF009EE6C8 /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
 		F59644B92308EE5F009EE6C8 /* AppDependencyOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencyOptions.swift; sourceTree = "<group>"; };
 		F59644BB230A127D009EE6C8 /* FolderListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderListViewModel.swift; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 			children = (
 				F5106F2922EFF0D900425299 /* Info.plist */,
 				F5106F6922F2A64300425299 /* CustomColor.swift */,
+				F56B73CE232DB84100E6F958 /* Environment.swift */,
 				F5106F2422EFF0D900425299 /* Assets.xcassets */,
 				F5106F2622EFF0D900425299 /* LaunchScreen.storyboard */,
 			);
@@ -619,6 +622,7 @@
 				F533E1D323009D1A005A624E /* BaseModel.swift in Sources */,
 				F5D9094C2319B2B000757C45 /* TaskEditorViewController.swift in Sources */,
 				F5106F6D22F40BD700425299 /* Extensions.swift in Sources */,
+				F56B73CF232DB84100E6F958 /* Environment.swift in Sources */,
 				F533E1D923021845005A624E /* NotificationGrandCentral.swift in Sources */,
 				F5106F6122F181AF00425299 /* BaseCollectionViewCell.swift in Sources */,
 				F5106F7C22F6670200425299 /* BaseCacheService.swift in Sources */,

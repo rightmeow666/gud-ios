@@ -9,33 +9,39 @@
 import RealmSwift
 
 class RealmManager: NSObject {
-  enum Config {
-    case development
-    case test
-    case production
-  }
-  
-  static private let developmentConfig = Realm.Configuration(fileURL: URL.inDocumentDirectory(filename: "default.realm"), schemaVersion: 0, migrationBlock: nil, objectTypes: [Folder.self, Task.self])
-
-  static private let testConfig = Realm.Configuration(fileURL: URL.inDocumentDirectory(filename: "test.realm"), schemaVersion: 0, migrationBlock: nil, objectTypes: [Folder.self, Task.self])
-
-  static private let productionConfig = Realm.Configuration(fileURL: URL.inDocumentDirectory(filename: "production.realm"), schemaVersion: 0, migrationBlock: nil, objectTypes: [Folder.self, Task.self])
-  
   static let shared = RealmManager()
-  
-  let config: Realm.Configuration
   
   lazy var db: Realm = {
     return try! Realm(configuration: self.config)
   }()
   
-  lazy var pathForDefaultContainer: URL? = {
+  private let config: Realm.Configuration
+  
+  lazy private var pathForDefaultContainer: URL? = {
     return self.db.configuration.fileURL
   }()
   
-  init(config: Realm.Configuration = RealmManager.developmentConfig) {
+  private init(_ env: Environment = .development) {
+    var config = Realm.Configuration()
+    config.schemaVersion = 0
+    config.migrationBlock = nil
+    config.objectTypes = [Folder.self, Task.self]
+    switch env {
+    case .development:
+      config.fileURL = URL.inDocumentDirectory(filename: "default.realm")
+    case .test:
+      config.fileURL = URL.inDocumentDirectory(filename: "test.realm")
+    case .production:
+      config.fileURL = URL.inDocumentDirectory(filename: "prod.realm")
+    }
     self.config = config
     super.init()
     print(self.pathForDefaultContainer!)
+  }
+  
+  func purge() throws {
+    try self.db.write {
+      self.db.deleteAll()
+    }
   }
 }
