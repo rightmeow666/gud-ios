@@ -27,10 +27,10 @@ class TaskEditorDataStore: BaseCacheService {
     self.task.title = title
   }
   
-  func commitChanges(completion: (Error?) -> Void) {
+  func commitChanges(completion: (DBException?) -> Void) {
     do {
       guard self.isModified else {
-        throw DataStoreError.customError(message: "No changes to commit")
+        throw DBException.logicalError(message: "No changes to commit")
       }
       try self.task.save {
         self.initialTask = self.task
@@ -38,7 +38,8 @@ class TaskEditorDataStore: BaseCacheService {
       }
       completion(nil)
     } catch let err {
-      completion(err)
+      let e = DBException.internalError(error: err)
+      completion(e)
     }
   }
   

@@ -172,7 +172,8 @@ extension FolderListViewController: FolderListViewModelDelegate {
   }
   
   func viewModel(_ vm: FolderListViewModel, didErr error: Error) {
-    self.presentAlert("Error", message: error.localizedDescription, completion: nil)
+    let msg = ExceptionHandler.parse(error: error)
+    self.presentAlert("Error", message: msg, completion: nil)
   }
   
   func viewModel(_ vm: FolderListViewModel, deletedIndice: [Int], insertedIndice: [Int], modifiedIndice: [Int]) {

@@ -17,6 +17,18 @@ class BaseViewController: UIViewController {
     super.viewDidLoad()
     self.configureView()
   }
+  
+  struct ExceptionHandler {
+    static func parse(error: Error) -> String {
+      let message: String
+      if let dbException = error as? DBException {
+        message = dbException.message
+      } else {
+        message = error.localizedDescription
+      }
+      return message
+    }
+  }
 }
 
 extension BaseViewController: BasicAlerting {

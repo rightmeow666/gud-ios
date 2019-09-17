@@ -27,14 +27,14 @@ class TaskListDataStore: BaseCacheService {
   
   func removeTask(atIndex index: Int) throws {
     guard let t = self.tasks?[index] else {
-      throw DataStoreError.customError(message: "Index is out of bound at index: \(index)")
+      throw DBException.logicalError(message: "Index is out of bound at index: \(index)")
     }
     try t.delete()
   }
   
   func toggleCompletion(atIndex index: Int, isCompleted: Bool) throws {
     guard let t = self.tasks?[index] else {
-      throw DataStoreError.customError(message: "Index is out of bound at index: \(index)")
+      throw DBException.logicalError(message: "Index is out of bound at index: \(index)")
     }
     try t.save {
       t.isCompleted = isCompleted
