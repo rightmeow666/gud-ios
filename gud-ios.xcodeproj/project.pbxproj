@@ -54,6 +54,7 @@
 		F59644C2230D3B8C009EE6C8 /* AppTabBarControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59644C1230D3B8C009EE6C8 /* AppTabBarControllerDelegate.swift */; };
 		F59644C4230DA58F009EE6C8 /* FolderEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59644C3230DA58F009EE6C8 /* FolderEditorViewModel.swift */; };
 		F5D55A6D2335601C001D8121 /* DBException.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D55A6C2335601C001D8121 /* DBException.swift */; };
+		F5D55A6F23356882001D8121 /* AlertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D55A6E23356882001D8121 /* AlertType.swift */; };
 		F5D9092223105EFE00757C45 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D9092123105EFE00757C45 /* Task.swift */; };
 		F5D9092623107C5700757C45 /* BasicAlerting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D9092523107C5700757C45 /* BasicAlerting.swift */; };
 		F5D9093023150D1E00757C45 /* DropdownMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D9092F23150D1E00757C45 /* DropdownMenuViewController.swift */; };
@@ -142,6 +143,7 @@
 		F59644C1230D3B8C009EE6C8 /* AppTabBarControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBarControllerDelegate.swift; sourceTree = "<group>"; };
 		F59644C3230DA58F009EE6C8 /* FolderEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderEditorViewModel.swift; sourceTree = "<group>"; };
 		F5D55A6C2335601C001D8121 /* DBException.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBException.swift; sourceTree = "<group>"; };
+		F5D55A6E23356882001D8121 /* AlertType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertType.swift; sourceTree = "<group>"; };
 		F5D9092123105EFE00757C45 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		F5D9092523107C5700757C45 /* BasicAlerting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAlerting.swift; sourceTree = "<group>"; };
 		F5D9092F23150D1E00757C45 /* DropdownMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropdownMenuViewController.swift; sourceTree = "<group>"; };
@@ -392,6 +394,7 @@
 		F5D55A69232F7EC7001D8121 /* Error */ = {
 			isa = PBXGroup;
 			children = (
+				F5D55A6E23356882001D8121 /* AlertType.swift */,
 				F5D55A6C2335601C001D8121 /* DBException.swift */,
 			);
 			path = Error;
@@ -667,6 +670,7 @@
 				F5D9094A2319B1BB00757C45 /* TaskEditorCoordinator.swift in Sources */,
 				F5106F7222F5F84100425299 /* NetworkServicable.swift in Sources */,
 				F5D90954231A8B9000757C45 /* DateFormatable.swift in Sources */,
+				F5D55A6F23356882001D8121 /* AlertType.swift in Sources */,
 				F5106F4622EFF41800425299 /* BaseTabBarController.swift in Sources */,
 				F5D909382316FDAC00757C45 /* FolderListDropdownMenuDataStore.swift in Sources */,
 				F59644B82308ECEF009EE6C8 /* AppViewModel.swift in Sources */,

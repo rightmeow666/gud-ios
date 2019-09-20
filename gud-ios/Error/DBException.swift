@@ -27,11 +27,6 @@ extension DBException: LocalizedError {
 
 extension DBException: CustomNSError {
   var errorDescription: String? {
-    switch self {
-    case .internal(let err):
-      return err.localizedDescription
-    case .logical(let msg):
-      return msg
-    }
+    return self.localizedDescription
   }
 }
