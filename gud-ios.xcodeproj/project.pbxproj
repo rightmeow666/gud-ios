@@ -53,6 +53,7 @@
 		F59644BC230A127D009EE6C8 /* FolderListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59644BB230A127D009EE6C8 /* FolderListViewModel.swift */; };
 		F59644C2230D3B8C009EE6C8 /* AppTabBarControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59644C1230D3B8C009EE6C8 /* AppTabBarControllerDelegate.swift */; };
 		F59644C4230DA58F009EE6C8 /* FolderEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59644C3230DA58F009EE6C8 /* FolderEditorViewModel.swift */; };
+		F5D55A6D2335601C001D8121 /* DBException.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D55A6C2335601C001D8121 /* DBException.swift */; };
 		F5D9092223105EFE00757C45 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D9092123105EFE00757C45 /* Task.swift */; };
 		F5D9092623107C5700757C45 /* BasicAlerting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D9092523107C5700757C45 /* BasicAlerting.swift */; };
 		F5D9093023150D1E00757C45 /* DropdownMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D9092F23150D1E00757C45 /* DropdownMenuViewController.swift */; };
@@ -140,6 +141,7 @@
 		F59644BB230A127D009EE6C8 /* FolderListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderListViewModel.swift; sourceTree = "<group>"; };
 		F59644C1230D3B8C009EE6C8 /* AppTabBarControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBarControllerDelegate.swift; sourceTree = "<group>"; };
 		F59644C3230DA58F009EE6C8 /* FolderEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderEditorViewModel.swift; sourceTree = "<group>"; };
+		F5D55A6C2335601C001D8121 /* DBException.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBException.swift; sourceTree = "<group>"; };
 		F5D9092123105EFE00757C45 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		F5D9092523107C5700757C45 /* BasicAlerting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAlerting.swift; sourceTree = "<group>"; };
 		F5D9092F23150D1E00757C45 /* DropdownMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropdownMenuViewController.swift; sourceTree = "<group>"; };
@@ -390,6 +392,7 @@
 		F5D55A69232F7EC7001D8121 /* Error */ = {
 			isa = PBXGroup;
 			children = (
+				F5D55A6C2335601C001D8121 /* DBException.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -644,6 +647,7 @@
 				F5D90943231880FC00757C45 /* TaskListDataStore.swift in Sources */,
 				F5D909352315144D00757C45 /* DropdownMenuSourceView.swift in Sources */,
 				F59644C4230DA58F009EE6C8 /* FolderEditorViewModel.swift in Sources */,
+				F5D55A6D2335601C001D8121 /* DBException.swift in Sources */,
 				F5106F8422FB1F0300425299 /* FolderEditorNavigationController.swift in Sources */,
 				F5106F6F22F5F49C00425299 /* FolderListDependencyOptions.swift in Sources */,
 				F533E1D72300F94A005A624E /* TextInputCellUpdating.swift in Sources */,

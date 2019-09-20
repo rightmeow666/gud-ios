@@ -8,21 +8,6 @@
 
 import RealmSwift
 
-enum DBException: Error {
-  case internalError(error: Error)
-  
-  case logicalError(message: String)
-  
-  var message: String {
-    switch self {
-    case .internalError(error: let err):
-      return err.localizedDescription
-    case .logicalError(message: let msg):
-      return msg
-    }
-  }
-}
-
 class BaseModel: Object, DateFormatable {
   @objc dynamic var id: String = ""
   

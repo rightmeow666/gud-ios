@@ -69,12 +69,12 @@ class TaskEditorViewController: BaseViewController {
 extension TaskEditorViewController: TaskEditorViewModelDelegate {
   func viewModel(_ vm: TaskEditorViewModel, didErr error: Error) {
     // TODO: implement error handling
-    self.presentAlert("Error", message: error.localizedDescription, completion: nil)
+    self.presentAlert(error.localizedDescription, alertType: .error, completion: nil)
   }
   
   func didCommitChanges(_ vm: TaskEditorViewModel, withMessage message: String) {
     // TODO: handle success on the UI layer, properly
-    self.presentAlert("Success", message: message, completion: nil)
+    self.presentAlert(message, alertType: .success, completion: nil)
   }
 }
 

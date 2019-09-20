@@ -29,9 +29,9 @@ final class Folder: BaseModel, RLMPersistable {
   var beforeSave: BeforeSaveBlock? {
     let block: BeforeSaveBlock = {
       if self.title.count > Folder.TITLE_MAX_LEGNTH {
-        throw DBException.logicalError(message: "title should be less than or equal to \(Folder.TITLE_MAX_LEGNTH) characters.")
+        throw DBException.logical("title should be less than or equal to \(Folder.TITLE_MAX_LEGNTH) characters.")
       } else if self.title.count < Folder.TITLE_MIN_LENGTH {
-        throw DBException.logicalError(message: "title should be greater than or equal to \(Folder.TITLE_MIN_LENGTH) characters.")
+        throw DBException.logical("title should be greater than or equal to \(Folder.TITLE_MIN_LENGTH) characters.")
       }
     }
     return block

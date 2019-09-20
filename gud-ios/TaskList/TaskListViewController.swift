@@ -130,6 +130,6 @@ extension TaskListViewController: TaskListViewModelDelegate {
   }
   
   func viewModel(_ vm: TaskListViewModel, didErr error: Error) {
-    self.presentAlert("Error", message: error.localizedDescription, completion: nil)
+    self.presentAlert(error.localizedDescription, alertType: .error, completion: nil)
   }
 }

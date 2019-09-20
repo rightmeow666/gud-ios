@@ -22,11 +22,11 @@ final class Task: BaseModel, RLMPersistable {
   var beforeSave: BeforeSaveBlock? {
     let block: BeforeSaveBlock = {
       if self.folderId.count <= 0 {
-        throw DBException.logicalError(message: "folderId cannot be empty")
+        throw DBException.logical("folderId cannot be empty")
       } else if self.title.count > Task.TITLE_MAX_LEGNTH {
-        throw DBException.logicalError(message: "title should be less than or equal to \(Task.TITLE_MAX_LEGNTH) characters.")
+        throw DBException.logical("title should be less than or equal to \(Task.TITLE_MAX_LEGNTH) characters.")
       } else if self.title.count < Task.TITLE_MIN_LENGTH {
-        throw DBException.logicalError(message: "title should be greater than or equal to \(Task.TITLE_MIN_LENGTH) characters.")
+        throw DBException.logical("title should be greater than or equal to \(Task.TITLE_MIN_LENGTH) characters.")
       }
     }
     return block

@@ -24,13 +24,12 @@ class FolderListDataStore: BaseCacheService {
     self.selectedFolders.removeAll(where: { $0.id == folder.id })
   }
   
-  func deleteSelectedFolders(completion: (DBException?) -> Void) {
+  func deleteSelectedFolders(completion: (Error?) -> Void) {
     do {
       try Folder.deleteAll(self.selectedFolders)
       completion(nil)
     } catch let err {
-      let e = DBException.internalError(error: err)
-      completion(e)
+      completion(err)
     }
   }
   

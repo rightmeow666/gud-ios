@@ -89,12 +89,12 @@ class FolderEditorViewController: BaseViewController {
 extension FolderEditorViewController: FolderEditorViewModelDelegate {
   func didCommitChanges(_ vm: FolderEditorViewModel, withMessage message: String) {
     // TODO: handle success on the UI layer, properly
-    self.presentAlert("Success", message: message, completion: nil)
+    self.presentAlert(message, alertType: .success, completion: nil)
   }
   
   func viewModel(_ vm: FolderEditorViewModel, didErr error: Error) {
     // TODO: implement error handling
-    self.presentAlert("Error", message: error.localizedDescription, completion: nil)
+    self.presentAlert(error.localizedDescription, alertType: .error, completion: nil)
   }
 }
 
