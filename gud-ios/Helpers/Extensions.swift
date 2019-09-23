@@ -36,3 +36,9 @@ extension Date {
     return self.description
   }
 }
+
+func pp(_ items: Any..., separator: String = " ", terminator: String = "\n") {
+  print("\n########### Begin ###########\n")
+  print(items, separator: separator, terminator: terminator)
+  print("\n############ End ############\n")
+}
