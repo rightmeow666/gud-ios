@@ -22,6 +22,9 @@ protocol RLMPersistable where Self: BaseModel {
   
   var afterSave: AfterSaveBlock? { get }
   
+  /// An object that is created and then saved for the first time.
+  var isNew: Bool { get }
+  
   static func find(_ id: String) -> Self?
   
   static func findAll(byPredicate predicate: NSPredicate?, sortedBy keyPath: String, ascending: Bool) -> Results<Self>
@@ -41,6 +44,10 @@ extension RLMPersistable {
   var beforeSave: BeforeSaveBlock? { return nil }
   
   var afterSave: AfterSaveBlock? { return nil }
+  
+  var isNew: Bool {
+    return self.createdAt == self.updatedAt
+  }
   
   static func find(_ id: String) -> Self? {
     return RealmManager.shared.db.object(ofType: self, forPrimaryKey: id)
