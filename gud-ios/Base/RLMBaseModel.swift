@@ -8,7 +8,7 @@
 
 import RealmSwift
 
-class BaseModel: Object, DateFormatable {
+class RLMBaseModel: Object, DateFormatable {
   @objc dynamic var id: String = ""
   
   @objc dynamic var createdAt: Date? = nil

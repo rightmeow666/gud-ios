@@ -17,7 +17,7 @@ typealias OnSaveBlock = () -> Void
 /// A traditional callback block invoked after a save operation.
 typealias AfterSaveBlock = () -> Void
 
-protocol RLMPersistable where Self: BaseModel {
+protocol RLMPersistable where Self: RLMBaseModel {
   var beforeSave: BeforeSaveBlock? { get }
   
   var afterSave: AfterSaveBlock? { get }

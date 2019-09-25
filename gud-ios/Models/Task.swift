@@ -8,7 +8,7 @@
 
 import RealmSwift
 
-final class Task: BaseModel, RLMPersistable {
+final class Task: RLMBaseModel, RLMPersistable {
   @objc dynamic var folderId: String = ""
   
   @objc dynamic var title: String = ""
