@@ -33,6 +33,8 @@ protocol RLMPersistable where Self: BaseModel {
   
   static func deleteAll(_ objects: [Self]) throws
   
+  /// Convenient helper method to clean out all records in a table.
+  /// - Warning: When deleting an object with assocated child objects, the associated child objects will become orphans.
   static func purge() throws
   
   func save(_ block: OnSaveBlock) throws
