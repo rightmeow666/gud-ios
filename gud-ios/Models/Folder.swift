@@ -27,17 +27,12 @@ final class Folder: BaseModel, RLMPersistable {
   }
   
   var beforeSave: BeforeSaveBlock? {
-    let block: BeforeSaveBlock = {
+    return {
       if self.title.count > Folder.TITLE_MAX_LEGNTH {
         throw DBException.logical("title should be less than or equal to \(Folder.TITLE_MAX_LEGNTH) characters.")
       } else if self.title.count < Folder.TITLE_MIN_LENGTH {
         throw DBException.logical("title should be greater than or equal to \(Folder.TITLE_MIN_LENGTH) characters.")
       }
     }
-    return block
-  }
-  
-  override static func primaryKey() -> String? {
-    return "id"
   }
 }

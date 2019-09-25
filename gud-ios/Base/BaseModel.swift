@@ -24,4 +24,8 @@ class BaseModel: Object, DateFormatable {
     guard let d = self.updatedAt else { return "Malformatted date" }
     return self.formattedDateString(d)
   }
+  
+  override class func primaryKey() -> String? {
+    return "id"
+  }
 }

@@ -48,6 +48,7 @@
 		F533E1D72300F94A005A624E /* TextInputCellUpdating.swift in Sources */ = {isa = PBXBuildFile; fileRef = F533E1D62300F94A005A624E /* TextInputCellUpdating.swift */; };
 		F533E1D923021845005A624E /* NotificationGrandCentral.swift in Sources */ = {isa = PBXBuildFile; fileRef = F533E1D823021845005A624E /* NotificationGrandCentral.swift */; };
 		F56B73CF232DB84100E6F958 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56B73CE232DB84100E6F958 /* Environment.swift */; };
+		F59487B7233BF2EF001FECA5 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59487B6233BF2EF001FECA5 /* SearchResultsViewController.swift */; };
 		F59644B82308ECEF009EE6C8 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59644B72308ECEF009EE6C8 /* AppViewModel.swift */; };
 		F59644BA2308EE5F009EE6C8 /* AppDependencyOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59644B92308EE5F009EE6C8 /* AppDependencyOptions.swift */; };
 		F59644BC230A127D009EE6C8 /* FolderListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59644BB230A127D009EE6C8 /* FolderListViewModel.swift */; };
@@ -55,6 +56,7 @@
 		F59644C4230DA58F009EE6C8 /* FolderEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59644C3230DA58F009EE6C8 /* FolderEditorViewModel.swift */; };
 		F5D55A6D2335601C001D8121 /* DBException.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D55A6C2335601C001D8121 /* DBException.swift */; };
 		F5D55A6F23356882001D8121 /* AlertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D55A6E23356882001D8121 /* AlertType.swift */; };
+		F5D67745233C000F00A5AD62 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D67744233C000F00A5AD62 /* SearchResultCell.swift */; };
 		F5D9092223105EFE00757C45 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D9092123105EFE00757C45 /* Task.swift */; };
 		F5D9092623107C5700757C45 /* BasicAlerting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D9092523107C5700757C45 /* BasicAlerting.swift */; };
 		F5D9093023150D1E00757C45 /* DropdownMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D9092F23150D1E00757C45 /* DropdownMenuViewController.swift */; };
@@ -137,6 +139,7 @@
 		F533E1D62300F94A005A624E /* TextInputCellUpdating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputCellUpdating.swift; sourceTree = "<group>"; };
 		F533E1D823021845005A624E /* NotificationGrandCentral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationGrandCentral.swift; sourceTree = "<group>"; };
 		F56B73CE232DB84100E6F958 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Environment.swift; path = ../Application/Environment.swift; sourceTree = "<group>"; };
+		F59487B6233BF2EF001FECA5 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 		F59644B72308ECEF009EE6C8 /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
 		F59644B92308EE5F009EE6C8 /* AppDependencyOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencyOptions.swift; sourceTree = "<group>"; };
 		F59644BB230A127D009EE6C8 /* FolderListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderListViewModel.swift; sourceTree = "<group>"; };
@@ -144,6 +147,7 @@
 		F59644C3230DA58F009EE6C8 /* FolderEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderEditorViewModel.swift; sourceTree = "<group>"; };
 		F5D55A6C2335601C001D8121 /* DBException.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBException.swift; sourceTree = "<group>"; };
 		F5D55A6E23356882001D8121 /* AlertType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertType.swift; sourceTree = "<group>"; };
+		F5D67744233C000F00A5AD62 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		F5D9092123105EFE00757C45 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		F5D9092523107C5700757C45 /* BasicAlerting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAlerting.swift; sourceTree = "<group>"; };
 		F5D9092F23150D1E00757C45 /* DropdownMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropdownMenuViewController.swift; sourceTree = "<group>"; };
@@ -384,11 +388,21 @@
 		F5106F9222FE26D600425299 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				F59487B5233BF2CE001FECA5 /* SearchResults */,
 				F5106F9322FE277900425299 /* TextInputCell.swift */,
 				F533E1D62300F94A005A624E /* TextInputCellUpdating.swift */,
 				F5D9093123150FEE00757C45 /* DropdownMenu */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		F59487B5233BF2CE001FECA5 /* SearchResults */ = {
+			isa = PBXGroup;
+			children = (
+				F5D67744233C000F00A5AD62 /* SearchResultCell.swift */,
+				F59487B6233BF2EF001FECA5 /* SearchResultsViewController.swift */,
+			);
+			path = SearchResults;
 			sourceTree = "<group>";
 		};
 		F5D55A69232F7EC7001D8121 /* Error */ = {
@@ -633,6 +647,7 @@
 				F5106F5122EFF86E00425299 /* FolderListCoordinator.swift in Sources */,
 				F5D9094E2319B31200757C45 /* TaskEditorViewModel.swift in Sources */,
 				F5106F9122FCE73F00425299 /* RealmManager.swift in Sources */,
+				F5D67745233C000F00A5AD62 /* SearchResultCell.swift in Sources */,
 				F533E1D323009D1A005A624E /* BaseModel.swift in Sources */,
 				F5D9094C2319B2B000757C45 /* TaskEditorViewController.swift in Sources */,
 				F5106F6D22F40BD700425299 /* Extensions.swift in Sources */,
@@ -669,6 +684,7 @@
 				F5106F5822EFFA5B00425299 /* AppCoordinator.swift in Sources */,
 				F5D9094A2319B1BB00757C45 /* TaskEditorCoordinator.swift in Sources */,
 				F5106F7222F5F84100425299 /* NetworkServicable.swift in Sources */,
+				F59487B7233BF2EF001FECA5 /* SearchResultsViewController.swift in Sources */,
 				F5D90954231A8B9000757C45 /* DateFormatable.swift in Sources */,
 				F5D55A6F23356882001D8121 /* AlertType.swift in Sources */,
 				F5106F4622EFF41800425299 /* BaseTabBarController.swift in Sources */,

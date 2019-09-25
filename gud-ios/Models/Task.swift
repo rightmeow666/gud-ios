@@ -20,7 +20,7 @@ final class Task: BaseModel, RLMPersistable {
   @objc dynamic var isCompleted: Bool = false
   
   var beforeSave: BeforeSaveBlock? {
-    let block: BeforeSaveBlock = {
+    return {
       if self.folderId.count <= 0 {
         throw DBException.logical("folderId cannot be empty")
       } else if self.title.count > Task.TITLE_MAX_LEGNTH {
@@ -29,7 +29,6 @@ final class Task: BaseModel, RLMPersistable {
         throw DBException.logical("title should be greater than or equal to \(Task.TITLE_MIN_LENGTH) characters.")
       }
     }
-    return block
   }
   
   static func isTitleValid(title: String) -> Bool {
@@ -46,8 +45,4 @@ final class Task: BaseModel, RLMPersistable {
   static let TITLE_MAX_LEGNTH: Int = 512
   
   static let TITLE_MIN_LENGTH: Int = 3
-  
-  override static func primaryKey() -> String? {
-    return "id"
-  }
 }
