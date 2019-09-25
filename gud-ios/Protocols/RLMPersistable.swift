@@ -48,7 +48,11 @@ extension ActivePersistable {
   var afterSave: AfterSaveBlock? { return nil }
   
   var isNew: Bool {
-    return self.createdAt == self.updatedAt
+    if self.createdAt == nil || self.updatedAt == nil {
+      return true
+    } else {
+      return self.createdAt == self.updatedAt
+    }
   }
   
   static func find(_ id: String) -> Self? {
