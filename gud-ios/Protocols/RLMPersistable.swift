@@ -1,5 +1,5 @@
 //
-//  RLMPersistable.swift
+//  ActivePersistable.swift
 //  gud-ios
 //
 //  Created by sudofluff on 8/31/19.
@@ -17,7 +17,7 @@ typealias OnSaveBlock = () -> Void
 /// A traditional callback block invoked after a save operation.
 typealias AfterSaveBlock = () -> Void
 
-protocol RLMPersistable where Self: RLMBaseModel {
+protocol ActivePersistable where Self: RLMBaseModel {
   var beforeSave: BeforeSaveBlock? { get }
   
   var afterSave: AfterSaveBlock? { get }
@@ -42,7 +42,7 @@ protocol RLMPersistable where Self: RLMBaseModel {
   func delete() throws
 }
 
-extension RLMPersistable {
+extension ActivePersistable {
   var beforeSave: BeforeSaveBlock? { return nil }
   
   var afterSave: AfterSaveBlock? { return nil }

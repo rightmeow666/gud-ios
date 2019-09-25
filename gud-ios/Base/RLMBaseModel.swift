@@ -1,5 +1,5 @@
 //
-//  BaseModel.swift
+//  RLMBaseModel.swift
 //  gud-ios
 //
 //  Created by sudofluff on 8/11/19.

@@ -75,7 +75,7 @@
 		F5D909502319B3A400757C45 /* TaskEditorDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D9094F2319B3A400757C45 /* TaskEditorDataStore.swift */; };
 		F5D909522319B3C900757C45 /* TaskEditorDependencyOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D909512319B3C900757C45 /* TaskEditorDependencyOptions.swift */; };
 		F5D90954231A8B9000757C45 /* DateFormatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D90953231A8B9000757C45 /* DateFormatable.swift */; };
-		F5D90956231A9C8700757C45 /* RLMPersistable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D90955231A9C8700757C45 /* RLMPersistable.swift */; };
+		F5D90956231A9C8700757C45 /* ActivePersistable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D90955231A9C8700757C45 /* ActivePersistable.swift */; };
 		F5D90958231C82FA00757C45 /* TaskEditorNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D90957231C82FA00757C45 /* TaskEditorNavigationController.swift */; };
 /* End PBXBuildFile section */
 
@@ -166,7 +166,7 @@
 		F5D9094F2319B3A400757C45 /* TaskEditorDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditorDataStore.swift; sourceTree = "<group>"; };
 		F5D909512319B3C900757C45 /* TaskEditorDependencyOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditorDependencyOptions.swift; sourceTree = "<group>"; };
 		F5D90953231A8B9000757C45 /* DateFormatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatable.swift; sourceTree = "<group>"; };
-		F5D90955231A9C8700757C45 /* RLMPersistable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RLMPersistable.swift; sourceTree = "<group>"; };
+		F5D90955231A9C8700757C45 /* ActivePersistable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivePersistable.swift; sourceTree = "<group>"; };
 		F5D90957231C82FA00757C45 /* TaskEditorNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditorNavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -324,7 +324,7 @@
 				F5106F5322EFF95600425299 /* Coordinatable.swift */,
 				F5D90953231A8B9000757C45 /* DateFormatable.swift */,
 				F5106F7122F5F84100425299 /* NetworkServicable.swift */,
-				F5D90955231A9C8700757C45 /* RLMPersistable.swift */,
+				F5D90955231A9C8700757C45 /* ActivePersistable.swift */,
 				F5106F6222F1824300425299 /* UniquelyIdentifiable.swift */,
 			);
 			path = Protocols;
@@ -661,7 +661,7 @@
 				F59644BC230A127D009EE6C8 /* FolderListViewModel.swift in Sources */,
 				F5106F4B22EFF52A00425299 /* FolderListViewController.swift in Sources */,
 				F5106F4122EFF39500425299 /* BaseViewController.swift in Sources */,
-				F5D90956231A9C8700757C45 /* RLMPersistable.swift in Sources */,
+				F5D90956231A9C8700757C45 /* ActivePersistable.swift in Sources */,
 				F5D90943231880FC00757C45 /* TaskListDataStore.swift in Sources */,
 				F5D909352315144D00757C45 /* DropdownMenuSourceView.swift in Sources */,
 				F59644C4230DA58F009EE6C8 /* FolderEditorViewModel.swift in Sources */,
