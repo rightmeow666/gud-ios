@@ -27,6 +27,7 @@ class SearchResultsViewController: BaseViewController {
   
   lazy private var tableView: UITableView = {
     let view = UITableView()
+    view.translatesAutoresizingMaskIntoConstraints = false
     view.delegate = self
     view.dataSource = self
     view.register(SearchResultCell.self, forCellReuseIdentifier: SearchResultCell.cellId)
@@ -37,6 +38,11 @@ class SearchResultsViewController: BaseViewController {
   
   private func configureView() {
     self.view.backgroundColor = CustomColor.clear
+    self.view.addSubview(self.tableView)
+    self.tableView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
+    self.tableView.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor).isActive = true
+    self.tableView.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor).isActive = true
+    self.tableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
   }
   
   override func viewDidLoad() {
@@ -64,5 +70,15 @@ extension SearchResultsViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     guard let selectedResult = self.dataSource?.resultList[indexPath.section][indexPath.row] else { return }
     self.delegate?.searchResultsViewController(self, didSelectResult: selectedResult)
+  }
+}
+
+extension SearchResultsViewController: UISearchResultsUpdating {
+  func updateSearchResults(for searchController: UISearchController) {
+    if let searchString = searchController.searchBar.text {
+      if !searchString.isEmpty && searchString.count > 2 {
+        // TODO: perform a fetch for matched items
+      }
+    }
   }
 }
