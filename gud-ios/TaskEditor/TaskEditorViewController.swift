@@ -74,7 +74,7 @@ extension TaskEditorViewController: TaskEditorViewModelDelegate {
   
   func didCommitChanges(_ vm: TaskEditorViewModel, withMessage message: String) {
     // TODO: handle success on the UI layer, properly
-    self.presentAlert(message, alertType: .success, completion: nil)
+    self.dismiss(animated: true, completion: nil)
   }
 }
 
