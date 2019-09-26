@@ -233,16 +233,16 @@
 		F5106F1A22EFF0D800425299 /* gud-ios */ = {
 			isa = PBXGroup;
 			children = (
+				F5D67746233C70B700A5AD62 /* Network */,
 				F5106F4322EFF3C200425299 /* Application */,
 				F5106F3F22EFF38900425299 /* Base */,
 				F5106F5B22F0948C00425299 /* DeepLink */,
-				F5D55A69232F7EC7001D8121 /* Error */,
+				F5D55A69232F7EC7001D8121 /* Alert */,
 				F5106F7E22FA88B700425299 /* FolderEditor */,
 				F5106F4922EFF51400425299 /* FolderList */,
 				F5D90936231540CC00757C45 /* FolderListDropdownMenu */,
 				F5106F6B22F40BA400425299 /* Helpers */,
 				F5106F6622F1993F00425299 /* Models */,
-				F5106F5222EFF93F00425299 /* Protocols */,
 				F5106F8F22FCE71F00425299 /* Realm */,
 				F5106F7022F5F82900425299 /* Services */,
 				F5106F9222FE26D600425299 /* Shared */,
@@ -267,7 +267,6 @@
 			children = (
 				F5106F7B22F6670200425299 /* BaseCacheService.swift */,
 				F5106F6022F181AF00425299 /* BaseCollectionViewCell.swift */,
-				F533E1D223009D1A005A624E /* RLMBaseModel.swift */,
 				F5106F4722EFF43B00425299 /* BaseNavigationController.swift */,
 				F5106F7922F666B700425299 /* BaseNetworkService.swift */,
 				F5106F4522EFF41800425299 /* BaseTabBarController.swift */,
@@ -316,20 +315,6 @@
 			path = FolderList;
 			sourceTree = "<group>";
 		};
-		F5106F5222EFF93F00425299 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				F5D9092523107C5700757C45 /* BasicAlerting.swift */,
-				F5106F7322F5F84A00425299 /* CacheServicable.swift */,
-				F5106F5322EFF95600425299 /* Coordinatable.swift */,
-				F5D90953231A8B9000757C45 /* DateFormatable.swift */,
-				F5106F7122F5F84100425299 /* NetworkServicable.swift */,
-				F5D90955231A9C8700757C45 /* ActivePersistable.swift */,
-				F5106F6222F1824300425299 /* UniquelyIdentifiable.swift */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
 		F5106F5B22F0948C00425299 /* DeepLink */ = {
 			isa = PBXGroup;
 			children = (
@@ -350,8 +335,11 @@
 		F5106F6B22F40BA400425299 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				F5106F7322F5F84A00425299 /* CacheServicable.swift */,
+				F5106F5322EFF95600425299 /* Coordinatable.swift */,
 				F5106F6C22F40BD700425299 /* Extensions.swift */,
 				F533E1D823021845005A624E /* NotificationGrandCentral.swift */,
+				F5106F6222F1824300425299 /* UniquelyIdentifiable.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -380,7 +368,11 @@
 		F5106F8F22FCE71F00425299 /* Realm */ = {
 			isa = PBXGroup;
 			children = (
+				F5D90955231A9C8700757C45 /* ActivePersistable.swift */,
+				F5D90953231A8B9000757C45 /* DateFormatable.swift */,
+				F5D55A6C2335601C001D8121 /* DBException.swift */,
 				F5106F9022FCE73F00425299 /* RealmManager.swift */,
+				F533E1D223009D1A005A624E /* RLMBaseModel.swift */,
 			);
 			path = Realm;
 			sourceTree = "<group>";
@@ -405,13 +397,21 @@
 			path = SearchResults;
 			sourceTree = "<group>";
 		};
-		F5D55A69232F7EC7001D8121 /* Error */ = {
+		F5D55A69232F7EC7001D8121 /* Alert */ = {
 			isa = PBXGroup;
 			children = (
 				F5D55A6E23356882001D8121 /* AlertType.swift */,
-				F5D55A6C2335601C001D8121 /* DBException.swift */,
+				F5D9092523107C5700757C45 /* BasicAlerting.swift */,
 			);
-			path = Error;
+			path = Alert;
+			sourceTree = "<group>";
+		};
+		F5D67746233C70B700A5AD62 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				F5106F7122F5F84100425299 /* NetworkServicable.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		F5D9093123150FEE00757C45 /* DropdownMenu */ = {

@@ -17,14 +17,19 @@ typealias OnSaveBlock = () -> Void
 /// A traditional callback block invoked after a save operation.
 typealias AfterSaveBlock = () -> Void
 
+/// A block that takes throwing operations to provide some kind of validation before saving it into Realm.
+typealias ValidationBlock = () throws -> Void
+
 protocol ActivePersistable where Self: RLMBaseModel {
   var beforeSave: BeforeSaveBlock? { get }
   
   var afterSave: AfterSaveBlock? { get }
   
+  var validate: ValidationBlock? { get }
+  
   /// An object that is created and then saved for the first time.
   var isNew: Bool { get }
-  
+    
   static func find(_ id: String) -> Self?
   
   static func findAll(byPredicate predicate: NSPredicate?, sortedBy keyPath: String, ascending: Bool) -> Results<Self>
@@ -46,6 +51,8 @@ extension ActivePersistable {
   var beforeSave: BeforeSaveBlock? { return nil }
   
   var afterSave: AfterSaveBlock? { return nil }
+  
+  var validate: ValidationBlock? { return nil }
   
   var isNew: Bool {
     if self.createdAt == nil || self.updatedAt == nil {
@@ -96,6 +103,7 @@ extension ActivePersistable {
     try RealmManager.shared.db.write {
       block()
       try self.beforeSave?()
+      try self.validate?()
       self.updatedAt = Date()
       RealmManager.shared.db.add(self)
     }
