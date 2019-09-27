@@ -42,3 +42,7 @@ func pp(_ items: Any..., separator: String = " ", terminator: String = "\n") {
   print(items, separator: separator, terminator: terminator)
   print("\n############ End ############\n")
 }
+
+func p(_ items: Any..., separator: String = " ", terminator: String = "\n") {
+  print(items, separator: separator, terminator: terminator)
+}

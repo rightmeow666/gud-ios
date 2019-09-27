@@ -243,7 +243,7 @@
 				F5D90936231540CC00757C45 /* FolderListDropdownMenu */,
 				F5106F6B22F40BA400425299 /* Helpers */,
 				F5106F6622F1993F00425299 /* Models */,
-				F5106F8F22FCE71F00425299 /* Realm */,
+				F5106F8F22FCE71F00425299 /* RealmActivePersistence */,
 				F5106F7022F5F82900425299 /* Services */,
 				F5106F9222FE26D600425299 /* Shared */,
 				F5106F4422EFF3D000425299 /* Supporting Files */,
@@ -365,7 +365,7 @@
 			path = FolderEditor;
 			sourceTree = "<group>";
 		};
-		F5106F8F22FCE71F00425299 /* Realm */ = {
+		F5106F8F22FCE71F00425299 /* RealmActivePersistence */ = {
 			isa = PBXGroup;
 			children = (
 				F5D90955231A9C8700757C45 /* ActivePersistable.swift */,
@@ -374,7 +374,7 @@
 				F5106F9022FCE73F00425299 /* RealmManager.swift */,
 				F533E1D223009D1A005A624E /* RLMBaseModel.swift */,
 			);
-			path = Realm;
+			path = RealmActivePersistence;
 			sourceTree = "<group>";
 		};
 		F5106F9222FE26D600425299 /* Shared */ = {

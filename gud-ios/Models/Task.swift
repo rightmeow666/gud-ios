@@ -19,7 +19,7 @@ final class Task: RLMBaseModel, ActivePersistable {
   
   @objc dynamic var isCompleted: Bool = false
   
-  var validate: ValidationBlock? {
+  var beforeSave: BeforeSaveBlock? {
     return {
       if self.folderId.count <= 0 {
         throw DBException.logical("folderId cannot be empty")

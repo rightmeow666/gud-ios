@@ -22,6 +22,13 @@ class FolderListViewController: BaseViewController {
   
   var viewModel: FolderListViewModel!
   
+  lazy private var searchResultsViewController: SearchResultsViewController = {
+    let controller = SearchResultsViewController()
+    controller.delegate = self
+    controller.dataSource = self
+    return controller
+  }()
+  
   lazy private var moreButton: UIBarButtonItem = {
     let button = UIBarButtonItem(image: UIImage(named: "More"), style: .plain, target: self, action: #selector(moreButtonTapped(_:)))
     return button
@@ -217,5 +224,17 @@ extension FolderListViewController: DropdownMenuViewControllerDataSource {
   
   func dropdownMenuViewController(_ controller: DropdownMenuViewController, titleForRowAt indexPath: IndexPath) -> String {
     return self.viewModel.getTitleOfMenuOptions(atIndex: indexPath.item) ?? ""
+  }
+}
+
+extension FolderListViewController: SearchResultsViewControllerDelegate {
+  func searchResultsViewController(_ controller: SearchResultsViewController, didSelectResult result: Any) {
+    pp(result)
+  }
+}
+
+extension FolderListViewController: SearchResultsViewControllerDataSource {
+  var resultList: [[Any]] {
+    return []
   }
 }

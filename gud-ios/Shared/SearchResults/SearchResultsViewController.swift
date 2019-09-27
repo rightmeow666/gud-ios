@@ -75,10 +75,9 @@ extension SearchResultsViewController: UITableViewDelegate {
 
 extension SearchResultsViewController: UISearchResultsUpdating {
   func updateSearchResults(for searchController: UISearchController) {
-    if let searchString = searchController.searchBar.text {
-      if !searchString.isEmpty && searchString.count > 2 {
-        // TODO: perform a fetch for matched items
-      }
+    guard let searchString = searchController.searchBar.text else { return }
+    if !searchString.isEmpty && searchString.count > 2 {
+      // TODO: perform a fetch for matched items
     }
   }
 }

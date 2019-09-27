@@ -26,7 +26,7 @@ final class Folder: RLMBaseModel, ActivePersistable {
     }
   }
   
-  var validate: ValidationBlock? {
+  var beforeSave: BeforeSaveBlock? {
     return {
       if self.title.count > Folder.TITLE_MAX_LEGNTH {
         throw DBException.logical("title should be less than or equal to \(Folder.TITLE_MAX_LEGNTH) characters.")
