@@ -9,15 +9,15 @@
 import UIKit
 
 protocol SearchResultsViewControllerDelegate: NSObjectProtocol {
-  func searchResultsViewController(_ controller: SearchResultsViewController, didSelectResult result: Any)
+  func searchResultsViewController(_ controller: SearchResultsViewController, didSelectResult result: SearchResult)
 }
 
 extension SearchResultsViewControllerDelegate {
-  func searchResultsViewController(_ controller: SearchResultsViewController, didSelectResult result: Any) {}
+  func searchResultsViewController(_ controller: SearchResultsViewController, didSelectResult result: SearchResult) {}
 }
 
 protocol SearchResultsViewControllerDataSource: NSObjectProtocol {
-  var resultList: [[Any]] { get }
+  var resultList: [[SearchResult]] { get }
 }
 
 class SearchResultsViewController: BaseViewController {

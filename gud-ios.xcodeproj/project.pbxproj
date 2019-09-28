@@ -77,6 +77,7 @@
 		F5D90954231A8B9000757C45 /* DateFormatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D90953231A8B9000757C45 /* DateFormatable.swift */; };
 		F5D90956231A9C8700757C45 /* ActivePersistable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D90955231A9C8700757C45 /* ActivePersistable.swift */; };
 		F5D90958231C82FA00757C45 /* TaskEditorNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D90957231C82FA00757C45 /* TaskEditorNavigationController.swift */; };
+		F5F49DCD233FD37200CCF17F /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F49DCC233FD37200CCF17F /* SearchResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -168,6 +169,7 @@
 		F5D90953231A8B9000757C45 /* DateFormatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatable.swift; sourceTree = "<group>"; };
 		F5D90955231A9C8700757C45 /* ActivePersistable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivePersistable.swift; sourceTree = "<group>"; };
 		F5D90957231C82FA00757C45 /* TaskEditorNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditorNavigationController.swift; sourceTree = "<group>"; };
+		F5F49DCC233FD37200CCF17F /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -391,6 +393,7 @@
 		F59487B5233BF2CE001FECA5 /* SearchResults */ = {
 			isa = PBXGroup;
 			children = (
+				F5F49DCC233FD37200CCF17F /* SearchResult.swift */,
 				F5D67744233C000F00A5AD62 /* SearchResultCell.swift */,
 				F59487B6233BF2EF001FECA5 /* SearchResultsViewController.swift */,
 			);
@@ -665,6 +668,7 @@
 				F5D90943231880FC00757C45 /* TaskListDataStore.swift in Sources */,
 				F5D909352315144D00757C45 /* DropdownMenuSourceView.swift in Sources */,
 				F59644C4230DA58F009EE6C8 /* FolderEditorViewModel.swift in Sources */,
+				F5F49DCD233FD37200CCF17F /* SearchResult.swift in Sources */,
 				F5D55A6D2335601C001D8121 /* DBException.swift in Sources */,
 				F5106F8422FB1F0300425299 /* FolderEditorNavigationController.swift in Sources */,
 				F5106F6F22F5F49C00425299 /* FolderListDependencyOptions.swift in Sources */,

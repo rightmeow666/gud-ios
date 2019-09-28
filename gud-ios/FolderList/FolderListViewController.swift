@@ -228,13 +228,13 @@ extension FolderListViewController: DropdownMenuViewControllerDataSource {
 }
 
 extension FolderListViewController: SearchResultsViewControllerDelegate {
-  func searchResultsViewController(_ controller: SearchResultsViewController, didSelectResult result: Any) {
+  func searchResultsViewController(_ controller: SearchResultsViewController, didSelectResult result: SearchResult) {
     pp(result)
   }
 }
 
 extension FolderListViewController: SearchResultsViewControllerDataSource {
-  var resultList: [[Any]] {
+  var resultList: [[SearchResult]] {
     return []
   }
 }
