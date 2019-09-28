@@ -234,7 +234,8 @@ extension FolderListViewController: SearchResultsViewControllerDelegate {
 }
 
 extension FolderListViewController: SearchResultsViewControllerDataSource {
-  var resultList: [[SearchResult]] {
+  func getSearchResults(withDescription description: String) -> [[SearchResult]] {
+    // TODO: perform search to get a list of result objects
     return []
   }
 }

@@ -65,8 +65,10 @@ class SearchResultCell: BaseTableViewCell, UniquelyIdentifable {
   
   func configure(searchResult: SearchResult) {
     self.searchResult = searchResult
-    self.titleLabel.text = searchResult.title
-    self.subtitleLabel.text = searchResult.subtitle
+    self.titleLabel.text = self.searchResult != nil ? self.searchResult!.title : "Untitle"
+    self.subtitleLabel.text = self.searchResult != nil ? self.searchResult!.subtitle : ""
+    self.titleLabel.isHidden = self.searchResult == nil
+    self.subtitleLabel.isHidden = self.searchResult == nil
   }
   
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

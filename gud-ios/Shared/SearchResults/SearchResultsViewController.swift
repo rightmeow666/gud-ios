@@ -17,13 +17,15 @@ extension SearchResultsViewControllerDelegate {
 }
 
 protocol SearchResultsViewControllerDataSource: NSObjectProtocol {
-  var resultList: [[SearchResult]] { get }
+  func getSearchResults(withDescription description: String) -> [[SearchResult]]
 }
 
 class SearchResultsViewController: BaseViewController {
   weak var delegate: SearchResultsViewControllerDelegate?
   
   weak var dataSource: SearchResultsViewControllerDataSource?
+  
+  var resultList: [[SearchResult]] = []
   
   lazy private var tableView: UITableView = {
     let view = UITableView()
@@ -54,21 +56,23 @@ class SearchResultsViewController: BaseViewController {
 extension SearchResultsViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: SearchResultCell.cellId, for: indexPath) as! SearchResultCell
+    let result = self.resultList[indexPath.section][indexPath.row]
+    cell.configure(searchResult: result)
     return cell
   }
   
   func numberOfSections(in tableView: UITableView) -> Int {
-    return self.dataSource?.resultList.count ?? 0
+    return self.resultList.count
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return self.dataSource?.resultList[section].count ?? 0
+    return self.resultList[section].count
   }
 }
 
 extension SearchResultsViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    guard let selectedResult = self.dataSource?.resultList[indexPath.section][indexPath.row] else { return }
+    let selectedResult = self.resultList[indexPath.section][indexPath.row]
     self.delegate?.searchResultsViewController(self, didSelectResult: selectedResult)
   }
 }
@@ -77,7 +81,8 @@ extension SearchResultsViewController: UISearchResultsUpdating {
   func updateSearchResults(for searchController: UISearchController) {
     guard let searchString = searchController.searchBar.text else { return }
     if !searchString.isEmpty && searchString.count > 2 {
-      // TODO: perform a fetch for matched items
+      guard let ds = self.dataSource else { return }
+      self.resultList = ds.getSearchResults(withDescription: searchString)
     }
   }
 }
