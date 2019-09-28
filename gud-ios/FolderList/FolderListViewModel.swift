@@ -73,6 +73,17 @@ class FolderListViewModel: NSObject {
     return self.folderListCacheService.folders?[indexPath.item]
   }
   
+  func searchFolders(byTitle title: String) -> [[SearchResult]] {
+    let predicate = NSPredicate(format: "title contains[cd] %@", title)
+    let matches = Folder.findAll(byPredicate: predicate, sortedBy: "createdAt", ascending: false)
+    var searchResults: [SearchResult] = []
+    for m in matches {
+      let sr = SearchResult(id: m.id, title: m.title, subtitle: m.createdAt?.toString ?? nil)
+      searchResults.append(sr)
+    }
+    return [searchResults]
+  }
+  
   func selectFolder(atIndexPath indexPath: IndexPath) {
     guard let selectedFolder = self.folderListCacheService.folders?[indexPath.item] else { return }
     self.folderListCacheService.appendSelectedFolder(selectedFolder: selectedFolder)

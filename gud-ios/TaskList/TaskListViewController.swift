@@ -17,9 +17,12 @@ class TaskListViewController: BaseViewController {
   
   var viewModel: TaskListViewModel!
   
-  private var toggleAction: UIContextualAction!
-  
-  private var deleteAction: UIContextualAction!
+  lazy private var searchResultsViewController: SearchResultsViewController = {
+    let controller = SearchResultsViewController()
+    controller.delegate = self
+    controller.dataSource = self
+    return controller
+  }()
   
   lazy private var tableView: UITableView = {
     let view = UITableView(frame: self.view.frame, style: .plain)
@@ -47,13 +50,23 @@ class TaskListViewController: BaseViewController {
   
   private func configureView() {
     self.navigationItem.title = self.viewModel.viewControllerTitle
-    self.view.backgroundColor = .white
     self.navigationItem.setRightBarButtonItems([self.addButton], animated: true)
+    self.view.backgroundColor = .white
+    
     self.view.addSubview(self.tableView)
     self.tableView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
     self.tableView.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor).isActive = true
     self.tableView.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor).isActive = true
     self.tableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+    
+    self.navigationItem.searchController = UISearchController(searchResultsController: self.searchResultsViewController)
+    self.navigationItem.searchController?.searchResultsUpdater = self.searchResultsViewController
+    self.navigationItem.searchController?.searchBar.barStyle = .black
+    self.navigationItem.searchController?.searchBar.tintColor = CustomColor.mandarinOrange
+    self.navigationItem.searchController?.searchBar.keyboardAppearance = .dark
+    self.navigationItem.searchController?.obscuresBackgroundDuringPresentation = true
+    self.navigationItem.hidesSearchBarWhenScrolling = false
+    self.definesPresentationContext = true
   }
   
   override func viewDidLoad() {
@@ -66,24 +79,24 @@ class TaskListViewController: BaseViewController {
 extension TaskListViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
     let isCompleted = self.viewModel.isTaskCompleted(atIndex: indexPath.row)
-    self.toggleAction = UIContextualAction(style: .normal, title: nil, handler: { (action, view, done) in
+    let toggleAction = UIContextualAction(style: .normal, title: nil, handler: { (action, view, done) in
       self.viewModel.toggleCompletion(atIndex: indexPath.row, isCompleted: !isCompleted)
       done(true)
     })
-    self.toggleAction.image = isCompleted ? UIImage(named: "More") : UIImage(named: "Tick")
-    self.toggleAction.backgroundColor = isCompleted ? CustomColor.mandarinOrange : CustomColor.seaweedGreen
+    toggleAction.image = isCompleted ? UIImage(named: "More") : UIImage(named: "Tick")
+    toggleAction.backgroundColor = isCompleted ? CustomColor.mandarinOrange : CustomColor.seaweedGreen
     let swipeActionConfig = UISwipeActionsConfiguration(actions: [toggleAction])
     swipeActionConfig.performsFirstActionWithFullSwipe = true
     return swipeActionConfig
   }
   
   func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-    self.deleteAction = UIContextualAction(style: .destructive, title: nil, handler: { (action, view, done) in
+    let deleteAction = UIContextualAction(style: .destructive, title: nil, handler: { (action, view, done) in
       self.viewModel.removeTask(atIndex: indexPath.row)
       done(true)
     })
-    self.deleteAction.image = UIImage(named: "Delete")
-    self.deleteAction.backgroundColor = CustomColor.scarletCarson
+    deleteAction.image = UIImage(named: "Delete")
+    deleteAction.backgroundColor = CustomColor.scarletCarson
     let swipeActionConfigurations = UISwipeActionsConfiguration(actions: [deleteAction])
     swipeActionConfigurations.performsFirstActionWithFullSwipe = false
     return swipeActionConfigurations
@@ -131,5 +144,18 @@ extension TaskListViewController: TaskListViewModelDelegate {
   
   func viewModel(_ vm: TaskListViewModel, didErr error: Error) {
     self.presentAlert(error.localizedDescription, alertType: .error, completion: nil)
+  }
+}
+
+extension TaskListViewController: SearchResultsViewControllerDelegate {
+  func searchResultsViewController(_ controller: SearchResultsViewController, didSelectResult result: SearchResult) {
+    pp(result)
+  }
+}
+
+extension TaskListViewController: SearchResultsViewControllerDataSource {
+  func getSearchResults(withDescription description: String) -> [[SearchResult]] {
+    // TODO: perform search to get a list of result objects
+    return []
   }
 }

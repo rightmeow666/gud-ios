@@ -13,7 +13,9 @@ class SearchResultCell: BaseTableViewCell, UniquelyIdentifable {
   
   lazy private var containerView: UIView = {
     let view = UIView()
-    view.backgroundColor = CustomColor.offWhite
+    view.backgroundColor = CustomColor.transparentBlack
+    view.layer.cornerRadius = 4
+    view.clipsToBounds = true
     view.translatesAutoresizingMaskIntoConstraints = false
     return view
   }()
@@ -21,6 +23,7 @@ class SearchResultCell: BaseTableViewCell, UniquelyIdentifable {
   lazy private var titleLabel: UILabel = {
     let label = UILabel()
     label.backgroundColor = CustomColor .clear
+    label.textColor = CustomColor.lightText
     label.font = UIFont.preferredFont(forTextStyle: .footnote)
     label.translatesAutoresizingMaskIntoConstraints = false
     return label
@@ -29,6 +32,7 @@ class SearchResultCell: BaseTableViewCell, UniquelyIdentifable {
   lazy private var subtitleLabel: UILabel = {
     let label = UILabel()
     label.backgroundColor = CustomColor .clear
+    label.textColor = CustomColor.lightText
     label.font = UIFont.preferredFont(forTextStyle: .footnote)
     label.translatesAutoresizingMaskIntoConstraints = false
     return label
@@ -36,7 +40,7 @@ class SearchResultCell: BaseTableViewCell, UniquelyIdentifable {
   
   lazy private var stackView: UIStackView = {
     let view = UIStackView(arrangedSubviews: [self.titleLabel, self.subtitleLabel])
-    view.spacing = 4
+    view.spacing = 0
     view.alignment = .leading
     view.translatesAutoresizingMaskIntoConstraints = false
     view.axis = .vertical
@@ -44,17 +48,19 @@ class SearchResultCell: BaseTableViewCell, UniquelyIdentifable {
   }()
   
   private func configureView() {
-    self.contentView.backgroundColor = .clear
+    self.backgroundColor = CustomColor.clear
+    self.contentView.backgroundColor = CustomColor.clear
     self.selectionStyle = .none
     
     self.contentView.addSubview(self.containerView)
     self.containerView.addSubview(self.stackView)
     
-    self.containerView.topAnchor.constraint(equalTo: self.contentView.topAnchor).isActive = true
-    self.containerView.rightAnchor.constraint(equalTo: self.contentView.rightAnchor).isActive = true
-    self.containerView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor).isActive = true
-    self.containerView.leftAnchor.constraint(equalTo: self.contentView.leftAnchor).isActive = true
+    self.containerView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 2).isActive = true
+    self.containerView.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -4).isActive = true
+    self.containerView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -2).isActive = true
+    self.containerView.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 4).isActive = true
     
+    self.stackView.topAnchor.constraint(equalTo: self.containerView.topAnchor, constant: 8).isActive = true
     self.stackView.leftAnchor.constraint(equalTo: self.containerView.leftAnchor, constant: 16).isActive = true
     self.stackView.rightAnchor.constraint(equalTo: self.containerView.rightAnchor, constant: -16).isActive = true
     self.stackView.bottomAnchor.constraint(equalTo: self.containerView.bottomAnchor, constant: -8).isActive = true

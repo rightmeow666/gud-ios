@@ -32,6 +32,9 @@ class SearchResultsViewController: BaseViewController {
     view.translatesAutoresizingMaskIntoConstraints = false
     view.delegate = self
     view.dataSource = self
+    view.backgroundColor = CustomColor.clear
+    view.separatorStyle = .none
+    view.contentInset = UIEdgeInsets(top: 2, left: 0, bottom: 2, right: 0)
     view.register(SearchResultCell.self, forCellReuseIdentifier: SearchResultCell.cellId)
     view.rowHeight = UITableView.automaticDimension
     view.estimatedRowHeight = 44
@@ -83,6 +86,7 @@ extension SearchResultsViewController: UISearchResultsUpdating {
     if !searchString.isEmpty && searchString.count > 2 {
       guard let ds = self.dataSource else { return }
       self.resultList = ds.getSearchResults(withDescription: searchString)
+      self.tableView.reloadData()
     }
   }
 }

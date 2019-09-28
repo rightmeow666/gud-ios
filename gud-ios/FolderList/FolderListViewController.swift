@@ -30,17 +30,17 @@ class FolderListViewController: BaseViewController {
   }()
   
   lazy private var moreButton: UIBarButtonItem = {
-    let button = UIBarButtonItem(image: UIImage(named: "More"), style: .plain, target: self, action: #selector(moreButtonTapped(_:)))
+    let button = UIBarButtonItem(image: UIImage(named: "More"), style: .plain, target: self, action: #selector(self.moreButtonTapped(_:)))
     return button
   }()
   
   lazy private var cancelButton: UIBarButtonItem = {
-    let button = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonTapped(_:)))
+    let button = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(self.cancelButtonTapped(_:)))
     return button
   }()
   
   lazy private var deleteButton: UIBarButtonItem = {
-    let button = UIBarButtonItem(title: "Delete", style: .done, target: self, action: #selector(deleteButtonTapped(_:)))
+    let button = UIBarButtonItem(title: "Delete", style: .done, target: self, action: #selector(self.deleteButtonTapped(_:)))
     return button
   }()
   
@@ -87,11 +87,21 @@ class FolderListViewController: BaseViewController {
     self.navigationItem.title = "Folder List"
     self.navigationItem.setRightBarButtonItems([self.moreButton], animated: true)
     self.view.backgroundColor = CustomColor.white
+    
     self.view.addSubview(self.collectionView)
     self.collectionView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
     self.collectionView.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor).isActive = true
     self.collectionView.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor).isActive = true
     self.collectionView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+    
+    self.navigationItem.searchController = UISearchController(searchResultsController: self.searchResultsViewController)
+    self.navigationItem.searchController?.searchResultsUpdater = self.searchResultsViewController
+    self.navigationItem.searchController?.searchBar.barStyle = .black
+    self.navigationItem.searchController?.searchBar.tintColor = CustomColor.mandarinOrange
+    self.navigationItem.searchController?.searchBar.keyboardAppearance = .dark
+    self.navigationItem.searchController?.obscuresBackgroundDuringPresentation = true
+    self.navigationItem.hidesSearchBarWhenScrolling = true
+    self.definesPresentationContext = true
   }
   
   override func setEditing(_ editing: Bool, animated: Bool) {
@@ -235,7 +245,6 @@ extension FolderListViewController: SearchResultsViewControllerDelegate {
 
 extension FolderListViewController: SearchResultsViewControllerDataSource {
   func getSearchResults(withDescription description: String) -> [[SearchResult]] {
-    // TODO: perform search to get a list of result objects
-    return []
+    return self.viewModel.searchFolders(byTitle: description)
   }
 }

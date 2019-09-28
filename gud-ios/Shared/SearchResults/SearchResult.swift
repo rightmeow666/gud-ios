@@ -13,5 +13,5 @@ struct SearchResult {
   
   var title: String
   
-  var subtitle: String
+  var subtitle: String?
 }

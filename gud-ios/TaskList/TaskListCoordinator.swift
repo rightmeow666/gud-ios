@@ -25,6 +25,7 @@ class TaskListCoordinator: NSObject {
 extension TaskListCoordinator: Coordinatable {
   func start() {
     let vc = TaskListViewController()
+    vc.hidesBottomBarWhenPushed = true
     let vm = TaskListViewModel(options: self.options, delegate: vc)
     vc.viewModel = vm
     vc.delegate = self
