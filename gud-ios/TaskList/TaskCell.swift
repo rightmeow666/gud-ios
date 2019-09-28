@@ -75,8 +75,6 @@ class TaskCell: UITableViewCell, UniquelyIdentifable {
     self.contentView.addSubview(self.containerView)
     self.containerView.addSubview(self.titleTextView)
     self.containerView.addSubview(self.separatorView)
-    self.containerView.addSubview(self.dateLabel)
-    self.containerView.addSubview(self.imageDataView)
     self.containerView.addSubview(self.completionIndicatorView)
     self.containerView.addSubview(self.stackView)
     self.containerView.topAnchor.constraint(equalTo: self.contentView.topAnchor).isActive = true
