@@ -19,7 +19,7 @@ typealias CustomColor = NSColor
 extension CustomColor {
   static var inkBlack: UIColor { return #colorLiteral(red: 0.07843137255, green: 0.07843137255, blue: 0.07843137255, alpha: 1) }
   static var midNightBlack: UIColor { return  #colorLiteral(red: 0.137254902, green: 0.137254902, blue: 0.137254902, alpha: 1) }
-  static var transparentBlack: UIColor { return #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.75) }
+  static var transparentBlack: UIColor { return #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.5) }
   static var seaweedGreen: UIColor { return #colorLiteral(red: 0.4470588235, green: 0.5607843137, blue: 0.2549019608, alpha: 1) }
   static var scarletCarson: UIColor { return #colorLiteral(red: 0.5607843137, green: 0.1960784314, blue: 0.2156862745, alpha: 1) }
   static var candyWhite: UIColor { return #colorLiteral(red: 0.9607843137, green: 0.9607843137, blue: 0.9607843137, alpha: 1) }

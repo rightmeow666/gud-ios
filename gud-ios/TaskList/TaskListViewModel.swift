@@ -54,6 +54,17 @@ class TaskListViewModel: NSObject {
     return self.taskListCacheService.tasks?[index]
   }
   
+  func searchTasks(byTitle title: String) -> [[SearchResult]] {
+    let predicate = NSPredicate(format: "title contains[cd] %@", title)
+    let matches = Task.findAll(byPredicate: predicate, sortedBy: "createdAt", ascending: false)
+    var searchResults: [SearchResult] = []
+    for m in matches {
+      let sr = SearchResult(id: m.id, title: m.title, subtitle: m.createdAt?.toString ?? nil)
+      searchResults.append(sr)
+    }
+    return [searchResults]
+  }
+  
   func isTaskCompleted(atIndex index: Int) -> Bool {
     guard let t = self.getTask(atIndex: index) else { return false }
     return t.isCompleted

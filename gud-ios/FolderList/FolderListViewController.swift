@@ -101,6 +101,7 @@ class FolderListViewController: BaseViewController {
     self.navigationItem.searchController?.searchBar.keyboardAppearance = .dark
     self.navigationItem.searchController?.obscuresBackgroundDuringPresentation = true
     self.navigationItem.hidesSearchBarWhenScrolling = false
+    self.navigationItem.searchController?.hidesNavigationBarDuringPresentation = false
     self.definesPresentationContext = true
   }
   

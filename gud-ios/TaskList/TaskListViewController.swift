@@ -65,6 +65,7 @@ class TaskListViewController: BaseViewController {
     self.navigationItem.searchController?.searchBar.tintColor = CustomColor.mandarinOrange
     self.navigationItem.searchController?.searchBar.keyboardAppearance = .dark
     self.navigationItem.searchController?.obscuresBackgroundDuringPresentation = true
+    self.navigationItem.searchController?.hidesNavigationBarDuringPresentation = false
     self.navigationItem.hidesSearchBarWhenScrolling = false
     self.definesPresentationContext = true
   }
@@ -155,7 +156,6 @@ extension TaskListViewController: SearchResultsViewControllerDelegate {
 
 extension TaskListViewController: SearchResultsViewControllerDataSource {
   func getSearchResults(withDescription description: String) -> [[SearchResult]] {
-    // TODO: perform search to get a list of result objects
-    return []
+    return self.viewModel.searchTasks(byTitle: description)
   }
 }

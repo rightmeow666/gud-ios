@@ -42,7 +42,7 @@ class SearchResultsViewController: BaseViewController {
   }()
   
   private func configureView() {
-    self.view.backgroundColor = CustomColor.clear
+    self.view.backgroundColor = CustomColor.transparentBlack
     self.view.addSubview(self.tableView)
     self.tableView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
     self.tableView.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor).isActive = true
