@@ -12,7 +12,9 @@ class FolderListNavigationController: BaseNavigationController {
   private func configureView() {
     self.tabBarItem.title = "Folders"
     self.tabBarItem.image = UIImage(named: "Folders")
-    self.navigationBar.prefersLargeTitles = true
+    self.navigationBar.prefersLargeTitles = false
+    self.navigationBar.backgroundColor = CustomColor.black
+    self.navigationBar.isTranslucent = false
   }
   
   override func viewDidLoad() {
