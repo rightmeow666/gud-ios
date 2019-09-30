@@ -96,6 +96,11 @@ extension ActivePersistable {
     try RealmManager.shared.db.write {
       block()
       try self.beforeSave?()
+      if self.id.isEmpty {
+        throw DBException.logical("id cannot be empty")
+      } else if self.createdAt == nil {
+        throw DBException.logical("createdAt cannot be nil")
+      }
       self.updatedAt = Date()
       RealmManager.shared.db.add(self)
     }
