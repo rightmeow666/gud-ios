@@ -100,7 +100,7 @@ class FolderListViewController: BaseViewController {
     self.navigationItem.searchController?.searchBar.tintColor = CustomColor.mandarinOrange
     self.navigationItem.searchController?.searchBar.keyboardAppearance = .dark
     self.navigationItem.searchController?.obscuresBackgroundDuringPresentation = true
-    self.navigationItem.hidesSearchBarWhenScrolling = true
+    self.navigationItem.hidesSearchBarWhenScrolling = false
     self.definesPresentationContext = true
   }
   

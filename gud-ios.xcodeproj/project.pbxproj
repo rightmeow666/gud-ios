@@ -54,6 +54,8 @@
 		F59644BC230A127D009EE6C8 /* FolderListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59644BB230A127D009EE6C8 /* FolderListViewModel.swift */; };
 		F59644C2230D3B8C009EE6C8 /* AppTabBarControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59644C1230D3B8C009EE6C8 /* AppTabBarControllerDelegate.swift */; };
 		F59644C4230DA58F009EE6C8 /* FolderEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59644C3230DA58F009EE6C8 /* FolderEditorViewModel.swift */; };
+		F5A2FAFE23419FAF001A0E22 /* Datetime.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A2FAFD23419FAF001A0E22 /* Datetime.swift */; };
+		F5A2FB002341A193001A0E22 /* RecordIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A2FAFF2341A193001A0E22 /* RecordIdentifiable.swift */; };
 		F5D55A6D2335601C001D8121 /* DBException.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D55A6C2335601C001D8121 /* DBException.swift */; };
 		F5D55A6F23356882001D8121 /* AlertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D55A6E23356882001D8121 /* AlertType.swift */; };
 		F5D67745233C000F00A5AD62 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D67744233C000F00A5AD62 /* SearchResultCell.swift */; };
@@ -74,7 +76,6 @@
 		F5D9094E2319B31200757C45 /* TaskEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D9094D2319B31200757C45 /* TaskEditorViewModel.swift */; };
 		F5D909502319B3A400757C45 /* TaskEditorDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D9094F2319B3A400757C45 /* TaskEditorDataStore.swift */; };
 		F5D909522319B3C900757C45 /* TaskEditorDependencyOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D909512319B3C900757C45 /* TaskEditorDependencyOptions.swift */; };
-		F5D90954231A8B9000757C45 /* DateFormatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D90953231A8B9000757C45 /* DateFormatable.swift */; };
 		F5D90956231A9C8700757C45 /* ActivePersistable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D90955231A9C8700757C45 /* ActivePersistable.swift */; };
 		F5D90958231C82FA00757C45 /* TaskEditorNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D90957231C82FA00757C45 /* TaskEditorNavigationController.swift */; };
 		F5F49DCD233FD37200CCF17F /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F49DCC233FD37200CCF17F /* SearchResult.swift */; };
@@ -146,6 +147,8 @@
 		F59644BB230A127D009EE6C8 /* FolderListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderListViewModel.swift; sourceTree = "<group>"; };
 		F59644C1230D3B8C009EE6C8 /* AppTabBarControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBarControllerDelegate.swift; sourceTree = "<group>"; };
 		F59644C3230DA58F009EE6C8 /* FolderEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderEditorViewModel.swift; sourceTree = "<group>"; };
+		F5A2FAFD23419FAF001A0E22 /* Datetime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Datetime.swift; sourceTree = "<group>"; };
+		F5A2FAFF2341A193001A0E22 /* RecordIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordIdentifiable.swift; sourceTree = "<group>"; };
 		F5D55A6C2335601C001D8121 /* DBException.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBException.swift; sourceTree = "<group>"; };
 		F5D55A6E23356882001D8121 /* AlertType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertType.swift; sourceTree = "<group>"; };
 		F5D67744233C000F00A5AD62 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
@@ -166,7 +169,6 @@
 		F5D9094D2319B31200757C45 /* TaskEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditorViewModel.swift; sourceTree = "<group>"; };
 		F5D9094F2319B3A400757C45 /* TaskEditorDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditorDataStore.swift; sourceTree = "<group>"; };
 		F5D909512319B3C900757C45 /* TaskEditorDependencyOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditorDependencyOptions.swift; sourceTree = "<group>"; };
-		F5D90953231A8B9000757C45 /* DateFormatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatable.swift; sourceTree = "<group>"; };
 		F5D90955231A9C8700757C45 /* ActivePersistable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivePersistable.swift; sourceTree = "<group>"; };
 		F5D90957231C82FA00757C45 /* TaskEditorNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditorNavigationController.swift; sourceTree = "<group>"; };
 		F5F49DCC233FD37200CCF17F /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
@@ -371,9 +373,10 @@
 			isa = PBXGroup;
 			children = (
 				F5D90955231A9C8700757C45 /* ActivePersistable.swift */,
-				F5D90953231A8B9000757C45 /* DateFormatable.swift */,
+				F5A2FAFD23419FAF001A0E22 /* Datetime.swift */,
 				F5D55A6C2335601C001D8121 /* DBException.swift */,
 				F5106F9022FCE73F00425299 /* RealmManager.swift */,
+				F5A2FAFF2341A193001A0E22 /* RecordIdentifiable.swift */,
 				F533E1D223009D1A005A624E /* RLMBaseModel.swift */,
 			);
 			path = RealmActivePersistence;
@@ -655,6 +658,7 @@
 				F5D9094C2319B2B000757C45 /* TaskEditorViewController.swift in Sources */,
 				F5106F6D22F40BD700425299 /* Extensions.swift in Sources */,
 				F56B73CF232DB84100E6F958 /* Environment.swift in Sources */,
+				F5A2FB002341A193001A0E22 /* RecordIdentifiable.swift in Sources */,
 				F533E1D923021845005A624E /* NotificationGrandCentral.swift in Sources */,
 				F5106F6122F181AF00425299 /* BaseCollectionViewCell.swift in Sources */,
 				F5106F7C22F6670200425299 /* BaseCacheService.swift in Sources */,
@@ -682,6 +686,7 @@
 				F5D90958231C82FA00757C45 /* TaskEditorNavigationController.swift in Sources */,
 				F5106F9622FE27C400425299 /* BaseTableViewCell.swift in Sources */,
 				F5D9093023150D1E00757C45 /* DropdownMenuViewController.swift in Sources */,
+				F5A2FAFE23419FAF001A0E22 /* Datetime.swift in Sources */,
 				F5D909332315100100757C45 /* FolderListDropdownMenuCoordinator.swift in Sources */,
 				F5106F6522F1986800425299 /* FolderListDataStore.swift in Sources */,
 				F59644C2230D3B8C009EE6C8 /* AppTabBarControllerDelegate.swift in Sources */,
@@ -689,7 +694,6 @@
 				F5D9094A2319B1BB00757C45 /* TaskEditorCoordinator.swift in Sources */,
 				F5106F7222F5F84100425299 /* NetworkServicable.swift in Sources */,
 				F59487B7233BF2EF001FECA5 /* SearchResultsViewController.swift in Sources */,
-				F5D90954231A8B9000757C45 /* DateFormatable.swift in Sources */,
 				F5D55A6F23356882001D8121 /* AlertType.swift in Sources */,
 				F5106F4622EFF41800425299 /* BaseTabBarController.swift in Sources */,
 				F5D909382316FDAC00757C45 /* FolderListDropdownMenuDataStore.swift in Sources */,
