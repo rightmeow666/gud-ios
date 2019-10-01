@@ -23,17 +23,15 @@ final class Task: RLMBaseModel, ActivePersistable {
     return {
       if self.folderId.count <= 0 {
         throw DBException.logical("folderId cannot be empty")
-      } else if self.title.count > Task.TITLE_MAX_LEGNTH {
-        throw DBException.logical("title should be less than or equal to \(Task.TITLE_MAX_LEGNTH) characters.")
-      } else if self.title.count < Task.TITLE_MIN_LENGTH {
-        throw DBException.logical("title should be greater than or equal to \(Task.TITLE_MIN_LENGTH) characters.")
+      } else if !Task.isTitleValid(title: self.title) {
+        throw DBException.logical("title should be within the range of \(Task.TITLE_LENGTH.min()!) to \(Task.TITLE_LENGTH.max()!) characters")
       }
     }
   }
   
   static func isTitleValid(title: String) -> Bool {
     let c = title.count
-    if c >= Task.TITLE_MIN_LENGTH && c <= Task.TITLE_MAX_LEGNTH {
+    if Task.TITLE_LENGTH.contains(c) {
       return true
     } else {
       return false
@@ -42,7 +40,5 @@ final class Task: RLMBaseModel, ActivePersistable {
   
   let folder = LinkingObjects(fromType: Folder.self, property: "tasks")
   
-  static let TITLE_MAX_LEGNTH: Int = 512
-  
-  static let TITLE_MIN_LENGTH: Int = 3
+  static let TITLE_LENGTH = 3...512
 }

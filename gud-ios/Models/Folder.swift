@@ -13,13 +13,11 @@ final class Folder: RLMBaseModel, ActivePersistable {
   
   var tasks = List<Task>()
   
-  static let TITLE_MAX_LEGNTH: Int = 128
-  
-  static let TITLE_MIN_LENGTH: Int = 3
+  static let TITLE_LENGTH = 3...128
   
   static func isTitleValid(title: String) -> Bool {
     let c = title.count
-    if c >= Folder.TITLE_MIN_LENGTH && c <= Folder.TITLE_MAX_LEGNTH {
+    if Folder.TITLE_LENGTH.contains(c) {
       return true
     } else {
       return false
@@ -28,10 +26,8 @@ final class Folder: RLMBaseModel, ActivePersistable {
   
   var beforeSave: BeforeSaveBlock? {
     return {
-      if self.title.count > Folder.TITLE_MAX_LEGNTH {
-        throw DBException.logical("title should be less than or equal to \(Folder.TITLE_MAX_LEGNTH) characters.")
-      } else if self.title.count < Folder.TITLE_MIN_LENGTH {
-        throw DBException.logical("title should be greater than or equal to \(Folder.TITLE_MIN_LENGTH) characters.")
+      if !Folder.isTitleValid(title: self.title) {
+        throw DBException.logical("title should be within the range of \(Folder.TITLE_LENGTH.min()!) to \(Folder.TITLE_LENGTH.max()!) characters")
       }
     }
   }
