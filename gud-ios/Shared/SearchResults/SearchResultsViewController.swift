@@ -87,6 +87,9 @@ extension SearchResultsViewController: UISearchResultsUpdating {
       guard let ds = self.dataSource else { return }
       self.resultList = ds.getSearchResults(withDescription: searchString)
       self.tableView.reloadData()
+    } else {
+      self.resultList = []
+      self.tableView.reloadData()
     }
   }
 }
