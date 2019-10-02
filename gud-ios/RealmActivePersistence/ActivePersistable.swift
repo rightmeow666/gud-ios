@@ -25,6 +25,8 @@ protocol ActivePersistable where Self: RLMBaseModel {
   /// An object that is created and then saved for the first time.
   var isNew: Bool { get }
   
+  var isValid: Bool { get }
+  
   static func find(_ id: String) -> Self?
   
   static func findAll(byPredicate predicate: NSPredicate?, sortedBy keyPath: String, ascending: Bool) -> Results<Self>
@@ -52,6 +54,15 @@ extension ActivePersistable {
       return true
     } else {
       return self.createdAt == self.updatedAt
+    }
+  }
+  
+  var isValid: Bool {
+    do {
+      try self.beforeSave?()
+      return true
+    } catch {
+      return false
     }
   }
   
