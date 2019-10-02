@@ -9,4 +9,14 @@
 import UIKit
 
 class TaskEditorNavigationController: BaseNavigationController {
+  private func configureView() {
+    self.navigationBar.prefersLargeTitles = false
+    self.navigationBar.backgroundColor = CustomColor.black
+    self.navigationBar.isTranslucent = false
+  }
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    self.configureView()
+  }
 }

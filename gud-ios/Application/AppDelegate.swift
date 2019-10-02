@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     let win = UIWindow(frame: UIScreen.main.bounds)
     win.makeKeyAndVisible()
-    win.backgroundColor = CustomColor.white
+    win.backgroundColor = CustomColor.black
     self.window = win
     
     let options = AppDependencyOptions(networkService: GudNetworkService())
