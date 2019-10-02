@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3AABDA6228F456DB7E1A756A /* Pods_gud_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F33FC68346C8C4E3FC0F7C /* Pods_gud_ios.framework */; };
 		41DD8E1D534A0EEC7DA912A8 /* Pods_gud_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B833F8A95566B4BF75C1BC7 /* Pods_gud_iosTests.framework */; };
+		F502C45923453DEB00E41E9D /* FolderFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F502C45823453DEB00E41E9D /* FolderFactory.swift */; };
 		F5106F1C22EFF0D800425299 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F1B22EFF0D800425299 /* AppDelegate.swift */; };
 		F5106F2522EFF0D900425299 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5106F2422EFF0D900425299 /* Assets.xcassets */; };
 		F5106F2822EFF0D900425299 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5106F2622EFF0D900425299 /* LaunchScreen.storyboard */; };
@@ -98,6 +99,7 @@
 		90075D545DD3AE62FC0EB1DA /* Pods-gud-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gud-ios.release.xcconfig"; path = "Target Support Files/Pods-gud-ios/Pods-gud-ios.release.xcconfig"; sourceTree = "<group>"; };
 		A8C286A41DE33C7F44E47A61 /* Pods-gud-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gud-ios.debug.xcconfig"; path = "Target Support Files/Pods-gud-ios/Pods-gud-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		B9FCBAC9FB4FAEAC5A360A84 /* Pods-gud-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gud-iosTests.release.xcconfig"; path = "Target Support Files/Pods-gud-iosTests/Pods-gud-iosTests.release.xcconfig"; sourceTree = "<group>"; };
+		F502C45823453DEB00E41E9D /* FolderFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderFactory.swift; sourceTree = "<group>"; };
 		F5106F1822EFF0D800425299 /* gud-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "gud-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5106F1B22EFF0D800425299 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5106F2422EFF0D900425299 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -214,6 +216,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		F502C45723453DC600E41E9D /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				F502C45823453DEB00E41E9D /* FolderFactory.swift */,
+			);
+			path = Factories;
+			sourceTree = "<group>";
+		};
 		F5106F0F22EFF0D800425299 = {
 			isa = PBXGroup;
 			children = (
@@ -260,6 +270,7 @@
 		F5106F3522EFF36400425299 /* gud-iosTests */ = {
 			isa = PBXGroup;
 			children = (
+				F502C45723453DC600E41E9D /* Factories */,
 				F5106F3622EFF36400425299 /* gud_iosTests.swift */,
 				F5106F3822EFF36400425299 /* Info.plist */,
 			);
@@ -723,6 +734,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F502C45923453DEB00E41E9D /* FolderFactory.swift in Sources */,
 				F5106F3722EFF36400425299 /* gud_iosTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -800,7 +812,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -855,7 +867,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
