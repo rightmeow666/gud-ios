@@ -16,14 +16,14 @@ protocol BasicAlerting where Self: UIViewController {
 
 extension BasicAlerting {
   func makeAlert(_ message: String, alertType: AlertType, style: UIAlertController.Style = .alert) -> UIAlertController {
-    let controller = UIAlertController(title: alertType.description, message: message, preferredStyle: style)
+    let c = UIAlertController(title: alertType.description, message: message, preferredStyle: style)
     let act = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-    controller.addAction(act)
-    return controller
+    c.addAction(act)
+    return c
   }
   
   func presentAlert(_ message: String, alertType: AlertType, style: UIAlertController.Style = .alert, completion: (() -> Void)?) {
-    let controller = self.makeAlert(message, alertType: alertType, style: style)
-    self.present(controller, animated: true, completion: completion)
+    let c = self.makeAlert(message, alertType: alertType, style: style)
+    self.present(c, animated: true, completion: completion)
   }
 }
