@@ -8,7 +8,7 @@ target 'gud-ios' do
 
   target 'gud-iosTests' do
     inherit! :search_paths
-    
+
     pod 'Fakery', '~> 4.1'
     pod 'Nimble', '~> 8.0'
     pod 'Quick', '~> 2.1'
