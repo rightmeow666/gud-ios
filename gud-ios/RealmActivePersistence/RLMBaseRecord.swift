@@ -1,5 +1,5 @@
 //
-//  RLMBaseModel.swift
+//  RLMBaseRecord.swift
 //  gud-ios
 //
 //  Created by sudofluff on 8/11/19.
@@ -8,7 +8,7 @@
 
 import RealmSwift
 
-class RLMBaseModel: Object, Datetime {
+class RLMBaseRecord: Object, Datetime {
   @objc dynamic var id: String = ""
   
   @objc dynamic var createdAt: Date? = nil

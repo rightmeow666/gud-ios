@@ -46,7 +46,7 @@
 		F5106F9122FCE73F00425299 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F9022FCE73F00425299 /* RealmManager.swift */; };
 		F5106F9422FE277900425299 /* TextInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F9322FE277900425299 /* TextInputCell.swift */; };
 		F5106F9622FE27C400425299 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5106F9522FE27C400425299 /* BaseTableViewCell.swift */; };
-		F533E1D323009D1A005A624E /* RLMBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F533E1D223009D1A005A624E /* RLMBaseModel.swift */; };
+		F533E1D323009D1A005A624E /* RLMBaseRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = F533E1D223009D1A005A624E /* RLMBaseRecord.swift */; };
 		F533E1D72300F94A005A624E /* TextInputCellUpdating.swift in Sources */ = {isa = PBXBuildFile; fileRef = F533E1D62300F94A005A624E /* TextInputCellUpdating.swift */; };
 		F533E1D923021845005A624E /* NotificationGrandCentral.swift in Sources */ = {isa = PBXBuildFile; fileRef = F533E1D823021845005A624E /* NotificationGrandCentral.swift */; };
 		F56B73CF232DB84100E6F958 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56B73CE232DB84100E6F958 /* Environment.swift */; };
@@ -140,7 +140,7 @@
 		F5106F9022FCE73F00425299 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		F5106F9322FE277900425299 /* TextInputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputCell.swift; sourceTree = "<group>"; };
 		F5106F9522FE27C400425299 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
-		F533E1D223009D1A005A624E /* RLMBaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RLMBaseModel.swift; sourceTree = "<group>"; };
+		F533E1D223009D1A005A624E /* RLMBaseRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RLMBaseRecord.swift; sourceTree = "<group>"; };
 		F533E1D62300F94A005A624E /* TextInputCellUpdating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputCellUpdating.swift; sourceTree = "<group>"; };
 		F533E1D823021845005A624E /* NotificationGrandCentral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationGrandCentral.swift; sourceTree = "<group>"; };
 		F56B73CE232DB84100E6F958 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Environment.swift; path = ../Application/Environment.swift; sourceTree = "<group>"; };
@@ -388,7 +388,7 @@
 				F5A2FAFD23419FAF001A0E22 /* Datetime.swift */,
 				F5D55A6C2335601C001D8121 /* DBException.swift */,
 				F5106F9022FCE73F00425299 /* RealmManager.swift */,
-				F533E1D223009D1A005A624E /* RLMBaseModel.swift */,
+				F533E1D223009D1A005A624E /* RLMBaseRecord.swift */,
 			);
 			path = RealmActivePersistence;
 			sourceTree = "<group>";
@@ -665,7 +665,7 @@
 				F5D9094E2319B31200757C45 /* TaskEditorViewModel.swift in Sources */,
 				F5106F9122FCE73F00425299 /* RealmManager.swift in Sources */,
 				F5D67745233C000F00A5AD62 /* SearchResultCell.swift in Sources */,
-				F533E1D323009D1A005A624E /* RLMBaseModel.swift in Sources */,
+				F533E1D323009D1A005A624E /* RLMBaseRecord.swift in Sources */,
 				F5D9094C2319B2B000757C45 /* TaskEditorViewController.swift in Sources */,
 				F5106F6D22F40BD700425299 /* Extensions.swift in Sources */,
 				F56B73CF232DB84100E6F958 /* Environment.swift in Sources */,

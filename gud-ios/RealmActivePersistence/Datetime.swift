@@ -30,7 +30,7 @@ extension Datetime {
   }
 }
 
-extension Datetime where Self: RLMBaseModel {
+extension Datetime where Self: RLMBaseRecord {
   var createdAtFormattedString: String {
     guard let d = self.createdAt else { return "Malformatted date" }
     return self.formattedDateString(d)

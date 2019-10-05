@@ -17,7 +17,7 @@ typealias OnSaveBlock = () -> Void
 /// A traditional callback block invoked after a save operation. This is the last block called in a save operation.
 typealias AfterSaveBlock = () -> Void
 
-protocol ActivePersistable where Self: RLMBaseModel {
+protocol ActivePersistable where Self: RLMBaseRecord {
   var beforeSave: BeforeSaveBlock? { get }
   
   var afterSave: AfterSaveBlock? { get }
@@ -88,7 +88,7 @@ extension ActivePersistable {
     }
   }
   
-  /// Perform a save operation on the realm object. RLMBaseModel's `updatedAt` attribute will be updated at save point.
+  /// Perform a save operation on the realm object. RLMBaseRecord's `updatedAt` attribute will be updated at save point.
   ///
   /// - Parameter block: When updating an object with new values, write all the assignments inside of the OnSaveBlock.
   /// - Throws: Both beforeSave or onSave can throw errors.
