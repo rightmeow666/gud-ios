@@ -22,9 +22,6 @@ protocol ActivePersistable where Self: RLMBaseModel {
   
   var afterSave: AfterSaveBlock? { get }
   
-  /// An object that is created and then saved for the first time.
-  var isNew: Bool { get }
-  
   var isValid: Bool { get }
   
   static func find(_ id: String) -> Self?
@@ -48,14 +45,6 @@ extension ActivePersistable {
   var beforeSave: BeforeSaveBlock? { return nil }
   
   var afterSave: AfterSaveBlock? { return nil }
-  
-  var isNew: Bool {
-    if self.createdAt == nil || self.updatedAt == nil {
-      return true
-    } else {
-      return self.createdAt == self.updatedAt
-    }
-  }
   
   var isValid: Bool {
     do {
